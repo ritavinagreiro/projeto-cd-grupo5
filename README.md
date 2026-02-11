@@ -3,9 +3,9 @@
 ## Identificação da Equipa 
 * **Grupo nº:** [Número] 
 * **Membros:** 
-  * [Nome do Aluno 1] - [Nº de Estudante] 
-  * [Nome do Aluno 2] - [Nº de Estudante] 
-  * [Nome do Aluno 3] - [Nº de Estudante] 
+  * [Iara Gomes] - [Nº 2023133177] 
+  * [Rita VInagreiro] - [Nº 2023136923] 
+  * [Ana Silva] - [Nº20231345191] 
  
  
  
