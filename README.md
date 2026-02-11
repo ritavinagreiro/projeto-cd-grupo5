@@ -1,10 +1,10 @@
-# [Título do Projeto de Ciência de Dados] 
+# [Avaliação de risco de crédito] 
  
 ## Identificação da Equipa 
-* **Grupo nº:** [Número] 
+* **Grupo nº:** [5] 
 * **Membros:** 
   * [Iara Gomes] - [Nº 2023133177] 
-  * [Rita VInagreiro] - [Nº 2023136923] 
+  * [Rita Vinagreiro] - [Nº 2023136923] 
   * [Ana Silva] - [Nº20231345191] 
  
  
