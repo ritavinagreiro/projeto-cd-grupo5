@@ -1,0 +1,31 @@
+# --- Python & Ambientes --- 
+__pycache__/ 
+*.py[cod] 
+*$py.class 
+.venv/ 
+venv/ 
+env/ 
+ 
+# --- Kaggle Especifico --- 
+# Ignorar chaves de API privadas (nunca partilhar o kaggle.json!) 
+.kaggle/ 
+kaggle.json 
+ 
+# --- Jupyter & Notebooks --- 
+.ipynb_checkpoints/ 
+*/.ipynb_checkpoints/* 
+ 
+# --- Gestão de Dados (Estrutura UC) --- 
+# Ignorar os dados reais para não ultrapassar o limite de 100MB do GitHub. 
+# Os dados devem estar no Kaggle ou num link externo. 
+data/raw/* 
+data/processed/* 
+ 
+# Mas manter as pastas no GitHub (usando o truque do .gitkeep) 
+!data/raw/.gitkeep 
+!data/processed/.gitkeep 
+ 
+# --- Sistema & IDEs --- 
+.DS_Store 
+.vscode/ 
+.idea/ 
