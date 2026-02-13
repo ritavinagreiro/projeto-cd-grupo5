@@ -2,7 +2,9 @@
  
 ## 1. Descrição Detalhada do Problema 
 Atualmente, as instituições financeiras recebem muitos pedidos de crédito e precisam de decidir se aprovam ou não cada empréstimo. Estas decisões são importantes, pois uma escolha errada pode resultar em perdas financeiras devido ao incumprimento dos clientes.
+
 O problema deste projeto consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos.
+
 Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornando necessário melhorar os processos de avaliação de risco, de forma a reduzir perdas e apoiar decisões mais informadas. 
  
 ## 2. Objetivos SMART 
