@@ -24,14 +24,14 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
  
 ## 1. Iniciação (Milestone 1) 
 ### Contexto e Problema de Negócio 
-[Descreve o problema que pretendem resolver. Qual é o desafio da empresa ou organização?] 
+O problema consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos. 
  
 ### Objetivos do Projeto 
 * **Objetivo 1:** [Ex: Prever a rotatividade de clientes] 
 * **Objetivo 2:** [Ex: Identificar os principais fatores de influência] 
  
 ### Fonte de Dados 
-* **Dataset:** [Link para a fonte ou descrição dos ficheiros] 
+* **Dataset:** (https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data)
 * **Dimensão:** [Ex: 10.000 linhas, 15 colunas] 
  
  
