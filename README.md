@@ -27,8 +27,8 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
 O problema consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos. 
  
 ### Objetivos do Projeto 
-* **Objetivo 1:** [Ex: Prever a rotatividade de clientes] 
-* **Objetivo 2:** [Ex: Identificar os principais fatores de influência] 
+* **Objetivo 1:** Prever o incumprimento de crédito dos clientes, alcançando um F1-Score mínimo de 0.80, até à Milestone 3. 
+* **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à Milestone 3.
  
 ### Fonte de Dados 
 * **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
