@@ -1,4 +1,4 @@
-# [Avaliação de risco de crédito] 
+# Avaliação de Risco de Crédito
  
 ## Identificação da Equipa 
 * **Grupo nº:** 5
@@ -31,8 +31,8 @@ O problema consiste em apoiar uma instituição financeira na decisão de aprova
 * **Objetivo 2:** [Ex: Identificar os principais fatores de influência] 
  
 ### Fonte de Dados 
-* **Dataset:** (https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data)
-* **Dimensão:** [Ex: 10.000 linhas, 15 colunas] 
+* **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
+* **Dimensão:** 1000 linhas, 21 colunas
  
  
  
