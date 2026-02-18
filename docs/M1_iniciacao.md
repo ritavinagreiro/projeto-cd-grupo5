@@ -11,9 +11,8 @@ Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornan
 *Defina os objetivos do projeto seguindo a lógica SMART (Específico, Mensurável, Atingível, 
 Relevante e Temporal):* 
  
-1.  **Objetivo 1:** [Ex: Reduzir o erro de previsão de stock em 15% até ao final do semestre.] 
-2.  **Objetivo 2:** [Ex: Identificar os 5 principais perfis de consumo através de técnicas de 
-clustering.] 
+1.  **Objetivo 1:** [Prever o incumprimento de crédito dos clientes, alcançando um F1-score mínimo de 0.80, até à M3.] 
+2.  **Objetivo 2:** [Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à M3.] 
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
