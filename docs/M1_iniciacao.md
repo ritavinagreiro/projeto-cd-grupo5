@@ -16,11 +16,12 @@ Relevante e Temporal):*
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
-  * **Membro A:** Responsável pela Engenharia de Dados. 
-  * **Membro B:** Responsável pela Modelação Estatística. 
-  * **Membro C:** Responsável pela Visualização e Documentação. 
-* **Ferramentas de Colaboração:** [Ex: GitHub Projects para Kanban, reuniões semanais via 
-Teams/Discord]. 
+  * **Iara Gomes:** Responsável pela Engenharia de Dados. 
+  * **Rita Vinagreiro:** Responsável pela Modelação Estatística. 
+  * **Ana Silva:** Responsável pela Visualização e Documentação.
+  * **Nota:** Todos os membros irão participar equititativa em cada tarefa. 
+* **Ferramentas de Colaboração:** [GitHub Projects para Kanban, reuniões semanais via 
+Teams/Discord e presencial quando necessário, Google Docs]. 
  
 ## 4. Análise de Viabilidade dos Dados 
 * **Disponibilidade:** [Os dados já foram descarregados? Estão em base de dados?] 
