@@ -7,12 +7,14 @@ O problema deste projeto consiste em apoiar uma instituição financeira na deci
 
 Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornando necessário melhorar os processos de avaliação de risco, de forma a reduzir perdas e apoiar decisões mais informadas. 
  
-## 2. Objetivos SMART 
-*Defina os objetivos do projeto seguindo a lógica SMART (Específico, Mensurável, Atingível, 
-Relevante e Temporal):* 
- 
-1.  **Objetivo 1:** [Prever o incumprimento de crédito dos clientes, alcançando um F1-score mínimo de 0.80, até à M3.] 
-2.  **Objetivo 2:** [Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à M3.] 
+## 2. Objetivos SMART  
+1.  **Objetivo 1:** Prever o incumprimento de crédito dos clientes, alcançando um F1-score mínimo de 0.80, até à M3.
+2.  **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à M3.
+
+**Perguntas de Investigação**
+1.
+2.
+3.
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
@@ -24,17 +26,16 @@ Relevante e Temporal):*
 Teams/Discord e presencial quando necessário, Google Docs]. 
  
 ## 4. Análise de Viabilidade dos Dados 
-* **Disponibilidade:** [Os dados já foram descarregados? Estão em base de dados?] 
-* **Qualidade Inicial:** [Ex: Notámos que faltam dados de datas em algumas colunas, precisaremos 
-de tratar isso na M2.] 
-* **Ética:** [Os dados cumprem o RGPD? Estão anonimizados?] 
+* **Disponibilidade:** O dataset foi obtido através da plataforma Kaggle e encontra-se disponível para utilização imediata em formato CSV. Os dados foram carregados com sucesso num notebook Kaggle, permitindo o acesso direto para análise e modelação, não sendo necessária ligação a bases de dados externas. 
+* **Qualidade Inicial:** A qualidade inicial dos dados foi avaliada através dos métodos df.head(), df.info(), df.describe() e df.isnull().sum(). A análise confirmou a existência de 1000 registos completos, sem valores em falta (NaN). As variáveis apresentam maioritariamente tipo numérico (int64), incluindo variáveis categóricas previamente codificadas. Desta forma, o dataset apresenta boa qualidade inicial, não sendo necessária imputação de valores em falta nesta fase. Eventuais transformações e preparação adicional dos dados serão realizadas na Milestone 2.
+* **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD). 
  
 ## 5. Cronograma Interno 
 | Fase | Data Limite | Entregável Esperado | 
 | :--- | :--- | :--- | 
-| M1: Iniciação | [Data] | Repositório estruturado e Plano de Projeto. |
+| M1: Iniciação | [24/02/2026] | Repositório estruturado e Plano de Projeto. |
 | M2: Exploração | [Data] | Notebook de EDA e Dados Processados. | 
 | M3: Modelação | [Data] | Comparação de algoritmos e métricas. | 
 | M4: Finalização| [Data] | Pitch e Relatório Final. | 
  --- 
-*Data de última atualização: [DD/MM/AAAA]* 
+*Data de última atualização: [18/02/2026]* 
