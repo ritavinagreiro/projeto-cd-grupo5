@@ -21,7 +21,7 @@ Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornan
   * **Iara Gomes:** Responsável pela Engenharia de Dados. 
   * **Rita Vinagreiro:** Responsável pela Modelação Estatística. 
   * **Ana Silva:** Responsável pela Visualização e Documentação.
-  * **Nota:** Todos os membros irão participar equititativa em cada tarefa. 
+  * **Nota:** Todos os membros irão participar de forma equititativa em cada tarefa. 
 * **Ferramentas de Colaboração:** [GitHub Projects para Kanban, reuniões semanais via 
 Teams/Discord e presencial quando necessário, Google Docs]. 
  
