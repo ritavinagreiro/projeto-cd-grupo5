@@ -12,10 +12,10 @@ Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornan
 2.  **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à M3.
 
 **Perguntas de Investigação**
-1.Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
-2.Existe uma relação significativa entre o rendimento anual do cliente e o risco de incumprimento?
-3.Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
-4.Como otimizar e implementar o modelo na prática, minimizando perdas e mantendo equidade no acesso ao crédito?
+1. Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
+2. Existe uma relação significativa entre o rendimento anual do cliente e o risco de incumprimento?
+3. Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
+4. Como otimizar e implementar o modelo na prática, minimizando perdas e mantendo equidade no acesso ao crédito?
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
