@@ -29,9 +29,12 @@ Teams/Discord e presencial quando necessário, Google Docs].
 ## 4. Análise de Viabilidade dos Dados 
 * **Disponibilidade:** O dataset foi obtido através da plataforma Kaggle e encontra-se disponível para utilização imediata em formato CSV. Os dados foram carregados com sucesso num notebook Kaggle, permitindo o acesso direto para análise e modelação, não sendo necessária ligação a bases de dados externas. 
 * **Qualidade Inicial:** A qualidade inicial dos dados foi avaliada através dos métodos df.head(), df.info(), df.describe() e df.isnull().sum(). A análise confirmou a existência de 1000 registos completos, sem valores em falta (NaN). As variáveis apresentam maioritariamente tipo numérico (int64), incluindo variáveis categóricas previamente codificadas. Desta forma, o dataset apresenta boa qualidade inicial, não sendo necessária imputação de valores em falta nesta fase. Eventuais transformações e preparação adicional dos dados serão realizadas na Milestone 2.
-* **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD). 
+* **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
+
+## 5. Descrição Técnica
+
  
-## 5. Cronograma Interno 
+## 6. Cronograma Interno 
 | Fase | Data Limite | Entregável Esperado | 
 | :--- | :--- | :--- | 
 | M1: Iniciação | [24/02/2026] | Repositório estruturado e Plano de Projeto. |
@@ -39,4 +42,4 @@ Teams/Discord e presencial quando necessário, Google Docs].
 | M3: Modelação | [Data] | Comparação de algoritmos e métricas. | 
 | M4: Finalização| [Data] | Pitch e Relatório Final. | 
  --- 
-*Data de última atualização: [18/02/2026]* 
+*Data de última atualização: [20/02/2026]* 
