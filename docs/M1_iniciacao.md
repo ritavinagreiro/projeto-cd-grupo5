@@ -23,8 +23,8 @@ Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornan
   * **Rita Vinagreiro:** Responsável pela Modelação Estatística. 
   * **Ana Silva:** Responsável pela Visualização e Documentação.
   * **Nota:** Todos os membros irão participar de forma equititativa em cada tarefa. 
-* **Ferramentas de Colaboração:** [GitHub Projects para Kanban, reuniões semanais via 
-Teams/Discord e presencial quando necessário, Google Docs]. 
+* **Ferramentas de Colaboração:** GitHub Projects para Kanban, reuniões semanais via 
+Teams/Discord e presencial quando necessário, Google Docs. 
  
 ## 4. Análise de Viabilidade dos Dados 
 * **Disponibilidade:** O dataset foi obtido através da plataforma Kaggle e encontra-se disponível para utilização imediata em formato CSV. Os dados foram carregados com sucesso num notebook Kaggle, permitindo o acesso direto para análise e modelação, não sendo necessária ligação a bases de dados externas. 
@@ -32,7 +32,15 @@ Teams/Discord e presencial quando necessário, Google Docs].
 * **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
 
 ## 5. Descrição Técnica
+O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
 
+Do ponto de vista estrutural, as variáveis encontram-se maioritariamente codificadas em formato numérico (int64), incluindo variáveis que originalmente seriam categóricas, mas que já se apresentam previamente transformadas. Esta característica facilita a aplicação direta de algoritmos de Machine Learning, reduzindo a necessidade de procedimentos adicionais de codificação nesta fase inicial. A análise preliminar confirmou igualmente a inexistência de valores em falta, o que contribui para a robustez inicial do dataset e elimina, nesta etapa, a necessidade de técnicas de imputação.
+
+Apesar da boa qualidade estrutural, identificam-se desde já alguns aspetos que poderão exigir atenção nas fases seguintes do projeto. Em primeiro lugar, verifica-se que as variáveis apresentam diferentes escalas numéricas, o que poderá justificar a aplicação de técnicas de normalização ou padronização, dependendo do modelo escolhido. Em segundo lugar, sendo um problema de risco de crédito, é relevante analisar a distribuição da variável alvo, uma vez que um eventual desbalanceamento entre classes poderá influenciar o desempenho dos modelos de classificação.
+
+Adicionalmente, considerando que o dataset possui uma dimensão moderada (1000 registos), será necessário adotar mecanismos de validação adequados, como validação cruzada, de forma a reduzir ) risco de overfitting e garantir a generalização do modelo. Importa ainda assegurar que, para além do desempenho preditivo, o modelo selecionado permita identificar e interpretar as variáveis com maior impacto no risco de incumprimento, garantindo não apenas capacidade preditiva, mas também utilidade analítica para apoio à decisão.
+
+Assim, numa fase posterior do projeto, será realizada uma análise exploratória aprofundada, seguida da preparação dos dados, divisão em conjuntos de treino e teste, aplicação de diferentes algoritmos de classificação e avaliação comparativa com base em métricas adequadas, nomeadamente precision, recall e F1-score.
  
 ## 6. Cronograma Interno 
 | Fase | Data Limite | Entregável Esperado | 
