@@ -15,6 +15,7 @@ Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornan
 1.Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
 2.Existe uma relação significativa entre o rendimento anual do cliente e o risco de incumprimento?
 3.Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
+4.Como otimizar e implementar o modelo na prática, minimizando perdas e mantendo equidade no acesso ao crédito?
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
