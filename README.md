@@ -34,7 +34,8 @@ O problema consiste em apoiar uma instituição financeira na decisão de aprova
 * **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 * **Dimensão:** 1000 linhas, 21 colunas
  
- 
+### Bibliotecas e ferramentas
+Como ferramenta usamos o Jupyter Notebook, para programar e para este projeto pretende-se usar as seguingtes ferramentas: NumPy; Pandas; Seaborn; Mathplotlib e Scikit-learn.  
  
 ## 2. Exploração (Milestone 2) 
 ### Limpeza e Preparação 
