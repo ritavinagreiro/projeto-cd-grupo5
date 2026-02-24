@@ -30,6 +30,7 @@ Teams/Discord e presencial quando necessário, Google Docs.
 * **Disponibilidade:** O dataset foi obtido através da plataforma Kaggle e encontra-se disponível para utilização imediata em formato CSV. Os dados foram carregados com sucesso num notebook Kaggle, permitindo o acesso direto para análise e modelação, não sendo necessária ligação a bases de dados externas. 
 * **Qualidade Inicial:** A qualidade inicial dos dados foi avaliada através dos métodos df.head(), df.info(), df.describe() e df.isnull().sum(). A análise confirmou a existência de 1000 registos completos, sem valores em falta (NaN). As variáveis apresentam maioritariamente tipo numérico (int64), incluindo variáveis categóricas previamente codificadas. Desta forma, o dataset apresenta boa qualidade inicial, não sendo necessária imputação de valores em falta nesta fase. Eventuais transformações e preparação adicional dos dados serão realizadas na Milestone 2.
 * **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
+* **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 
 ## 5. Descrição Técnica
 O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
@@ -41,8 +42,11 @@ Apesar da boa qualidade estrutural, identificam-se desde já alguns aspetos que 
 Adicionalmente, considerando que o dataset possui uma dimensão moderada (1000 registos), será necessário adotar mecanismos de validação adequados, como validação cruzada, de forma a reduzir ) risco de overfitting e garantir a generalização do modelo. Importa ainda assegurar que, para além do desempenho preditivo, o modelo selecionado permita identificar e interpretar as variáveis com maior impacto no risco de incumprimento, garantindo não apenas capacidade preditiva, mas também utilidade analítica para apoio à decisão.
 
 Assim, numa fase posterior do projeto, será realizada uma análise exploratória aprofundada, seguida da preparação dos dados, divisão em conjuntos de treino e teste, aplicação de diferentes algoritmos de classificação e avaliação comparativa com base em métricas adequadas, nomeadamente precision, recall e F1-score.
- 
-## 6. Cronograma Interno 
+
+## 6. Bibliotecas 
+O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recorrendo às seguintes bibliotecas da linguagem Python: NumPy, Pandas, Seaborn, Matplotlib e Scikit-learn. Estas ferramentas permitem realizar análise exploratória de dados, visualização estatística, preparação e transformação de variáveis, bem como implementação e avaliação de modelos de Machine Learning.
+
+## 7. Cronograma Interno 
 | Fase | Data Limite | Entregável Esperado | 
 | :--- | :--- | :--- | 
 | M1: Iniciação | [24/02/2026] | Repositório estruturado e Plano de Projeto. |
