@@ -35,7 +35,7 @@ O problema consiste em apoiar uma instituição financeira na decisão de aprova
 * **Dimensão:** 1000 linhas, 21 colunas
  
 ### Bibliotecas e ferramentas
-Como ferramenta vamos usar o Jupyter Notebook para programar, e as seguintes ferramentas: NumPy; Pandas; Seaborn; Mathplotlib e Scikit-learn.  
+Como ferramenta vamos usar o Jupyter Notebook para programar, e as seguintes ferramentas: NumPy; Pandas; Seaborn; Matplotlib e Scikit-learn.  
  
 ## 2. Exploração (Milestone 2) 
 ### Limpeza e Preparação 
