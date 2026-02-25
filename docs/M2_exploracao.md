@@ -7,11 +7,12 @@ deve consultar essa Milestone.
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
 A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:
+
 1 - Bom crédito
+
 0 - Mau crédito
-A análise da distribuição revela que, num total de 1000 observações:
-700 clientes (70%) apresentam bom crédito
-300 clientes (30%) apresentam mau crédito
+
+A análise da distribuição revela que, num total de 1000 observações, 700 clientes (70%) apresentam bom crédito e 300 clientes (30%) apresentam mau crédito.
 Verifica-se, assim, que a variável alvo apresenta um ligeiro desequilíbrio, existindo uma predominância de clientes classificados como bom crédito.
 Tratando-se de uma variável binária, esta não segue uma distribuição normal, mas sim uma distribuição binomial.
 Factos importantes:
