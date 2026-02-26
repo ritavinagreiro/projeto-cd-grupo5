@@ -35,9 +35,27 @@ Teams/Discord e presencial quando necessário, Google Docs.
 ## 5. Descrição das variáveis 
 | Variável | Categoria | Descrição |
 | :--- | :--- | :--- |
-| Saldo da Conta | (1) | Não tem conta |
-| Saldo da Conta | (2) | Sem saldo |
-| Poupanças | [100, 1000] DM | Valor médio |
+|   Crédito - Variável target |   Variável binária  |   (0) Mau risco (Bad); (1) Bom risco. |
+| Saldo da Conta | Variável categórica discreta | (1) Não tem conta; (2) sem saldo; (3) Existe algum saldo. |
+| Duração do crédito | Variável numérica contínua | Prazo do empréstimo, expresso em meses. |
+| Estado do pagamento de créditos anteriores | Variável categórica discreta |(1) Alguns problemas; (2) Pago; (3) Sem problemas (neste banco) |
+|Finalidade do crédito  | Variável numérica discreta |Carro novo; Carro usado; Financiamento imobiliário|
+|Valor do empréstimo solicitado |Variável numérica contínua |Valor em DM |
+|Poupanças |Variável categórica discreta|Abaixo de 100 DM; [100, 1000]DM; Acima de 1000 DM.|
+|Tempo de emprego|Variável categórica discreta|Menos de um ano (incluindo desemprego); [1, 4); [4, 7); Mais de 7.|
+|Percentagem do rendimento disponível destinado à prestação |Variável categórica discreta| 1 a 4 (grau de comprometimento|
+|Sexo/ Estado civil |Variável categórica|Homem divorciado/ Solteiro; Homem casado/ Viúvo; Mulher|
+|Fiador|Variável Categórica|Nenhum; Sim|
+|Número de anos na residência atual|Variável numérica | 1 a 4|
+|Património mais valioso |Variável categórica discreta|Nenhum; Carro; Seguro de vida; Imóvel/ propriedade|
+|Idade|Variável númerica||
+|Créditos simultâneos|Variável categórica discreta|Outros bancos ou lojas de departamento; Nenhum|
+|Tipo de habitação |Variável categórica discreta|(1)alugada; (2)própia; (3)gratuita/ com familiares|
+|Número de créditos neste banco||1; Mais de 1|
+|Ocupação |Variável categórica discreta|(1) desempregado/ não qualificado; (2)não qualificado; (3) qualificado; (4)altamente qualificado|
+|Número de dependentes|||
+|Telefone|Variável categórica discreta |(1) não tem telefone; (2) tem telefone|
+|Trabalhador Estrangeiro|Variável categórica discreta|(1) cliente estrangeiro; (2) nacional  |
 
 ## 6. Descrição Técnica
 O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
