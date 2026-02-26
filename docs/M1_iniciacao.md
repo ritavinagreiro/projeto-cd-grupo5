@@ -32,7 +32,14 @@ Teams/Discord e presencial quando necessário, Google Docs.
 * **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
 * **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 
-## 5. Descrição Técnica
+## 5. Descrição das variáveis 
+| Variável | Categoria | Descrição |
+| :--- | :--- | :--- |
+| Saldo da Conta | (1) | Não tem conta |
+| Saldo da Conta | (2) | Sem saldo |
+| Poupanças | [100, 1000] DM | Valor médio |
+
+## 6. Descrição Técnica
 O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
 
 Do ponto de vista estrutural, as variáveis encontram-se maioritariamente codificadas em formato numérico (int64), incluindo variáveis que originalmente seriam categóricas, mas que já se apresentam previamente transformadas. Esta característica facilita a aplicação direta de algoritmos de Machine Learning, reduzindo a necessidade de procedimentos adicionais de codificação nesta fase inicial. A análise preliminar confirmou igualmente a inexistência de valores em falta, o que contribui para a robustez inicial do dataset e elimina, nesta etapa, a necessidade de técnicas de imputação.
@@ -43,10 +50,10 @@ Adicionalmente, considerando que o dataset possui uma dimensão moderada (1000 r
 
 Assim, numa fase posterior do projeto, será realizada uma análise exploratória aprofundada, seguida da preparação dos dados, divisão em conjuntos de treino e teste, aplicação de diferentes algoritmos de classificação e avaliação comparativa com base em métricas adequadas, nomeadamente precision, recall e F1-score.
 
-## 6. Bibliotecas 
+## 7. Bibliotecas 
 O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recorrendo às seguintes bibliotecas da linguagem Python: NumPy, Pandas, Seaborn, Matplotlib e Scikit-learn. Estas ferramentas permitem realizar análise exploratória de dados, visualização estatística, preparação e transformação de variáveis, bem como implementação e avaliação de modelos de Machine Learning.
 
-## 7. Cronograma Interno 
+## 8. Cronograma Interno 
 | Fase | Data Limite | Entregável Esperado | 
 | :--- | :--- | :--- | 
 | M1: Iniciação | [24/02/2026] | Repositório estruturado e Plano de Projeto. |
