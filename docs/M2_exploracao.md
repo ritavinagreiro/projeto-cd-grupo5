@@ -6,29 +6,21 @@ deve consultar essa Milestone.
  
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
-A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis: 
+A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:<br>
+1 - Bom crédito<br>
+0 - Mau crédito<br>
 
-1 - Bom crédito 
+A análise da distribuição revela que, num total de 1000 observações:<br>
+700 clientes (70%) apresentam bom crédito<br>
+300 clientes (30%) apresentam mau crédito<br>
 
-0 - Mau crédito 
+Verifica-se, assim, que a variável alvo apresenta um ligeiro desequilíbrio, existindo uma predominância de clientes classificados como bom crédito.<br>
+Tratando-se de uma variável binária, esta não segue uma distribuição normal, mas sim uma distribuição binomial.<br>
 
-A análise da distribuição revela que, num total de 1000 observações: 
-
-700 clientes (70%) apresentam bom crédito 
-
-300 clientes (30%) apresentam mau crédito 
-
-Verifica-se, assim, que a variável alvo apresenta um ligeiro desequilíbrio, existindo uma predominância de clientes classificados como bom crédito. 
-
-Tratando-se de uma variável binária, esta não segue uma distribuição normal, mas sim uma distribuição binomial. 
-
-**Factos importantes:**
-A variável alvo apresenta uma distribuição de 70% / 30%, evidenciando um desequilíbrio moderado. 
-
-Um modelo que previsse sempre "Bom crédito" teria automaticamente uma accuracy de 70%. 
-
-Assim, para avaliar corretamente o desempenho do modelo, será importante considerar métricas adicionais como Precision, Recall, F1-score e ROC-AUC.
-
+**Factos importantes:** <br>
+A variável alvo apresenta uma distribuição de 70% / 30%, evidenciando um desequilíbrio moderado.<br>
+Um modelo que previsse sempre "Bom crédito" teria automaticamente uma accuracy de 70%.<br>
+Assim, para avaliar corretamente o desempenho do modelo, será importante considerar métricas adicionais como Precision, Recall, F1-score e ROC-AUC.<br>
 O problema em análise é um caso de classificação binária supervisionada.
  
 ### 1.2. Correlações Relevantes 
