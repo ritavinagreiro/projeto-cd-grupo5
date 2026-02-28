@@ -32,31 +32,35 @@ Teams/Discord e presencial quando necessário, Google Docs.
 * **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
 * **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 
-## 5. Descrição das variáveis 
-Apesar de todas as variáveis surgirem representadas numericamente no ficheiro Excel, nem todas são variáveis quantitativas. Em vários casos, os valores numéricos correspondem apenas a código atribuído a categorias qualitativas. Assim a classificação executada, no dicionário a baixo, foi feita com base na sua natureza conceptual e não apenas na sua representação numérica no dataset. 
-| Variável | Categoria | Descrição |
+## 5. Descrição das Variáveis  
+
+Apesar de todas as variáveis surgirem representadas numericamente no ficheiro CSV, nem todas correspondem a variáveis quantitativas. Em diversos casos, os valores numéricos representam apenas códigos atribuídos a categorias qualitativas.
+
+Assim, a classificação apresentada no dicionário abaixo foi realizada com base na natureza conceptual das variáveis e não exclusivamente na sua representação numérica no dataset.
+
+| Variável (Dataset) | Tipo de Variável | Descrição |
 | :--- | :--- | :--- |
-|   Crédito - Variável alvo |   Variável Binária  |   0=Mau risco; 1=Bom risco. |
-| Saldo da Conta | Variável Categórica | 1=Não tem conta; 2=sem saldo; 3=Existe algum saldo. |
-| Duração do crédito | Variável Numérica | Prazo do empréstimo, expresso em meses. |
-| Estado do pagamento de créditos anteriores | Variável Categórica  |1=Alguns problemas; 2=Pago; 3=Sem problemas (neste banco) |
-|Finalidade do crédito  | Variável Categórica|Carro novo; Carro usado; Financiamento imobiliário|
-|Valor do empréstimo solicitado |Variável Numérica  |Valor em DM |
-|Poupanças |Variável Categórica |Abaixo de 100 DM; [100, 1000]DM; Acima de 1000 DM.|
-|Tempo de emprego|Variável Categórica|Menos de um ano (incluindo desemprego); [1, 4); [4, 7); Mais de 7.|
-|Taxa de parcelamento em percentagem da renda disponível |Variável Categórica| 1 a 4 (grau de comprometimento)|
-|Sexo/ Estado civil |Variável Categórica|Homem divorciado/ Solteiro; Homem casado/ Viúvo; Mulher|
-|Fiador|Variável Categórica|Nenhum; Sim|
-|Número de anos na residência atual|Variável Numérica | 1 a 4|
-|Património mais valioso |Variável Categórica|Nenhum; Carro; Seguro de vida; Imóvel/ propriedade|
-|Idade|Variável Númerica|Empresso em anos |
-|Créditos simultâneos|Variável Categórica|Outros bancos ou lojas de departamento; Nenhum|
-|Tipo de habitação |Variável Categórica |1=alugada; 2=própia; 3=gratuita/ com familiares|
-|Número de créditos neste banco|Variável Numérica|Número de créditos existentes|
-|Ocupação |Variável Categórica|1=desempregado/ não qualificado; 2=não qualificado; 3=qualificado; 4=altamente qualificado|
-|Número de dependentes|Variável Numérica|Número de pessoas responsáveis pelo sustento |
-|Telefone|Variável Binária|1=não tem telefone; 2=tem telefone|
-|Trabalhador Estrangeiro|Variável Binária|1=cliente estrangeiro; 2=nacional  |
+| **Creditability** | Binária | Classificação do crédito: **1 = Bom crédito; 0 = Mau crédito** |
+| Account Balance | Categórica | Saldo da conta corrente: 1 = Saldo < 0 DM; 2 = 0 ≤ saldo < 200 DM; 3 = ≥ 200 DM; 4 = Sem conta corrente |
+| Duration | Numérica | Duração do crédito, expressa em meses. |
+| Payment Status | Categórica | Histórico de crédito: 0 = Nenhum crédito anterior ou todos pagos; 1 = Todos os créditos neste banco pagos; 2 = Créditos pagos pontualmente até ao momento; 3 = Atrasos no passado; 4 = Conta crítica ou outros créditos fora deste banco |
+| Purpose | Categórica | Finalidade do crédito: 0 = Automóvel novo; 1 = Automóvel usado; 2 = Mobiliário/equipamentos; 3 = Rádio/televisão; 4 = Eletrodomésticos; 5 = Reparações; 6 = Educação; 7 = Férias; 8 = Requalificação; 9 = Negócios; 10 = Outros |
+| Credit Amount | Numérica | Montante total do crédito solicitado, expresso em DM. |
+| Savings/Stock Value | Categórica | Conta poupança/títulos: 1 = Saldo < 100 DM; 2 = 100 ≤ saldo < 500 DM; 3 = 500 ≤ saldo < 1000 DM; 4 = ≥ 1000 DM; 5 = Desconhecido ou sem conta poupança |
+| Employment Length | Categórica | Tempo no emprego atual: 1 = Desempregado; 2 = < 1 ano; 3 = 1–4 anos; 4 = 4–7 anos; 5 = ≥ 7 anos |
+| Installment Rate | Numérica | Percentagem do rendimento disponível comprometida com o pagamento das prestações do crédito (escala 1 a 4). |
+| Sex/Marital Status | Categórica | Estado civil e sexo do cliente: 1 = Homem divorciado/separado; 2 = Mulher; 3 = Homem solteiro; 4 = Homem casado/viúvo |
+| Guarantor | Categórica | Outros devedores/fiadores: 1 = Nenhum; 2 = Co-candidato (co-devedor); 3 = Fiador |
+| Duration in Current Address | Categórica | Tempo de residência atual (escala de 1 a 4 anos). |
+| Most valuable available asset | Categórica | Património mais valioso disponível: 1 = Imóveis; 2 = Contrato de poupança/seguro de vida; 3 = Automóvel ou outros bens; 4 = Desconhecido ou sem propriedade |
+| Age | Numérica | Idade do cliente, expressa em anos. |
+| Concurrent Credits | Categórica | Existência de créditos simultâneos: 1 = Outros bancos; 2 = Lojas; 3 = Nenhum |
+| Housing | Categórica | Tipo de habitação: 1 = Arrendada; 2 = Própria; 3 = Gratuita |
+| No of Credits at this Bank | Numérica | Número de créditos existentes neste banco. |
+| Occupation | Categórica | Situação profissional do cliente: 1 = Desempregado ou não qualificado (não residente); 2 = Não qualificado (residente); 3 = Qualificado/empregado administrativo; 4 = Gestor, autónomo ou altamente qualificado |
+| Number of Dependents | Numérica | Número de dependentes ao encargo do cliente. |
+| Telephone | Binária | Existência de telefone registado: 1 = Não possui telefone; 2 = Possui telefone registado |
+| Foreign Worker | Binária | Indica se o cliente é trabalhador estrangeiro: 1= Sim; 2 = Não |
 
 ## 6. Descrição Técnica
 O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
@@ -75,9 +79,9 @@ O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recor
 ## 8. Cronograma Interno 
 | Fase | Data Limite | Entregável Esperado | 
 | :--- | :--- | :--- | 
-| M1: Iniciação | [24/02/2026] | Repositório estruturado e Plano de Projeto. |
-| M2: Exploração | [Data] | Notebook de EDA e Dados Processados. | 
+| M1: Iniciação | 24/02/2026 | Repositório estruturado e Plano de Projeto. |
+| M2: Exploração | 24/03/2026 | Notebook de EDA e Dados Processados. | 
 | M3: Modelação | [Data] | Comparação de algoritmos e métricas. | 
 | M4: Finalização| [Data] | Pitch e Relatório Final. | 
  --- 
-*Data de última atualização: [20/02/2026]* 
+*Data de última atualização: 28/02/2026* 
