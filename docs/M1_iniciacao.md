@@ -51,7 +51,7 @@ Assim, a classificação apresentada no dicionário abaixo foi realizada com bas
 | Installment Rate | Numérica | Percentagem do rendimento disponível comprometida com o pagamento das prestações do crédito (escala 1 a 4). |
 | Sex/Marital Status | Categórica | Estado civil e sexo do cliente: 1 = Homem divorciado/separado; 2 = Mulher; 3 = Homem solteiro; 4 = Homem casado/viúvo |
 | Guarantor | Categórica | Outros devedores/fiadores: 1 = Nenhum; 2 = Co-candidato (co-devedor); 3 = Fiador |
-| Duration in Current Address | Categórica | Tempo de residência atual (escala de 1 a 4 anos). |
+| Duration in Current Address | Numérica | Tempo de residência atual (escala de 1 a 4 anos). |
 | Most valuable available asset | Categórica | Património mais valioso disponível: 1 = Imóveis; 2 = Contrato de poupança/seguro de vida; 3 = Automóvel ou outros bens; 4 = Desconhecido ou sem propriedade |
 | Age | Numérica | Idade do cliente, expressa em anos. |
 | Concurrent Credits | Categórica | Existência de créditos simultâneos: 1 = Outros bancos; 2 = Lojas; 3 = Nenhum |
