@@ -33,11 +33,8 @@ clientes.")
  
 ## 2. Qualidade dos Dados e Limpeza 
 ### 2.1. Tratamento de Dados em Falta (Missing Data)
-Após uma análise do dataset, foi concluído que não existem valores em falta. 
-* **Colunas afetadas:** [Lista de colunas] 
-* **Estratégia adotada:** (Ex: "Substituímos os nulos da coluna 'Salário' pela mediana para 
-evitar o impacto de outliers.") 
- 
+Após uma análise do dataset, através do código concluímos que a percentagem de nulos é zero, para todas as variáveis, e testamos esta afirmnação através da filtragem de tabelas do Excel. 
+
 ### 2.2. Outliers e Inconsistências 
 *Descrevam se encontraram valores impossíveis (ex: idade = 200) e como os resolveram.* 
  
