@@ -32,7 +32,8 @@ cancelamento.")
 clientes.") 
  
 ## 2. Qualidade dos Dados e Limpeza 
-### 2.1. Tratamento de Dados em Falta (Missing Data) 
+### 2.1. Tratamento de Dados em Falta (Missing Data)
+Após uma análise do dataset, foi concluído que não existem valores em falta. 
 * **Colunas afetadas:** [Lista de colunas] 
 * **Estratégia adotada:** (Ex: "Substituímos os nulos da coluna 'Salário' pela mediana para 
 evitar o impacto de outliers.") 
