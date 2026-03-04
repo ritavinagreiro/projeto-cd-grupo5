@@ -24,12 +24,23 @@ Assim, para avaliar corretamente o desempenho do modelo, será importante consid
 O problema em análise é um caso de classificação binária supervisionada.
  
 ### 1.2. Correlações Relevantes 
-*Quais as variáveis que têm maior relação com o problema? Incluam referências a gráficos que 
-geraram no Kaggle.* 
-* **Atributo A vs. Alvo:** (Ex: "Notámos que quanto maior a idade, menor a probabilidade de 
-cancelamento.") 
-* **Atributo B vs. Alvo:** (Ex: "O tipo de contrato mensal está fortemente ligado à saída de 
-clientes.") 
+A análise da matriz de correlação permitiu identificar as variáveis com maior associação à variável alvo (Creditability). Destacam-se:
+* Account_Balance (0.35) – correlação positiva moderada
+* Payment_Status_of_Previous_Credit (0.23) – correlação positiva fraca
+* Credit_Amount (-0.15) – correlação negativa fraca
+* Duration_of_Credit_monthly (-0.21) – correlação negativa fraca
+
+A variável Account_Balance apresenta a maior correlação com o objetivo do modelo, sugerindo que o saldo da conta é um dos principais fatores associados ao risco de crédito.
+
+As variáveis Duration_of_Credit_monthly e Credit_Amount indicam que empréstimos de maior duração e montante tendem a apresentar maior probabilidade de incumprimento.
+
+De forma geral, as correlações observadas são moderadas ou fracas, indicando que nenhuma variável isoladamente explica completamente o comportamento da variável alvo, reforçando a necessidade de modelação multivariada.
+
+**Análise Gráfica das Variáveis Mais Relevantes**
+* **Duration_of_Credit_monthly vs Creditability:** Notou-se que créditos com maior duração apresentam maior probabilidade de incumprimento. No gráfico de dispersão Credit Amount vs Duration e no gráfico Duration vs Creditability, observa-se maior concentração de maus créditos em prazos mais longos, confirmando a correlação negativa fraca identificada (-0.21). Isto sugere que compromissos financeiros prolongados podem aumentar o risco de crédito.
+* **Account_Balance vs Creditability:** Verificou-se que clientes com menor saldo de conta apresentam maior incidência de mau crédito. A variável Account_Balance apresenta a maior correlação com a variável alvo (0.35), sendo classificada como correlação positiva moderada. Os gráficos evidenciam que níveis mais elevados de saldo estão associados a maior probabilidade de bom crédito, sugerindo que estabilidade financeira é um fator relevante na avaliação do risco.
+
+Apesar das tendências identificadas, observa-se sobreposição significativa entre classes nos gráficos de dispersão, indicando que o problema não apresenta separação linear clara.
  
 ## 2. Qualidade dos Dados e Limpeza 
 ### 2.1. Tratamento de Dados em Falta (Missing Data)
