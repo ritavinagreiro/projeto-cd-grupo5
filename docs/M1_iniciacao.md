@@ -37,7 +37,9 @@ Teams/Discord e presencial quando necessário, Google Docs.
 Apesar de todas as variáveis surgirem representadas numericamente no ficheiro CSV, nem todas correspondem a variáveis quantitativas. Em diversos casos, os valores numéricos representam apenas códigos atribuídos a categorias qualitativas.
 
 Assim, a classificação apresentada no dicionário abaixo foi realizada com base na natureza conceptual das variáveis e não exclusivamente na sua representação numérica no dataset.
-Devido ao facto, de o o repositório de dados fornecido não incluir a informação necessária, para a análise de cada variável,o grupo optou pelo pelo uso do link referido abaixo, para proceder a uma análise correta do dataset. https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
+
+Devido ao facto de o repositório de dados fornecido não incluir a informação necessária para a análise de cada variável, o grupo optou por recorrer ao seguinte link, que disponibiliza a descrição detalhada do dataset, permitindo assim realizar uma análise correta:
+https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
 
 | Variável (Dataset) | Tipo de Variável | Descrição |
 | :--- | :--- | :--- |
