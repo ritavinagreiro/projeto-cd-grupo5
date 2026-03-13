@@ -6,22 +6,22 @@ deve consultar essa Milestone.
  
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
-A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:<br>
-1 - Bom crédito<br>
-0 - Mau crédito<br>
+A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:
+* 1 - Bom crédito
+* 0 - Mau crédito
 
-A análise da distribuição revela que, num total de 1000 observações:<br>
-700 clientes (70%) apresentam bom crédito<br>
-300 clientes (30%) apresentam mau crédito<br>
+A análise da distribuição revela que, num total de 1000 observações:
+* 700 clientes (70%) apresentam bom crédito
+* 300 clientes (30%) apresentam mau crédito
 
-Verifica-se, assim, que a variável alvo apresenta um ligeiro desequilíbrio, existindo uma predominância de clientes classificados como bom crédito.<br>
-Tratando-se de uma variável binária, esta não segue uma distribuição normal, mas sim uma distribuição binomial.<br>
+Verifica-se, assim, que a variável alvo apresenta um ligeiro desequilíbrio, existindo uma predominância de clientes classificados como bom crédito.  
+Tratando-se de uma variável binária, esta não segue uma distribuição normal, mas sim uma distribuição binomial.
 
-**Factos importantes:** <br>
-A variável alvo apresenta uma distribuição de 70% / 30%, evidenciando um desequilíbrio moderado.<br>
-Um modelo que previsse sempre "Bom crédito" teria automaticamente uma accuracy de 70%.<br>
-Assim, para avaliar corretamente o desempenho do modelo, será importante considerar métricas adicionais como Precision, Recall, F1-score e ROC-AUC.<br>
-O problema em análise é um caso de classificação binária supervisionada.
+**Factos importantes:** 
+* A variável alvo apresenta uma distribuição de 70% / 30%, evidenciando um desequilíbrio moderado.
+* Um modelo que previsse sempre "Bom crédito" teria automaticamente uma accuracy de 70%.
+* Assim, para avaliar corretamente o desempenho do modelo, será importante considerar métricas adicionais como Precision, Recall, F1-score e ROC-AUC.
+* O problema em análise é um caso de classificação binária supervisionada.
  
 ### 1.2. Correlações Relevantes 
 A análise da matriz de correlação permitiu identificar as variáveis com maior associação à variável alvo (Creditability). Destacam-se:
@@ -44,10 +44,17 @@ Apesar das tendências identificadas, observa-se sobreposição significativa en
  
 ## 2. Qualidade dos Dados e Limpeza 
 ### 2.1. Tratamento de Dados em Falta (Missing Data)
-Após uma análise do dataset, através do código concluímos que a percentagem de nulos é zero, para todas as variáveis, e testamos esta afirmnação através da filtragem de tabelas do Excel. 
+Após uma análise do dataset, através do código, concluímos que a percentagem de dados nulos é zero para todas as variáveis. A validação dessa afirmação foi realizada também através da filtragem de tabelas no Excel, confirmando que não há valores ausentes em nenhuma das variáveis
 
 ### 2.2. Outliers e Inconsistências 
-*Descrevam se encontraram valores impossíveis (ex: idade = 200) e como os resolveram.* 
+Durante a análise exploratória, identificamos a presença de outliers em várias variáveis do conjunto de dados. O número de outliers por variável foi o seguinte:
+* Duration_of_Credit_monthly: 70 outliers
+* Credit_Amount: 72 outliers
+* Duration_in_Current_address: 0 outliers
+* Age_years: 23 outliers
+* Instalment_per_cent: 0 outliers
+* No_of_Credits_at_this_Bank: 6 outliers
+* No_of_dependents: 155 outliers
  
 ## 3. Engenharia de Atributos (Feature Engineering) 
 ### 3.1. Transformações Realizadas 
