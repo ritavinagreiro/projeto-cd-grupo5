@@ -65,7 +65,7 @@ do método ganho de informação]
 
 
 ## 5. Referências bibliográficas
-1. Hofmann, H. (1994). German Credit Data [Dataset]. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
+1. Prata, M. (2020). *Creditability - German Credit Data* [Dataset]. Kaggle. Consultad pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
  
 ## Como Reproduzir este Projeto 
 1. Clone o repositório: `git clone [url-do-repo]` 
