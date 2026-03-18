@@ -51,6 +51,16 @@ Durante a análise exploratória, identificamos a presença de outliers em vári
 * Instalment_per_cent: 0 outliers
 * No_of_Credits_at_this_Bank: 6 outliers
 * No_of_dependents: 155 outliers
+
+Apesar da presença de valores identificados como outliers, procedeu-se a uma análise do contexto das variáveis para avaliar se estes representavam erros nos dados ou apenas observações extremas mas plausíveis.
+
+No caso das variáveis Credit_Amount, Duration_of_Credit_monthly e Age_years, os valores extremos correspondem a montantes de crédito mais elevados, durações de empréstimo superiores ou clientes com idades mais altas. Estas situações são plausíveis no contexto da concessão de crédito e podem representar perfis de risco distintos, sendo por isso relevantes para a modelação preditiva.
+
+Relativamente à variável No_of_Credits_at_this_Bank, os valores considerados extremos representam clientes com um número superior de créditos ativos, o que constitui informação potencialmente relevante para avaliar o risco financeiro.
+
+No caso da variável No_of_dependents, o elevado número de valores classificados como outliers deve-se ao facto de esta ser uma variável discreta com um número reduzido de categorias possíveis. Assim, o método IQR pode identificar como outliers alguns valores que são, na verdade, observações válidas da variável.
+
+Desta forma, concluiu-se que os valores identificados não representam erros ou inconsistências nos dados. Consequentemente, decidiu-se manter todos os registos no dataset, preservando informação potencialmente relevante para o desenvolvimento do modelo de previsão do risco de crédito.
  
 ## 3. Engenharia de Atributos (Feature Engineering) 
 ### 3.1. Transformações Realizadas 
