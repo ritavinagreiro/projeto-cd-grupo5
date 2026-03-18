@@ -60,9 +60,12 @@ do método ganho de informação]
 [Resumo da solução e como ela gera valor para o negócio.] 
  
 ### Recomendações de Inovação 
-1. [Sugestão prática baseada nos resultados] 
- 
- 
+1. [Sugestão prática baseada nos resultados]
+
+
+
+## 5. Referências bibliográficas
+1. Hofmann, H. (1994). German Credit Data [Dataset]. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
  
 ## Como Reproduzir este Projeto 
 1. Clone o repositório: `git clone [url-do-repo]` 
