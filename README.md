@@ -32,6 +32,7 @@ Emprestar dinheiro implica sempre um risco: do cliente não reembolsar o capital
  
 ### Fonte de Dados 
 |* **Dataset:** | https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data|
+|:---|:---|
 |* **Dimensão:** | 1000 linhas, 21 colunas |
  
 ### Bibliotecas e ferramentas
