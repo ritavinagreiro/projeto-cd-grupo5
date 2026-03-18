@@ -31,9 +31,10 @@ Emprestar dinheiro implica sempre um risco: do cliente não reembolsar o capital
 * **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à Milestone 3.
  
 ### Fonte de Dados 
-|* **Dataset:** | https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data|
+|* **Dataset** | https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data|
 |:---|:---|
-|* **Dimensão:** | 1000 linhas, 21 colunas |
+|* **Dimensão** | 1000 linhas, 21 colunas |
+|* **Variável Alvo**|Credibility (1 = Risco bom (ou seja, risco pequeno), 0 = Risco mau)|
  
 ### Bibliotecas e ferramentas
 Como ferramenta vamos usar o Jupyter Notebook para programar, e as seguintes ferramentas: NumPy; Pandas; Seaborn; Matplotlib e Scikit-learn.  
