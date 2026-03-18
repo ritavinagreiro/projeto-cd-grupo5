@@ -1,9 +1,5 @@
 # Milestone 2: Análise Exploratória e Engenharia de Atributos 
  
-> **Nota de Revisão:** Este documento pressupõe que o dataset já foi identificado e descrito no 
-ficheiro `docs/M1_iniciacao.md`. Caso precise de consultar o significado original das variáveis, 
-deve consultar essa Milestone. 
- 
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
 A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:
@@ -58,9 +54,16 @@ Durante a análise exploratória, identificamos a presença de outliers em vári
  
 ## 3. Engenharia de Atributos (Feature Engineering) 
 ### 3.1. Transformações Realizadas 
-* **Encoding:** (Ex: "Convertemos a variável 'Género' em numérica usando One-Hot Encoding.") 
-* **Escalonamento:** (Ex: "Aplicámos o StandardScaler nas variáveis numéricas para que todas 
-fiquem na mesma escala.") 
+**Encoding:**  
+Apesar de algumas variáveis do dataset representarem categorias, estas já se encontram previamente codificadas em formato numérico no conjunto de dados original. Desta forma, não foi necessário aplicar técnicas adicionais de encoding.
+
+**Escalonamento:**   
+Com o objetivo de garantir que as variáveis numéricas apresentam a mesma escala, foi aplicado o método StandardScaler às variáveis numéricas contínuas. Este método transforma os dados de forma a que apresentem média próxima de zero e desvio padrão próximo de um.
+
+O escalonamento foi aplicado às variáveis Duration_of_Credit_monthly, Credit_Amount e Age_years, bem como às variáveis derivadas criadas posteriormente, garantindo que todas as variáveis utilizadas na modelação apresentam a mesma escala.
+
+As restantes variáveis numéricas foram mantidas na sua forma original, uma vez que correspondem a escalas categóricas ou contagens discretas com intervalos reduzidos, nas quais a aplicação de escalonamento não acrescentaria benefícios relevantes para a modelação.
+
  
 ### 3.2. Criação de Novos Atributos 
 *Descrevam as variáveis que criaram para ajudar o modelo.* 
