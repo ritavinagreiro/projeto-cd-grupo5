@@ -24,7 +24,7 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
  
 ## 1. Iniciação (Milestone 1) 
 ### Contexto e Problema de Negócio 
-O problema consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos. 
+Emprestar dinheiro implica sempre um risco: do cliemnte não reembolsar o capital em dívida, total ou parcialmente. Este risco denomina-se risco de crédtio e a sua gestão eficaz é determinante para a estabilidade financeira de qualquer banco. O problema consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos, através de modelos automatizados de previsão de risco de crédito. 
  
 ### Objetivos do Projeto 
 * **Objetivo 1:** Prever o incumprimento de crédito dos clientes, alcançando um F1-Score mínimo de 0.80, até à Milestone 3. 
