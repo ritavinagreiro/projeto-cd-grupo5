@@ -86,5 +86,8 @@ O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recor
 | M2: Exploração | 24/03/2026 | Notebook de EDA e Dados Processados. | 
 | M3: Modelação | [Data] | Comparação de algoritmos e métricas. | 
 | M4: Finalização| [Data] | Pitch e Relatório Final. | 
+
+## 9. Referências Bibliográficas
+
  --- 
-*Data de última atualização: 28/02/2026* 
+*Data de última atualização: 18/03/2026* 
