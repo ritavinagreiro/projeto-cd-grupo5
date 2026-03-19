@@ -8,8 +8,8 @@ O problema deste projeto consiste em apoiar uma instituição financeira na deci
 Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornando necessário melhorar os processos de avaliação de risco, de forma a reduzir perdas e apoiar decisões mais informadas. 
  
 ## 2. Objetivos SMART  
-1.  **Objetivo 1:** Prever o incumprimento de crédito dos clientes, alcançando um F1-score mínimo de 0.80, até à M3.
-2.  **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à M3.
+*  **Objetivo 1:** Prever o incumprimento de crédito dos clientes, alcançando um F1-score mínimo de 0.80, até à M3.
+*  **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à M3.
 
 **Perguntas de Investigação**
 1. Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
