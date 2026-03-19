@@ -73,7 +73,7 @@ do método ganho de informação]
 
 
 ## 5. Referências bibliográficas
-1. Prata, M. (2020). *Creditability - German Credit Data* [Dataset]. Kaggle. Consultad pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
+1. Prata, M. (2020). *Creditability - German Credit Data* [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
  
 ## Como Reproduzir este Projeto 
 1. Clone o repositório: `git clone [url-do-repo]` 
