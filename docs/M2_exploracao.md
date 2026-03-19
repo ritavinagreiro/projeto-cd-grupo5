@@ -92,6 +92,10 @@ pela idade do cliente.")
 ## 5. Conclusões da Fase de Exploração 
 *O que aprenderam sobre o dataset que não sabiam no final do Milestone 1? Os dados são suficientes 
 para avançar para a modelação?* 
+
+## 6. Referências Bibliográficas
+1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
+2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 19 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
  --- 
 *Data de última atualização: [DD/MM/AAAA]* 
 
