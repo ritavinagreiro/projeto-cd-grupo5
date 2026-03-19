@@ -29,6 +29,12 @@ Emprestar dinheiro implica sempre um risco: do cliente não reembolsar o capital
 ### Objetivos do Projeto 
 * **Objetivo 1:** Prever o incumprimento de crédito dos clientes, alcançando um F1-Score mínimo de 0.80, até à Milestone 3. 
 * **Objetivo 2:** Identificar as 5 variáveis com maior impacto no risco de crédito, através de técnicas de análise exploratória e interpretação de modelos, até à Milestone 3.
+
+### Perguntas de Investigação
+1. Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
+2. Existe uma relação significativa entre o rendimento anual do cliente e o risco de incumprimento?
+3. Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
+4. Como otimizar e implementar o modelo na prática, minimizando perdas e mantendo equidade no acesso ao crédito?
  
 ### Fonte de Dados 
 |* **Dataset** | https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data|
