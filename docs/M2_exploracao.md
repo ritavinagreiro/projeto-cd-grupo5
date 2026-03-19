@@ -76,9 +76,24 @@ As restantes variáveis numéricas foram mantidas na sua forma original, uma vez
 
  
 ### 3.2. Criação de Novos Atributos 
-*Descrevam as variáveis que criaram para ajudar o modelo.* 
-* **Nova Variável [Nome]:** (Ex: "Criámos a 'Tenure_Per_Year' que divide o tempo de contrato 
-pela idade do cliente.") 
+Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do datset, foram criadas novas variáveis derivadas das variáveis originais. Sendo elas:
+* **Credit_per_month:**
+* Foi criada a variável Credit_per_month, que representa o montante de crédito por mês. Esta variável foi calculada através da divisão do montante total do crédito pela duração do empréstimo.
+* Por exemplo, alguns dos valores observados para esta variável incluem 58.28, 311.00, 70.08, 176.83 e 180.92, representando diferentes níveis de intensidade do crédito assumido mensalmente pelos clientes.
+* Esta métrica permite avaliar o esforço financeiro associado ao empréstimo, uma vez que valores mais elevados podem indicar que o cliente suporta prestações mensais mais elevadas.
+* A análise dos gráficos sugere que valores mais elevados desta variável aparecem com maior frequência entre clientes com maior risco de crédito, indicando que créditos elevados em relação à idade podem estar associados a maior probabilidade de incumprimento.
+
+* **Credit_Age_Ratio:**
+* Foi também criada a variável Credit Age Ratio, que relaciona o montante de crédito solicitado com a idade do cliente.
+* Alguns exemplos de valores observados para esta variável incluem 49.95, 77.75, 36.57, 54.41 e 57.13. Estes valores representam o peso relativo do crédito em função da idade do cliente.
+* Esta variável permite analisar a dimensão do crédito relativamente ao perfil etário do cliente, ajudando a identificar situações em que clientes relativamente jovens assumem montantes de
+crédito elevados.
+* A análise dos gráficos sugere que valores mais elevados desta variável aparecem com maior frequência entre clientes com maior risco de crédito, indicando que créditos elevados em relação à
+idade podem estar associados a maior probabilidade de incumprimento.
+
+Uma vez que estes novos atributos foram criados a partir de variáveis numéricas que já tinham sido escalonadas, foi também aplicado Standardscaler a estas variáveis derivadas. Este
+procedimento garante que todas as variáveis numéricas utilizadas na modelação apresentam a mesma escala, evitando que diferenças na magnitude das variáveis influenciem o desempenho dos
+algoritmos de machine learning.
  
 ## 4. Dicionário de Dados Final (Pós-Processamento) 
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3.* 
