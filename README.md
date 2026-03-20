@@ -47,9 +47,9 @@ Como ferramenta vamos usar o Jupyter Notebook para programar, e as seguintes fer
  
 ## 2. Exploração (Milestone 2) 
 ### Limpeza e Preparação 
-A partir do momento em que analisámos os dados no seu estado bruto, foi denotado que todas as variáveis estavam na sua forma numérica, ou seja, as variáveis numéricas já tinham sido fornecidas na sua forma encoding. 
+A partir do momento em que analisámos os dados no seu estado bruto, foi denotado que todas as variáveis estavam na sua forma numérica, ou seja, as variáveis numéricas já tinham sido fornecidas na sua forma codificada. 
 Durante a análise exploratória foram identificados outliers nas seguintes variáveis numéricas: Duration_of_Credit_monthly; Credit_Amount; Age_Years; No_of_Credit_at_this_Bank; No_of_dependents. No entanto, foi decidido não realizar nenhum processo, para tratar estes outliers, pois foi concluído que estes valores identificados não representavam erros ou inconsistências nos dados. 
-
+Para o escalonamento de atributos, foi aplicado o StandarScaler às variáveis numéricas contínuas.
  
 ### Principais Conclusões (EDA) 
 > *Dica: Insere aqui o gráfico mais importante do projeto.* 
