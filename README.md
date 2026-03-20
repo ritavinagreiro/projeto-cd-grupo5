@@ -27,14 +27,16 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
 Emprestar dinheiro implica sempre um risco: do cliente não reembolsar o capital em dívida, total ou parcialmente. Este risco denomina-se risco de crédtio e a sua gestão eficaz é determinante para a estabilidade financeira de qualquer banco. O problema consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos, através de modelos automatizados de previsão de risco de crédito. 
  
 ### Objetivos do Projeto 
-* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado em 80% dos dados e avaliado no conjunto de teste, que atinja um F1-Score mínimode 0.80 e uma AUC_ROC mínima de 0.80 até ao Milestone 3.
-* **Objetivo 2:** Identificar as 5 variáveis com maior contribuição preditiva, para o risco de incumprimento, medida através de feature importance do modelo selecionado e análise exploratória dos dados. Produção de  uma interpretação que explique como cada variável influencia a decisão de aprovação de crédito, até ao Milestone 3.
+* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado em 80% dos dados e avaliado no conjunto de teste, que atinja um F1-Score mínimode 0.80 e uma AUC_ROC mínima de 0.80 até ao final do Milestone 3.
+* **Objetivo 2:** 
 
 ### Perguntas de Investigação
 1. Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
 2. Existe uma relação significativa entre o rendimento anual do cliente e o risco de incumprimento?
 3. Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
 4. Como otimizar e implementar o modelo na prática, minimizando perdas e mantendo equidade no acesso ao crédito?
+5. Identificar as 5 variáveis com maior contribuição preditiva, para o risco de incumprimento, medidas através de feature importance.
+6. Será que as variáveis obtidas do feature importance são as mesma que foram identificadas na análise exploratória? 
  
 ### Fonte de Dados 
 | **Dataset** | https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data|
