@@ -1,4 +1,4 @@
-# Avaliação e Análise de Risco de Crédito num Banco Alemão
+# Avaliação e Análise de Risco de Crédito em um Banco Alemão
  
 ## Identificação da Equipa 
 * **Grupo nº:** 5
