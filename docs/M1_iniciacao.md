@@ -1,21 +1,24 @@
 # Milestone 1: Iniciação e Definição do Projeto 
  
 ## 1. Descrição Detalhada do Problema 
-Atualmente, as instituições financeiras recebem muitos pedidos de crédito e precisam de decidir se aprovam ou não cada empréstimo. Estas decisões são importantes, pois uma escolha errada pode resultar em perdas financeiras devido ao incumprimento dos clientes.
 
-O problema deste projeto consiste em apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos.
+O setor bancário enfrenta diariamente o desafio de avaliar pedidos de crédito, sendo necessário decidir, de forma rápida e precisa, quais os clientes que apresentam maior risco de incumprimento. Uma decisão incorreta pode resultar em perdas financeiras significativas, afetando a rentabilidade e estabilidade da instituição.
 
-Este tema é relevante porque o crédito ao consumo tem vindo a aumentar, tornando necessário melhorar os processos de avaliação de risco, de forma a reduzir perdas e apoiar decisões mais informadas. 
- 
+Neste contexto, o problema deste projeto consiste em desenvolver um modelo de classificação capaz de prever a probabilidade de incumprimento de crédito, com base em características financeiras e demográficas dos clientes, de forma a apoiar o processo de decisão de concessão de crédito.
+
+A relevância deste problema prende-se com o aumento do crédito ao consumo e com a necessidade crescente de sistemas automatizados de apoio à decisão, que permitam reduzir o risco e melhorar a eficiência das instituições financeiras.
+
 ## 2. Objetivos SMART  
-* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado em 80% dos dados e avaliado no conjunto de teste, que atinja um F1-Score mínimode 0.80 e uma AUC_ROC mínima de 0.80 até ao Milestone 3.
-* **Objetivo 2:** Identificar as 5 variáveis com maior contribuição preditiva, para o risco de incumprimento, medida através de feature importance do modelo selecionado e análise exploratória dos dados. Produção de  uma interpretação que explique como cada variável influencia a decisão de aprovação de crédito, até ao Milestone 3.
+* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto d teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
+
+* **Objetivo 2:** Comparar diferentes algoritmos de classificação para prever o risco de crédito, utilizando validação cruzada no conjunto de treino, de forma a selecionar o modelo com melhor desempenho, garantindo um F1-Score mínimo de 0.80 e consistência entre validação e teste, até ao final do Milestone 3.
 
 **Perguntas de Investigação**
-1. Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
-2. Existe uma relação significativa entre o rendimento anual do cliente e o risco de incumprimento?
-3. Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
-4. Como otimizar e implementar o modelo na prática, minimizando perdas e mantendo equidade no acesso ao crédito?
+1.⁠ ⁠Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
+2.⁠ ⁠Qual a relação entre características do crédito (montante, duração) e a probabilidade incumprimento?
+3.⁠ ⁠Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
+4.⁠ ⁠Quais são as cinco variáveis com maior importância preditiva na previsão do risco de incumprimento, com base nas métricas de feature importance do modelo selecionado
+5.⁠ ⁠As variáveis identificadas como mais importantes pelo modelo coincidem com as variáveis destacadas na análise exploratória dos dados?
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
@@ -91,4 +94,4 @@ O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recor
 1. Prata, M. (2020). *Creditability - German Credit Data* [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 2. Hofmann, H. (1994). *Statlog (German Credit Data)* [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 4 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
  --- 
-*Data de última atualização: 20/03/2026* 
+*Data de última atualização: 21/03/2026* 
