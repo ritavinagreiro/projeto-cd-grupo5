@@ -1,4 +1,4 @@
- Milestone 2: Análise Exploratória e Engenharia de Atributos 
+# Milestone 2: Análise Exploratória e Engenharia de Atributos 
  
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
