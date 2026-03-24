@@ -101,6 +101,7 @@ algoritmos de machine learning.
 #### 3.2.1 Análise de Correlação com as novas variáveis
 A matriz de correlação (Figura 1) permitiu identificar algumas relações entre variáveis do dataset. Observa-se uma correlação relativamente elevada entre Credit Amount e Duration of
 Credit, indicando que empréstimos de maior valor tendem a estar associados a prazos mais longos.
+
 As variáveis derivadas Credit per Month e CreditAge Ratio apresentam também correlação moderada com Credit Amount, o que é esperado uma vez que foram construídas a partir desta variável.
 
 Relativamente à variável alvo Creditability, destacam-se correlações moderadas com variáveis relacionadas com o saldo da conta e o histórico de crédito, sugerindo que estas características podem influenciar o risco de incumprimento.
