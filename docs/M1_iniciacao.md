@@ -14,11 +14,16 @@ A relevância deste problema prende-se com o aumento do crédito ao consumo e co
 * **Objetivo 2:** Comparar diferentes algoritmos de classificação para prever o risco de crédito, utilizando validação cruzada no conjunto de treino, de forma a selecionar o modelo com melhor desempenho, garantindo um F1-Score mínimo de 0.80 e consistência entre validação e teste, até ao final do Milestone 3.
 
 **Perguntas de Investigação**
-1.⁠ ⁠Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
-2.⁠ ⁠Qual a relação entre características do crédito (montante, duração) e a probabilidade incumprimento?
-3.⁠ ⁠Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
-4.⁠ ⁠Quais são as cinco variáveis com maior importância preditiva na previsão do risco de incumprimento, com base nas métricas de feature importance do modelo selecionado
-5.⁠ ⁠As variáveis identificadas como mais importantes pelo modelo coincidem com as variáveis destacadas na análise exploratória dos dados?
+
+1.   ⁠Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
+   
+2.   Qual a relação entre características do crédito (montante, duração) e a probabilidade incumprimento?
+   
+3.   Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
+   
+4.   Quais são as cinco variáveis com maior importância preditiva na previsão do risco de incumprimento, com base nas métricas de feature importance do modelo selecionado?
+   
+5.   As variáveis identificadas como mais importantes pelo modelo coincidem com as variáveis destacadas na análise exploratória dos dados?
  
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
