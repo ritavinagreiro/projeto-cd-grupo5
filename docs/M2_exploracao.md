@@ -35,9 +35,9 @@ De forma geral, as correlações observadas são moderadas ou fracas, indicando 
 
  #### **Análise Gráfica das Variáveis Mais Relevantes**
 
-* **Duration of credit_monthly xs creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
-* **Credit Amount xs Creditability**:A analise da variavel CreditAmount (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
-* **Age_years xs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
+* **Duration of credit_monthly vs creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
+* **Credit Amount vs Creditability**:A analise da variavel CreditAmount (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
+* **Age_years vs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
 Apesar das diferenças observadas, verifica-se alguma sobreposição entre as distribuições das classes, indicando que nenhuma variável isoladamente permite distinguir completamente entre bom e mau crédito, reforçando a necessidade de modelação multivariada.
  
 ## 2. Qualidade dos Dados e Limpeza 
@@ -142,8 +142,9 @@ No geral, não foram identificados problemas críticos que impeçam a utilizaç�
 | `Credit_Age_Ratio` | Float | Crédito solicitado com idade do cliente |  
 
 ## 5. Conclusões da Fase de Exploração 
-*O que aprenderam sobre o dataset que não sabiam no final do Milestone 1? Os dados são suficientes 
-para avançar para a modelação?* 
+A Análise Exploratória dos Dados permitiu transformar os dadosbrutos em conhecimento útil sobre o comportamento do risco de crédito. 
+Da análise de correlações, destacou-se Account_balance
+Com isto, conclui-se que os dados são suficientes para avançar para a modelação. 
 
 ## 6. Referências Bibliográficas
 1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
