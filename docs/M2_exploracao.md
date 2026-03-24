@@ -34,9 +34,6 @@ De forma geral, as correlações observadas são moderadas ou fracas, indicando 
 
 **Análise Gráfica das Variáveis Mais Relevantes**
 
-Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do dataset, foram criadas novas variáveis derivadas das variáveis originais. 
-
-Sendo elas:
 * **Duration of credit_monthly ys creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
 * **Credit Amount xs Creditability**:A analise da variavel CreditAmount (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
 * **Age_years vs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
