@@ -33,10 +33,13 @@ As variáveis Duration_of_Credit_monthly e Credit_Amount indicam que empréstimo
 De forma geral, as correlações observadas são moderadas ou fracas, indicando que nenhuma variável isoladamente explica completamente o comportamento da variável alvo, reforçando a necessidade de modelação multivariada.
 
 **Análise Gráfica das Variáveis Mais Relevantes**
-* **Duration_of_Credit_monthly vs Creditability:** Notou-se que créditos com maior duração apresentam maior probabilidade de incumprimento. No gráfico de dispersão Credit Amount vs Duration e no gráfico Duration vs Creditability, observa-se maior concentração de maus créditos em prazos mais longos, confirmando a correlação negativa fraca identificada (-0.21). Isto sugere que compromissos financeiros prolongados podem aumentar o risco de crédito.
-* **Account_Balance vs Creditability:** Verificou-se que clientes com menor saldo de conta apresentam maior incidência de mau crédito. A variável Account_Balance apresenta a maior correlação com a variável alvo (0.35), sendo classificada como correlação positiva moderada. Os gráficos evidenciam que níveis mais elevados de saldo estão associados a maior probabilidade de bom crédito, sugerindo que estabilidade financeira é um fator relevante na avaliação do risco.
+Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do dataset, foram criadas novas variáveis derivadas das variáveis originais. 
 
-Apesar das tendências identificadas, observa-se sobreposição significativa entre classes nos gráficos de dispersão, indicando que o problema não apresenta separação linear clara.
+Sendo elas:
+* **Duration of credit_monthly ys creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
+* **Credit Amount xs Creditability**:A analise da variavel CreditAmount (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
+* **Age_years vs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
+Apesar das diferenças observadas, verifica-se alguma sobreposição entre as distribuições das classes, indicando que nenhuma variável isoladamente permite distinguir completamente entre bom e mau crédito, reforçando a necessidade de modelação multivariada.
  
 ## 2. Qualidade dos Dados e Limpeza 
 ### 2.1. Tratamento de Dados em Falta (Missing Data)
@@ -94,7 +97,7 @@ idade podem estar associados a maior probabilidade de incumprimento.
  Uma vez que estes novos atributos foram criados a partir de variáveis numéricas que já tinham sido escalonadas, foi também aplicado Standardscaler a estas variáveis derivadas. Este
 procedimento garante que todas as variáveis numéricas utilizadas na modelação apresentam a mesma escala, evitando que diferenças na magnitude das variáveis influenciem o desempenho dos
 algoritmos de machine learning.
- 
+
 ## 4. Dicionário de Dados Final (Pós-Processamento) 
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3.* 
  
