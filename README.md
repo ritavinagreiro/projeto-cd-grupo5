@@ -25,11 +25,11 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
  
 ## 1. Iniciação (Milestone 1) 
 ### Contexto e Problema de Negócio 
-Emprestar dinheiro implica sempre um risco: a possibilidade de o cliente não reembolsar o capital em dívida, total ou parcialmente. Este risco denomina-se risco de crédtio e a sua gestão eficaz é determinante para a estabilidade financeira de qualquer banco. 
+Emprestar dinheiro implica sempre um risco: a possibilidade de o cliente não reembolsar o capital em dívida, total ou parcialmente. Este risco denomina-se risco de crédito e a sua gestão eficaz é determinante para a estabilidade financeira de qualquer banco. 
 
-Neste contexto, o presente projeto tem como objetivo apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos, através de modelos automatizados de previsão de risco de crédito. 
+Neste contexto, o presente projeto tem como objetivo apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos. Para tal, recorre-se ao desenvolvimento de modelos automatizados de previsão de risco de crédito, assentes em técnicas de Machine Learning. 
 
-A utilização de técnicas de Machine Learning permite tornar este processo mais eficiente, reduzindo perdas financeiras e promovendo decisões mais informadas e consistentes.
+A adoção destas abordagens permite tornar este processo mais eficiente, contribuindo para a redução de potenciais perdas financeiras e para a promoção de decisões mais informadas e consistentes.
  
  
 ### Objetivos do Projeto 
