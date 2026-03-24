@@ -1,4 +1,4 @@
-# Milestone 2: Análise Exploratória e Engenharia de Atributos 
+ Milestone 2: Análise Exploratória e Engenharia de Atributos 
  
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
@@ -23,6 +23,7 @@ Tratando-se de uma variável binária, esta não segue uma distribuição normal
 A análise da matriz de correlação permitiu identificar as variáveis com maior associação à variável alvo (Creditability). Destacam-se:
 * Account_Balance (0.35) – correlação positiva moderada
 * Payment_Status_of_Previous_Credit (0.23) – correlação positiva fraca
+* Value_savings_Stocks (0.17) - correlação positiva fraca
 * Credit_Amount (-0.15) – correlação negativa fraca
 * Duration_of_Credit_monthly (-0.21) – correlação negativa fraca
 
@@ -34,9 +35,9 @@ De forma geral, as correlações observadas são moderadas ou fracas, indicando 
 
  #### **Análise Gráfica das Variáveis Mais Relevantes**
 
-* **Duration of credit_monthly ys creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
+* **Duration of credit_monthly xs creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
 * **Credit Amount xs Creditability**:A analise da variavel CreditAmount (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
-* **Age_years vs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
+* **Age_years xs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
 Apesar das diferenças observadas, verifica-se alguma sobreposição entre as distribuições das classes, indicando que nenhuma variável isoladamente permite distinguir completamente entre bom e mau crédito, reforçando a necessidade de modelação multivariada.
  
 ## 2. Qualidade dos Dados e Limpeza 
@@ -116,10 +117,30 @@ No geral, não foram identificados problemas críticos que impeçam a utilizaç�
  
 | Atributo | Tipo | Descrição | 
 | :--- | :--- | :--- | 
-| `cliente_id` | ID | Removido (não preditivo) | 
-| `idade_norm` | Float | Idade após normalização | 
-| `is_premium` | Binary | 1 para clientes com plano superior | 
- 
+| `Credibility` | Binária | Variável target | 
+| `Account_Balance` | Inteiro | Idade após normalização | 
+| `Duration_of_Credit_monthly` |  |  | 
+| `Payment_Status_of_previous_Credit` |  |  | 
+| `Purpose` |  |  | 
+| `Credit_Amount` |  |  | 
+| `Value_Savings_Stock` |  |  | 
+| `Length_of_current_employment` |  |  | 
+| `Instalment_per_cent` |  |  | 
+| `Sex_Marital_Status` |  |  | 
+| `Guarantors` |  |  | 
+| `Duration_in_Current_adress` |  |  | 
+| `Most_valuable_available_asset` |  |  | 
+| `Age_years` |  |  | 
+| `Current_Credits` |  |  | 
+| `Type_of_apartment` |  |  | 
+| `No_of_Credits_at_this_Bank` |  |  | 
+| `Occupation` |  |  | 
+| `No_of_dependents` |  |  | 
+| `Telephone` |  |  | 
+| `Foreign_Worker` |  |  | 
+| `Credit_per_Month` |  |  | 
+| `Credit_Age_Ratio` |  |  |  
+
 ## 5. Conclusões da Fase de Exploração 
 *O que aprenderam sobre o dataset que não sabiam no final do Milestone 1? Os dados são suficientes 
 para avançar para a modelação?* 
