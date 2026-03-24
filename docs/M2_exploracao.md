@@ -33,6 +33,7 @@ As variáveis Duration_of_Credit_monthly e Credit_Amount indicam que empréstimo
 De forma geral, as correlações observadas são moderadas ou fracas, indicando que nenhuma variável isoladamente explica completamente o comportamento da variável alvo, reforçando a necessidade de modelação multivariada.
 
 **Análise Gráfica das Variáveis Mais Relevantes**
+
 Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do dataset, foram criadas novas variáveis derivadas das variáveis originais. 
 
 Sendo elas:
