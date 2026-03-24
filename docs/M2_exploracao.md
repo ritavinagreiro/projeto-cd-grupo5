@@ -98,6 +98,17 @@ idade podem estar associados a maior probabilidade de incumprimento.
 procedimento garante que todas as variáveis numéricas utilizadas na modelação apresentam a mesma escala, evitando que diferenças na magnitude das variáveis influenciem o desempenho dos
 algoritmos de machine learning.
 
+**3.2.1 Análise de Correlação com as novas variáveis**
+A matriz de correlação (Figura 1) permitiu identificar algumas relações entre variáveis do dataset. Observa-se uma correlação relativamente elevada entre Credit Amount e Duration of
+Credit, indicando que empréstimos de maior valor tendem a estar associados a prazos mais longos.
+As variáveis derivadas Credit per Month e CreditAge Ratio apresentam também correlação moderada com Credit Amount, o que é esperado uma vez que foram construídas a partir desta variável.
+Relativamente à variável alvo Creditability, destacam-se correlações moderadas com variáveis relacionadas com o saldo da conta e o histórico de crédito, sugerindo que estas características podem influenciar o risco de incumprimento.
+
+**3.2.2 Multicolinearidade**
+Para avaliar possíveis problemas de multicolinearidade entre as variáveis explicativas, foi calculado o Variance Inflation Factor (VIF).
+Os resultados indicam que algumas variáveis apresentam valores de VIF relativamente elevados. No entanto, isto era esperado em certos casos, especialmente nas variáveis derivadas que foram criadas a partir de variáveis originais.
+No geral, não foram identificados problemas críticos que impeçam a utilização destas variáveis na fase de modelação.  
+ 
 ## 4. Dicionário de Dados Final (Pós-Processamento) 
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3.* 
  
