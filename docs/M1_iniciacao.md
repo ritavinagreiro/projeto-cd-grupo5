@@ -74,7 +74,7 @@ O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunt
 
 Do ponto de vista estrutural, as variáveis encontram-se maioritariamente codificadas em formato numérico (int64), incluindo variáveis que originalmente seriam categóricas, mas que já se apresentam previamente transformadas. Esta característica facilita a aplicação direta de algoritmos de Machine Learning, reduzindo a necessidade de procedimentos adicionais de codificação nesta fase inicial. A análise preliminar confirmou igualmente a inexistência de valores em falta, o que contribui para a robustez inicial do dataset e elimina, nesta etapa, a necessidade de técnicas de imputação.
 
-Apesar da boa qualidade estrutural, identificam-se desde já alguns aspetos que poderão exigir atenção nas fases seguintes do projeto. Em primeiro lugar, verifica-se que as variáveis apresentam diferentes escalas numéricas, o que poderá justificar a aplicação de técnicas de normalização ou padronização, dependendo do modelo escolhido. Em segundo lugar, sendo um problema de risco de crédito, é relevante analisar a distribuição da variável alvo, uma vez que um eventual desbalanceamento entre classes poderá influenciar o desempenho dos modelos de classificação.
+Apesar da boa qualidade estrutural, identificam-se desde já alguns aspetos que poderão exigir atenção nas fases seguintes do projeto. Em primeiro lugar, verifica-se que as variáveis apresentam diferentes escalas numéricas, o que poderá justificar a aplicação de técnicas de normalização ou padronização, dependendo do modelo escolhido. Em segundo lugar, sendo um problema de risco de crédito, é relevante analisar a distribuição da variável alvo, uma vez que um eventual desequilíbrio entre classes poderá influenciar o desempenho dos modelos de classificação.
 
 Adicionalmente, considerando que o dataset possui uma dimensão moderada (1000 registos), será necessário adotar mecanismos de validação adequados, como validação cruzada, de forma a reduzir ) risco de overfitting e garantir a generalização do modelo. Importa ainda assegurar que, para além do desempenho preditivo, o modelo selecionado permita identificar e interpretar as variáveis com maior impacto no risco de incumprimento, garantindo não apenas capacidade preditiva, mas também utilidade analítica para apoio à decisão.
 
@@ -95,4 +95,4 @@ O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recor
 1. Prata, M. (2020). *Creditability - German Credit Data* [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 2. Hofmann, H. (1994). *Statlog (German Credit Data)* [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 4 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
  --- 
-*Data de última atualização: 21/03/2026* 
+*Data de última atualização: 08/04/2026* 
