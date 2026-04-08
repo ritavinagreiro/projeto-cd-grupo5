@@ -2,7 +2,7 @@
  
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
-A variável alvo do presente estudo é Creditability, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:
+A variável alvo do presente estudo é *Creditability*, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:
 * 1 - Bom crédito
 * 0 - Mau crédito
 
@@ -27,17 +27,17 @@ A análise da matriz de correlação permitiu identificar as variáveis com maio
 * Credit_Amount (-0.15) – correlação negativa fraca
 * Duration_of_Credit_monthly (-0.21) – correlação negativa fraca
 
-A variável Account_Balance apresenta a maior correlação com o objetivo do modelo, sugerindo que o saldo da conta é um dos principais fatores associados ao risco de crédito.
+A variável *Account_Balance* apresenta a maior correlação com o objetivo do modelo, sugerindo que o saldo da conta é um dos principais fatores associados ao risco de crédito.
 
-As variáveis Duration_of_Credit_monthly e Credit_Amount indicam que empréstimos de maior duração e montante tendem a apresentar maior probabilidade de incumprimento.
+As variáveis *Duration_of_Credit_monthly* e *Credit_Amount* indicam que empréstimos de maior duração e montante tendem a apresentar maior probabilidade de incumprimento.
 
 De forma geral, as correlações observadas são moderadas ou fracas, indicando que nenhuma variável isoladamente explica completamente o comportamento da variável alvo, reforçando a necessidade de modelação multivariada.
 
  #### **Análise Gráfica das Variáveis Mais Relevantes**
 
 * **Duration of credit_monthly vs creditability**:A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
-* **Credit Amount vs Creditability**:A analise da variavel CreditAmount (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
-* **Age_years vs Creditability**:A variável Age Vears (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
+* **Credit Amount vs Creditability**:A analise da variavel *Credit Amount* (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
+* **Age_years vs Creditability**:A variável*Age Years* (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
 Apesar das diferenças observadas, verifica-se alguma sobreposição entre as distribuições das classes, indicando que nenhuma variável isoladamente permite distinguir completamente entre bom e mau crédito, reforçando a necessidade de modelação multivariada.
  
 ## 2. Qualidade dos Dados e Limpeza 
@@ -54,13 +54,13 @@ Durante a análise exploratória, identificamos a presença de outliers em vári
 * No_of_Credits_at_this_Bank: 6 outliers
 * No_of_dependents: 155 outliers
 
-Apesar da presença de valores identificados como outliers, procedeu-se a uma análise do contexto das variáveis para avaliar se estes representavam erros nos dados ou apenas observações extremas mas plausíveis.
+Apesar da presença de valores identificados como *outliers*, procedeu-se a uma análise do contexto das variáveis para avaliar se estes representavam erros nos dados ou apenas observações extremas mas plausíveis.
 
-No caso das variáveis Credit_Amount, Duration_of_Credit_monthly e Age_years, os valores extremos correspondem a montantes de crédito mais elevados, durações de empréstimo superiores ou clientes com idades mais altas. Estas situações são plausíveis no contexto da concessão de crédito e podem representar perfis de risco distintos, sendo por isso relevantes para a modelação preditiva.
+No caso das variáveis *Credit_Amount*, *Duration_of_Credit_monthly* e *Age_years*, os valores extremos correspondem a montantes de crédito mais elevados, durações de empréstimo superiores ou clientes com idades mais altas. Estas situações são plausíveis no contexto da concessão de crédito e podem representar perfis de risco distintos, sendo por isso relevantes para a modelação preditiva.
 
-Relativamente à variável No_of_Credits_at_this_Bank, os valores considerados extremos representam clientes com um número superior de créditos ativos, o que constitui informação potencialmente relevante para avaliar o risco financeiro.
+Relativamente à variável *No_of_Credits_at_this_Bank*, os valores considerados extremos representam clientes com um número superior de créditos ativos, o que constitui informação potencialmente relevante para avaliar o risco financeiro.
 
-No caso da variável No_of_dependents, o elevado número de valores classificados como outliers deve-se ao facto de esta ser uma variável discreta com um número reduzido de categorias possíveis. Assim, o método IQR pode identificar como outliers alguns valores que são, na verdade, observações válidas da variável.
+No caso da variável *No_of_dependents*, o elevado número de valores classificados como outliers deve-se ao facto de esta ser uma variável discreta com um número reduzido de categorias possíveis. Assim, o método IQR pode identificar como outliers alguns valores que são, na verdade, observações válidas da variável.
 
 Desta forma, concluiu-se que os valores identificados não representam erros ou inconsistências nos dados. Consequentemente, decidiu-se manter todos os registos no dataset, preservando informação potencialmente relevante para o desenvolvimento do modelo de previsão do risco de crédito.
  
@@ -72,7 +72,7 @@ Apesar de algumas variáveis do dataset representarem categorias, estas já se e
 **Escalonamento:**   
 Com o objetivo de garantir que as variáveis numéricas apresentam a mesma escala, foi aplicado o método StandardScaler às variáveis numéricas contínuas. Este método transforma os dados de forma a que apresentem média próxima de zero e desvio padrão próximo de um.
 
-O escalonamento foi aplicado às variáveis Duration_of_Credit_monthly, Credit_Amount e Age_years, bem como às variáveis derivadas criadas posteriormente, garantindo que todas as variáveis utilizadas na modelação apresentam a mesma escala.
+O escalonamento foi aplicado às variáveis *Duration_of_Credit_monthly*, *Credit_Amount* e *Age_years*, bem como às variáveis derivadas criadas posteriormente, garantindo que todas as variáveis utilizadas na modelação apresentam a mesma escala.
 
 As restantes variáveis numéricas foram mantidas na sua forma original, uma vez que correspondem a escalas categóricas ou contagens discretas com intervalos reduzidos, nas quais a aplicação de escalonamento não acrescentaria benefícios relevantes para a modelação.
 
@@ -98,12 +98,11 @@ procedimento garante que todas as variáveis numéricas utilizadas na modelaçã
 algoritmos de machine learning.
 
 #### 3.2.1 Análise de Correlação com as novas variáveis
-A matriz de correlação (Figura 1) permitiu identificar algumas relações entre variáveis do dataset. Observa-se uma correlação relativamente elevada entre Credit Amount e Duration of
-Credit, indicando que empréstimos de maior valor tendem a estar associados a prazos mais longos.
+A matriz de correlação (Figura 1) permitiu identificar algumas relações entre variáveis do dataset. Observa-se uma correlação relativamente elevada entre *Credit Amount* e *Duration of  Credit*, indicando que empréstimos de maior valor tendem a estar associados a prazos mais longos.
 
-As variáveis derivadas Credit per Month e CreditAge Ratio apresentam também correlação moderada com Credit Amount, o que é esperado uma vez que foram construídas a partir desta variável.
+As variáveis derivadas *Credit per Month* e *Credit Age Ratio* apresentam também correlação moderada com *Credit Amount*, o que é esperado uma vez que foram construídas a partir desta variável.
 
-Relativamente à variável alvo Creditability, destacam-se correlações moderadas com variáveis relacionadas com o saldo da conta e o histórico de crédito, sugerindo que estas características podem influenciar o risco de incumprimento.
+Relativamente à variável alvo *Creditability*, destacam-se correlações moderadas com variáveis relacionadas com o saldo da conta e o histórico de crédito, sugerindo que estas características podem influenciar o risco de incumprimento.
 
 #### 3.2.2 Multicolinearidade
 Para avaliar possíveis problemas de multicolinearidade entre as variáveis explicativas, foi calculado o Variance Inflation Factor (VIF).
@@ -117,8 +116,8 @@ No geral, não foram identificados problemas críticos que impeçam a utilizaç�
  
 | Atributo | Tipo | Descrição | 
 | :--- | :--- | :--- | 
-| `Credibility` | Binária | Variável target | 
-| `Account_Balance` | Inteiro | Saldo | 
+| `Credibility` | Numérica Binária | Variável target | 
+| `Account_Balance` | Numérico Inteiro | Saldo | 
 | `Duration_of_Credit_monthly` | Float | Prazo do empréstimo em meses | 
 | `Payment_Status_of_previous_Credit` | Inteiro | Estado do pagamento de créditos anteriores | 
 | `Purpose` | Inteiro | Fianlidade do crédito | 
