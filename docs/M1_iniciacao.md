@@ -2,11 +2,13 @@
  
 ## 1. Descrição Detalhada do Problema 
 
-O setor bancário enfrenta diariamente o desafio de avaliar pedidos de crédito, sendo necessário decidir, de forma rápida e precisa, quais os clientes que apresentam maior risco de incumprimento. Uma decisão incorreta pode resultar em perdas financeiras significativas, afetando a rentabilidade e estabilidade da instituição.
+O setor bancário enfrenta diariamente o desafio de avaliar pedidos de crédito, sendo necessário decidir, de forma rápida e fundamentada, quais os clientes que apresentam maior risco de incumprimento. Uma decisão incorreta pode resultar em perdas financeiras significativas, afetando a rentabilidade e a estabilidade das instituições financeiras.
 
-Neste contexto, o problema deste projeto consiste em desenvolver um modelo de classificação capaz de prever a probabilidade de incumprimento de crédito, com base em características financeiras e demográficas dos clientes, de forma a apoiar o processo de decisão de concessão de crédito.
+Neste contexto, o problema deste projeto consiste no desenvolvimento de um modelo de classificação capaz de prever o incumprimento de crédito, com base em características financeiras e demográficas dos clientes, de forma a apoiar o processo de decisão na concessão de crédito.
 
-A relevância deste problema prende-se com o aumento do crédito ao consumo e com a necessidade crescente de sistemas automatizados de apoio à decisão, que permitam reduzir o risco e melhorar a eficiência das instituições financeiras.
+A variável objetivo corresponde ao estado do crédito do cliente, sendo utilizada para identificar situações de incumprimento e representada pela variável *Creditability*, de natureza binária, em que 1 indica cumprimento das obrigações de crédito (bom crédito) e 0 indica incumprimento (mau crédito).
+
+A relevância deste problema prende-se com o aumento do crédito ao consumo e com a necessidade crescente de sistemas de apoio à decisão que permitam reduzir o risco associado à concessão de crédito e melhorar a eficiência das instituições financeiras
 
 ## 2. Objetivos SMART  
 * **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto d teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
@@ -36,7 +38,7 @@ Teams/Discord e presencial quando necessário, Google Docs.
 * **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
 * **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 
-## 5. Descrição das Variáveis  
+## 5. Dicionário de Dados  
 
 Apesar de todas as variáveis surgirem representadas numericamente no ficheiro CSV, nem todas correspondem a variáveis quantitativas. Em diversos casos, os valores numéricos representam apenas códigos atribuídos a categorias qualitativas.
 
@@ -45,29 +47,29 @@ Assim, a classificação apresentada no dicionário abaixo foi realizada com bas
 Devido ao facto de o repositório de dados fornecido não incluir a informação necessária para a análise de cada variável, o grupo optou por recorrer ao seguinte link, que disponibiliza a descrição detalhada do dataset, permitindo assim realizar uma análise correta:
 https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
 
-| Variável (Dataset) | Tipo de Variável | Descrição |
-| :--- | :--- | :--- |
-| **Creditability** | Binária | Classificação do crédito: **1 = Bom crédito; 0 = Mau crédito** |
-| Account Balance | Categórica | Saldo da conta corrente: 1 = Saldo < 0 DM; 2 = 0 ≤ saldo < 200 DM; 3 = ≥ 200 DM; 4 = Sem conta corrente |
-| Duration | Numérica | Duração do crédito, expressa em meses. |
-| Payment Status | Categórica | Histórico de crédito: 0 = Nenhum crédito anterior ou todos pagos; 1 = Todos os créditos neste banco pagos; 2 = Créditos pagos pontualmente até ao momento; 3 = Atrasos no passado; 4 = Conta crítica ou outros créditos fora deste banco |
-| Purpose | Categórica | Finalidade do crédito: 0 = Automóvel novo; 1 = Automóvel usado; 2 = Mobiliário/equipamentos; 3 = Rádio/televisão; 4 = Eletrodomésticos; 5 = Reparações; 6 = Educação; 7 = Férias; 8 = Requalificação; 9 = Negócios; 10 = Outros |
-| Credit Amount | Numérica | Montante total do crédito solicitado, expresso em DM. |
-| Savings/Stock Value | Categórica | Conta poupança/títulos: 1 = Saldo < 100 DM; 2 = 100 ≤ saldo < 500 DM; 3 = 500 ≤ saldo < 1000 DM; 4 = ≥ 1000 DM; 5 = Desconhecido ou sem conta poupança |
-| Employment Length | Categórica | Tempo no emprego atual: 1 = Desempregado; 2 = < 1 ano; 3 = 1–4 anos; 4 = 4–7 anos; 5 = ≥ 7 anos |
-| Installment Rate | Numérica | Percentagem do rendimento disponível comprometida com o pagamento das prestações do crédito (escala 1 a 4). |
-| Sex/Marital Status | Categórica | Estado civil e sexo do cliente: 1 = Homem divorciado/separado; 2 = Mulher; 3 = Homem solteiro; 4 = Homem casado/viúvo |
-| Guarantor | Categórica | Outros devedores/fiadores: 1 = Nenhum; 2 = Co-candidato (co-devedor); 3 = Fiador |
-| Duration in Current Address | Numérica | Tempo de residência atual (escala de 1 a 4 anos). |
-| Most valuable available asset | Categórica | Património mais valioso disponível: 1 = Imóveis; 2 = Contrato de poupança/seguro de vida; 3 = Automóvel ou outros bens; 4 = Desconhecido ou sem propriedade |
-| Age | Numérica | Idade do cliente, expressa em anos. |
-| Concurrent Credits | Categórica | Existência de créditos simultâneos: 1 = Outros bancos; 2 = Lojas; 3 = Nenhum |
-| Housing | Categórica | Tipo de habitação: 1 = Arrendada; 2 = Própria; 3 = Gratuita |
-| No of Credits at this Bank | Numérica | Número de créditos existentes neste banco. |
-| Occupation | Categórica | Situação profissional do cliente: 1 = Desempregado ou não qualificado (não residente); 2 = Não qualificado (residente); 3 = Qualificado/empregado administrativo; 4 = Gestor, autónomo ou altamente qualificado |
-| Number of Dependents | Numérica | Número de dependentes ao encargo do cliente. |
-| Telephone | Binária | Existência de telefone registado: 1 = Não possui telefone; 2 = Possui telefone registado |
-| Foreign Worker | Binária | Indica se o cliente é trabalhador estrangeiro: 1= Sim; 2 = Não |
+| Variável (Dataset) | Tipo de Variável | Valores | Descrição |
+|--------------------|------------------|--------|----------|
+| **Creditability** | Binária | 1 = Cumprimento; 0 = Incumprimento | Estado do crédito do cliente |
+| Account Balance | Categórica ordinal | 1 = Saldo < 0 DM; 2 = 0 ≤ saldo < 200 DM; 3 = ≥ 200 DM; 4 = Sem conta corrente | Saldo da conta corrente |
+| Duration | Numérica inteira | Valores inteiros (meses) | Duração do crédito |
+| Payment Status | Categórica ordinal | 0 = Nenhum crédito anterior ou todos pagos; 1 = Todos os créditos neste banco pagos; 2 = Créditos pagos pontualmente até ao momento; 3 = Atrasos no passado; 4 = Conta crítica ou outros créditos fora deste banco | Histórico de crédito |
+| Purpose | Categórica nominal | 0 = Automóvel novo; 1 = Automóvel usado; 2 = Mobiliário/equipamentos; 3 = Rádio/televisão; 4 = Eletrodomésticos; 5 = Reparações; 6 = Educação; 7 = Férias; 8 = Requalificação; 9 = Negócios; 10 = Outros | Finalidade do crédito |
+| Credit Amount | Numérica contínua | Valores numéricos contínuos | Montante do crédito solicitado |
+| Savings/Stock Value | Categórica ordinal | 1 = Saldo < 100 DM; 2 = 100 ≤ saldo < 500 DM; 3 = 500 ≤ saldo < 1000 DM; 4 = ≥ 1000 DM; 5 = Desconhecido ou sem conta poupança | Conta poupança ou títulos |
+| Employment Length | Categórica ordinal | 1 = Desempregado; 2 = < 1 ano; 3 = 1–4 anos; 4 = 4–7 anos; 5 = ≥ 7 anos | Tempo no emprego atual |
+| Installment Rate | Numérica inteira | Valores inteiros (escala de 1 a 4) | Percentagem do rendimento comprometida |
+| Sex/Marital Status | Categórica nominal | 1 = Homem divorciado/separado; 2 = Mulher; 3 = Homem solteiro; 4 = Homem casado/viúvo | Estado civil e sexo |
+| Guarantor | Categórica nominal | 1 = Nenhum; 2 = Co-candidato; 3 = Fiador | Existência de fiadores |
+| Duration in Current Address | Numérica inteira | Valores inteiros (escala de 1 a 4) | Tempo de residência |
+| Most Valuable Available Asset | Categórica nominal | 1 = Imóveis; 2 = Poupança/seguro de vida; 3 = Automóvel ou outros bens; 4 = Desconhecido ou sem propriedade | Património mais valioso |
+| Age | Numérica inteira | Valores inteiros (anos) | Idade do cliente |
+| Concurrent Credits | Categórica nominal | 1 = Outros bancos; 2 = Lojas; 3 = Nenhum | Créditos simultâneos |
+| Housing | Categórica nominal | 1 = Arrendada; 2 = Própria; 3 = Gratuita | Tipo de habitação |
+| No of Credits at this Bank | Numérica inteira | Valores inteiros | Nº de créditos neste banco |
+| Occupation | Categórica nominal | 1 = Desempregado ou não qualificado; 2 = Não qualificado; 3 = Qualificado; 4 = Gestor ou altamente qualificado | Situação profissional |
+| Number of Dependents | Numérica inteira | Valores inteiros | Nº de dependentes |
+| Telephone | Binária | 1 = Não possui; 2 = Possui | Existência de telefone |
+| Foreign Worker | Binária | 1 = Sim; 2 = Não | Trabalhador estrangeiro |
 
 ## 6. Descrição Técnica
 O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
@@ -88,7 +90,7 @@ O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recor
 | :--- | :--- | :--- | 
 | M1: Iniciação | 24/02/2026 | Repositório estruturado e Plano de Projeto. |
 | M2: Exploração | 24/03/2026 | Notebook de EDA e Dados Processados. | 
-| M3: Modelação | [Data] | Comparação de algoritmos e métricas. | 
+| M3: Modelação | 23/04/2026 | Comparação de algoritmos e métricas. | 
 | M4: Finalização| [Data] | Pitch e Relatório Final. | 
 
 ## 9. Referências Bibliográficas
