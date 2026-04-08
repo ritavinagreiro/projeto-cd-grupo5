@@ -1,4 +1,4 @@
-# Avaliação e Análise do Risco de Crédito com Base em Dados de um Banco Alemão
+# Desenvolvimento de um Modelo Preditivo para Apoio à Decisão de Crédito com abordagem em *Machine Learning*
 
 
 ## Identificação da Equipa 
@@ -27,7 +27,7 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
 ### Contexto e Problema de Negócio 
 Emprestar dinheiro implica sempre um risco: a possibilidade de o cliente não reembolsar o capital em dívida, total ou parcialmente. Este risco denomina-se risco de crédito e a sua gestão eficaz é determinante para a estabilidade financeira de qualquer banco. 
 
-Neste contexto, o presente projeto tem como objetivo apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos. Para tal, recorre-se ao desenvolvimento de modelos automatizados de previsão de risco de crédito, assentes em técnicas de Machine Learning. 
+Neste contexto, o presente projeto tem como objetivo apoiar uma instituição financeira na decisão de aprovar ou recusar um empréstimo, prevendo a probabilidade de incumprimento de cada cliente com base em dados históricos. Para tal, recorre-se ao desenvolvimento de modelos automatizados de previsão de risco de crédito, assentes em técnicas de *Machine Learning*. 
 
 A adoção destas abordagens permite tornar este processo mais eficiente, contribuindo para a redução de potenciais perdas financeiras e para a promoção de decisões mais informadas e consistentes.
  
@@ -60,7 +60,7 @@ O projeto vai ser desenvolvido em ambiente Jupyter Notebook para programar, reco
 ### Limpeza e Preparação 
 Após a análise inicial do dataset, verificou-se que não existem valores em falta e que as variáveis já se encontram codificadas em formato numérico.
 
-Durante a análise exploratória foram identificados outliers em algumas variáveis numéricas: Duration_of_Credit_monthly; Credit_Amount; Age_Years; No_of_Credit_at_this_Bank; No_of_dependents. No entanto, após análise do contexto dos dados, concluiu-se que estes valores correspondem a observações plausíveis no domínio do crédito, não representavando erros ou inconsistências, pelo que foram mantidos no dataset.
+Durante a análise exploratória foram identificados discrepantes em algumas variáveis numéricas: Duration_of_Credit_monthly; Credit_Amount; Age_Years; No_of_Credit_at_this_Bank; No_of_dependents. No entanto, após análise do contexto dos dados, concluiu-se que estes valores correspondem a observações plausíveis no domínio do crédito, não representavando erros ou inconsistências, pelo que foram mantidos no dataset.
 
 Foi ainda aplicado o StandarScaler às variáveis numéricas contínuas, de forma a garantir que todas apresentam a mesma escala, evitando enviesamentos no desempenho dos modelos.
  
