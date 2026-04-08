@@ -11,7 +11,7 @@ A variável objetivo corresponde ao estado do crédito do cliente, sendo utiliza
 A relevância deste problema prende-se com o aumento do crédito ao consumo e com a necessidade crescente de sistemas de apoio à decisão que permitam reduzir o risco associado à concessão de crédito e melhorar a eficiência das instituições financeiras
 
 ## 2. Objetivos SMART  
-* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto d teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
+* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
 
 * **Objetivo 2:** Comparar diferentes algoritmos de classificação para prever o risco de crédito, utilizando validação cruzada no conjunto de treino, de forma a selecionar o modelo com melhor desempenho, garantindo um F1-Score mínimo de 0.80 e consistência entre validação e teste, até ao final do Milestone 3.
 
@@ -33,9 +33,12 @@ A relevância deste problema prende-se com o aumento do crédito ao consumo e co
 Teams/Discord e presencial quando necessário, Google Docs. 
  
 ## 4. Análise de Viabilidade dos Dados 
-* **Disponibilidade:** O dataset foi obtido através da plataforma Kaggle e encontra-se disponível para utilização imediata em formato CSV. Os dados foram carregados com sucesso num notebook Kaggle, permitindo o acesso direto para análise e modelação, não sendo necessária ligação a bases de dados externas. 
-* **Qualidade Inicial:** A qualidade inicial dos dados foi avaliada através dos métodos df.head(), df.info(), df.describe() e df.isnull().sum(). A análise confirmou a existência de 1000 registos completos, sem valores em falta (NaN). As variáveis apresentam maioritariamente tipo numérico (int64), incluindo variáveis categóricas previamente codificadas. Desta forma, o dataset apresenta boa qualidade inicial, não sendo necessária imputação de valores em falta nesta fase. Eventuais transformações e preparação adicional dos dados serão realizadas na Milestone 2.
-* **Ética:** O dataset é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
+* **Disponibilidade:** O conjunto de dados utilizado foi obtido a partir da plataforma Kaggle, encontrando-se disponível em formato CSV para utilização imediata. É constituído por 1000 observações e 21 variáveis, incluindo variáveis de natureza categórica, numérica e binária, que descrevem características financeiras e demográficas dos clientes, bem como informação relativa ao crédito. 
+* **Qualidade Inicial:** A análise da estrutura do conjunto de dados confirma que todas as variáveis apresentam 1000 valores válidos, não existindo valores em falta, pelo que não é necessária qualquer imputação nesta fase do projeto.  
+  Verifica-se que todas as variáveis se encontram codificadas em formato numérico inteiro (int64). No entanto, importa salientar que uma parte significativa destas variáveis corresponde a variáveis categóricas codificadas numericamente.  
+  As variáveis numéricas apresentam valores coerentes com o contexto do problema, não tendo sido identificados valores inválidos ou inconsistentes.
+* **Observações Relevantes:** O conjunto de dados apresenta uma estrutura adequada para a construção de modelos de classificação. No entanto, verifica-se a existência de desequilíbrio na variável objetivo (*Creditability*), com 700 observações (70%) correspondentes a cumprimento (bom crédito) e 300 (30%) a incumprimento (mau crédito). Este desequilíbrio poderá influenciar o desempenho do modelo, tornando necessária a utilização de métricas de avaliação apropriadas, nomeadamente o Recall, o F1-Score e a AUC-ROC.
+* **Ética:** O conjunto de dados é público e encontra-se anonimizado, não contendo dados pessoais identificáveis. A sua utilização destina-se exclusivamente a fins académicos, cumprindo os princípios do Regulamento Geral sobre a Proteção de Dados (RGPD).
 * **Dataset:** https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 
 ## 5. Dicionário de Dados  
@@ -71,16 +74,18 @@ https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
 | Telephone | Binária | 1 = Não possui; 2 = Possui | Existência de telefone |
 | Foreign Worker | Binária | 1 = Sim; 2 = Não | Trabalhador estrangeiro |
 
-## 6. Descrição Técnica
-O dataset selecionado para o desenvolvimento do projeto corresponde a um conjunto de dados de risco de crédito, contendo 1000 observações e 21 variáveis, incluindo a variável alvo associada ao incumprimento. Trata-se de um problema de classificação binária supervisionada, cujo objetivo consiste em prever a probabilidade de incumprimento de crédito com base em características financeiras e demográficas dos clientes.
+## 6. Principais Observações da Análise Inicial
+O conjunto de dados apresenta uma estrutura consistente, sendo composto por 1000 observações e 21 variáveis, incluindo a variável objetivo (*Creditability*), que representa o estado do crédito do cliente.
 
-Do ponto de vista estrutural, as variáveis encontram-se maioritariamente codificadas em formato numérico (int64), incluindo variáveis que originalmente seriam categóricas, mas que já se apresentam previamente transformadas. Esta característica facilita a aplicação direta de algoritmos de Machine Learning, reduzindo a necessidade de procedimentos adicionais de codificação nesta fase inicial. A análise preliminar confirmou igualmente a inexistência de valores em falta, o que contribui para a robustez inicial do dataset e elimina, nesta etapa, a necessidade de técnicas de imputação.
+Verifica-se que todas as variáveis se encontram codificadas em formato numérico inteiro (int64), embora uma parte significativa corresponda a variáveis categóricas codificadas numericamente. 
 
-Apesar da boa qualidade estrutural, identificam-se desde já alguns aspetos que poderão exigir atenção nas fases seguintes do projeto. Em primeiro lugar, verifica-se que as variáveis apresentam diferentes escalas numéricas, o que poderá justificar a aplicação de técnicas de normalização ou padronização, dependendo do modelo escolhido. Em segundo lugar, sendo um problema de risco de crédito, é relevante analisar a distribuição da variável alvo, uma vez que um eventual desequilíbrio entre classes poderá influenciar o desempenho dos modelos de classificação.
+A análise inicial confirma a inexistência de valores em falta, não tendo sido identificadas lacunas nos dados. Adicionalmente, não foram detetadas observações duplicadas, evidenciando uma boa qualidade estrutural do conjunto de dados.
 
-Adicionalmente, considerando que o dataset possui uma dimensão moderada (1000 registos), será necessário adotar mecanismos de validação adequados, como validação cruzada, de forma a reduzir ) risco de overfitting e garantir a generalização do modelo. Importa ainda assegurar que, para além do desempenho preditivo, o modelo selecionado permita identificar e interpretar as variáveis com maior impacto no risco de incumprimento, garantindo não apenas capacidade preditiva, mas também utilidade analítica para apoio à decisão.
+A análise descritiva das variáveis numéricas permite verificar que estas apresentam valores coerentes com o contexto do problema, não sendo identificados valores inválidos ou inconsistentes.
 
-Assim, numa fase posterior do projeto, será realizada uma análise exploratória aprofundada, seguida da preparação dos dados, divisão em conjuntos de treino e teste, aplicação de diferentes algoritmos de classificação e avaliação comparativa com base em métricas adequadas, nomeadamente precision, recall e F1-score.
+Relativamente à variável objetivo (*Creditability*), observa-se um desequilíbrio entre as classes, com cerca de 70% dos registos correspondentes a cumprimento (bom crédito) e 30% a incumprimento (mau crédito).
+
+De um modo geral, o conjunto de dados apresenta boa qualidade e encontra-se adequado para a realização de análises e desenvolvimento de modelos de classificação, não evidenciando limitações críticas nesta fase inicial.
 
 ## 7. Bibliotecas 
 O desenvolvimento do projeto será realizado em ambiente Jupyter Notebook, recorrendo às seguintes bibliotecas da linguagem Python: NumPy, Pandas, Seaborn, Matplotlib e Scikit-learn. Estas ferramentas permitem realizar análise exploratória de dados, visualização estatística, preparação e transformação de variáveis, bem como implementação e avaliação de modelos de Machine Learning.
