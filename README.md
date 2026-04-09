@@ -34,14 +34,14 @@ A adoção destas abordagens permite tornar este processo mais eficiente, contri
  
 ### Objetivos do Projeto 
 * **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
-* **Objetivo 2:** Comparar diferentes algoritmos de classificação para prever o risco de crédito, utilizando validação cruzada no conjunto de treino, de forma a selecionar o modelo com melhor desempenho, garantindo um F1-Score mínimo de 0.80 e consistência entre validação e teste, até ao final do Milestone 3.
+* **Objetivo 2:** Classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas previsões do modelo desenvolvido, garantindo uma taxa de identificação de incumprimento (Recall) igual ou superior a 70%, até ao final do Milestone 3.
 
 ### Perguntas de Investigação
-1. Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?
-2. Qual a relação entre características do crédito (montante, duração) e a probabilidade  incumprimento?
-3. Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?
-5. Quais são as cinco variáveis com maior importância preditiva na previsão do risco de incumprimento, com base nas métricas de feature importance do modelo selecionado?
-6. As variáveis identificadas como mais importantes pelo modelo coincidem com as variáveis destacadas na análise exploratória dos dados?
+
+1. Quais são as características financeiras e demográficas mais comuns entre os clientes em incumprimento de crédito?
+2. Existe relação entre o montante do crédito e a ocorrência de incumprimento?
+3. De que forma a duração do crédito influencia a ocorrência de incumprimento?
+4. Quais são as variáveis que mais contribuem para a previsão do incumprimento de crédito?
  
 ### Fonte de Dados 
 
@@ -60,7 +60,7 @@ O projeto vai ser desenvolvido em ambiente Jupyter Notebook para programar, reco
 ### Limpeza e Preparação 
 Após a análise inicial do dataset, verificou-se que não existem valores em falta e que as variáveis já se encontram codificadas em formato numérico.
 
-Durante a análise exploratória foram identificados discrepantes em algumas variáveis numéricas: Duration_of_Credit_monthly; Credit_Amount; Age_Years; No_of_Credit_at_this_Bank; No_of_dependents. No entanto, após análise do contexto dos dados, concluiu-se que estes valores correspondem a observações plausíveis no domínio do crédito, não representavando erros ou inconsistências, pelo que foram mantidos no dataset.
+Durante a análise exploratória foram identificados discrepantes em algumas variáveis numéricas: *Duration_of_Credit_monthly*; *Credit_Amount*; *Age_Years*; *No_of_Credit_at_this_Bank*; *No_of_dependents*. No entanto, após análise do contexto dos dados, concluiu-se que estes valores correspondem a observações plausíveis no domínio do crédito, não representavando erros ou inconsistências, pelo que foram mantidos no dataset.
 
 Foi ainda aplicado o StandarScaler às variáveis numéricas contínuas, de forma a garantir que todas apresentam a mesma escala, evitando enviesamentos no desempenho dos modelos.
  
