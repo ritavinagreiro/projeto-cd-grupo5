@@ -13,16 +13,17 @@ A relevância deste problema prende-se com o aumento do crédito ao consumo e co
 ## 2. Objetivos SMART  
 * **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
 
-* **Objetivo 2:** Comparar diferentes algoritmos de classificação para prever o risco de crédito, utilizando validação cruzada no conjunto de treino, de forma a selecionar o modelo com melhor desempenho, garantindo um F1-Score mínimo de 0.80 e consistência entre validação e teste, até ao final do Milestone 3.
+* **Objetivo 2:** Classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas previsões do modelo desenvolvido, garantindo uma taxa de identificação de incumprimento (Recall) igual ou superior a 70%, até ao final do Milestone 3.
 
 **Perguntas de Investigação**
 
-1.   ⁠Quais são as variáveis financeiras e demográficas que mais influenciam a probabilidade de incumprimento de crédito?  
-2.   Qual a relação entre características do crédito (montante, duração) e a probabilidade incumprimento?   
-3.   Qual o modelo de classificação que apresenta melhor desempenho na previsão do incumprimento de crédito?   
-4.   Quais são as cinco variáveis com maior importância preditiva na previsão do risco de incumprimento, com base nas métricas de feature importance do modelo selecionado?   
-5.   As variáveis identificadas como mais importantes pelo modelo coincidem com as variáveis destacadas na análise exploratória dos dados?
- 
+As perguntas de investigação foram definidas com o objetivo de compreender os fatores associados ao incumprimento de crédito e apoiar a interpretação dos resultados obtidos pelo modelo.
+
+1.   ⁠Quais são as características financeiras e demográficas mais comuns entre os clientes em incumprimento de crédito? 
+2.   Existe relação entre o montante do crédito e a ocorrência de incumprimento?  
+3.   De que forma a duração do crédito influencia a ocorrência de incumprimento?   
+4.   Quais são as variáveis que mais contribuem para a previsão do incumprimento de crédito?   
+
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
   * **Iara Gomes:** Responsável pela Engenharia de Dados. 
