@@ -112,28 +112,27 @@ Os resultados indicam que algumas variáveis apresentam valores de VIF relativam
 No geral, não foram identificados problemas críticos que impeçam a utilização destas variáveis na fase de modelação.  
  
 ## 4. Dicionário de Dados Final (Pós-Processamento) 
-*Listagem final das variáveis que serão entregues ao modelo na Fase 3.* 
  
 | Atributo | Tipo | Descrição | 
 | :--- | :--- | :--- | 
-| `Credibility` | Numérica Binária | Variável target | 
-| `Account_Balance` | Numérico Inteiro | Saldo | 
+| `Credibility` |  Binária | Variável target | 
+| `Account_Balance` | Inteiro (Ordinal) | Saldo | 
 | `Duration_of_Credit_monthly` | Float | Prazo do empréstimo em meses | 
-| `Payment_Status_of_previous_Credit` | Inteiro | Estado do pagamento de créditos anteriores | 
-| `Purpose` | Inteiro | Fianlidade do crédito | 
+| `Payment_Status_of_previous_Credit` | Inteiro (Ordinal) | Estado do pagamento de créditos anteriores | 
+| `Purpose` | Inteiro (Nominal) | Fianlidade do crédito | 
 | `Credit_Amount` | Float | Valor de empréstimo solicitado | 
-| `Value_Savings_Stock` | Inteiro | Poupanças | 
-| `Length_of_current_employment` | Inteiro | Tempo de emprego | 
+| `Value_Savings_Stock` | Inteiro (Ordinal) | Poupanças | 
+| `Length_of_current_employment` | Inteiro (Ordinal) | Tempo de emprego | 
 | `Instalment_per_cent` | Inteiro | Percentagem do rendimento disponível desponível | 
-| `Sex_Marital_Status` | Inteiro |  Estado cívil| 
-| `Guarantors` | Inteiro | Fiador | 
+| `Sex_Marital_Status` | Inteiro (Nominal) |  Estado cívil| 
+| `Guarantors` | Inteiro (Nominal) | Fiador | 
 | `Duration_in_Current_adress` | Inteiro | Número de anos na residência atual  | 
-| `Most_valuable_available_asset` | Inteiro | Ativo mais valioso | 
+| `Most_valuable_available_asset` | Inteiro (Nominal)| Ativo mais valioso | 
 | `Age_years` | Float | Idade em anos | 
-| `Current_Credits` | Inteiro | Créditos em simultâneo | 
-| `Type_of_apartment` | Inteiro | Tipo de habitação | 
+| `Current_Credits` | Inteiro (Nominal) | Créditos em simultâneo | 
+| `Type_of_apartment` | Inteiro (Nominal)| Tipo de habitação | 
 | `No_of_Credits_at_this_Bank` | Inteiro | Número de créditos, neste banco | 
-| `Occupation` | Inteiro | Trabalho | 
+| `Occupation` | Inteiro (Nominal)| Trabalho | 
 | `No_of_dependents` | Inteiro | Número de pessoas dependentes | 
 | `Telephone` | Binário| Telefone | 
 | `Foreign_Worker` | Binário | Nacionalidade do cliente | 
@@ -145,7 +144,7 @@ A Análise Exploratória dos Dados permitiu transformar os dados brutos em conhe
 
 Inicialmente o grupo constatava que os outliers precisavam de ser limpos, ou era necessário ser aplicada uma transformação logarítmica, no entanto, tal foi contrariado, pois os valores discrepantes não são erros, são clientes reais que precisam de ser retratados no problema. 
 
-Da análise de correlações, destacou-se Account_balance, o que nos leva a inferir que não é o montante do crédito por si só que ajuda a prever o risco de incumprimento, mas o saldo da conta bancária. Com o apoio destas conclusões, descobrimos também que a combinação entre montante e prazo (Credit_per_month) é mais reveladora do que a variável isolada. Da mesma forma, relevou-se que clientes mais jovens com créditos mais elevados constituem um potencial perfil de risco mais elevado, daí ter surgido a variável Credit_Age_Ratio.
+Da análise de correlações, destacou-se *Account_balance*, o que nos leva a inferir que não é o montante do crédito por si só que ajuda a prever o risco de incumprimento, mas o saldo da conta bancária. Com o apoio destas conclusões, descobrimos também que a combinação entre montante e prazo (*Credit_per_month*) é mais reveladora do que a variável isolada. Da mesma forma, relevou-se que clientes mais jovens com créditos mais elevados constituem um potencial perfil de risco mais elevado, daí ter surgido a variável *Credit_Age_Ratio*.
 
 Com isto, conclui-se que os dados são suficientes para avançar para a modelação. 
 
@@ -153,5 +152,5 @@ Com isto, conclui-se que os dados são suficientes para avançar para a modelaç
 1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 24 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
  --- 
-*Data de última atualização: [24/03/2026]* 
+*Data de última atualização: 10/04/2026* 
 
