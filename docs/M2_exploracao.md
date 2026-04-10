@@ -123,7 +123,7 @@ No geral, não foram identificados problemas críticos que impeçam a utilizaç�
 | `Credit_Amount` | Float | Valor de empréstimo solicitado | 
 | `Value_Savings_Stock` | Inteiro (Ordinal) | Poupanças | 
 | `Length_of_current_employment` | Inteiro (Ordinal) | Tempo de emprego | 
-| `Instalment_per_cent` | Inteiro | Percentagem do rendimento disponível desponível | 
+| `Instalment_per_cent` | Inteiro | Percentagem do rendimento disponível | 
 | `Sex_Marital_Status` | Inteiro (Nominal) |  Estado cívil| 
 | `Guarantors` | Inteiro (Nominal) | Fiador | 
 | `Duration_in_Current_adress` | Inteiro | Número de anos na residência atual  | 
