@@ -141,7 +141,7 @@ No geral, não foram identificados problemas críticos que impeçam a utilizaç�
 | `Value_Savings_Stock` | Inteiro (Ordinal) | Poupanças | 
 | `Length_of_current_employment` | Inteiro (Ordinal) | Tempo de emprego | 
 | `Instalment_per_cent` | Inteiro | Percentagem do rendimento disponível | 
-| `Sex_Marital_Status` | Inteiro (Nominal) |  Estado cívil| 
+| `Sex_Marital_Status` | Inteiro (Nominal) |  Estado civil| 
 | `Guarantors` | Inteiro (Nominal) | Fiador | 
 | `Duration_in_Current_adress` | Inteiro | Número de anos na residência atual  | 
 | `Most_valuable_available_asset` | Inteiro (Nominal)| Ativo mais valioso | 
