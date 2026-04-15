@@ -65,7 +65,7 @@ Durante a análise exploratória foram identificados discrepantes em algumas var
 Foi ainda aplicado o StandarScaler às variáveis numéricas contínuas, de forma a garantir que todas apresentam a mesma escala, evitando enviesamentos no desempenho dos modelos.
  
 ### Principais Conclusões (EDA) 
-![Figura 1 – Matriz de correlação](reports/figures/figura1.jpeg)
+![Figura 1 – Matriz de correlação](reports/figures/matriz_correlacao.jpeg)
 **Figura 1 – Matriz de correlação entre as variáveis do dataset.**
 
 A análise exploratória dos dados, suportada pela matriz de correlação apresentada na Figura 1, permitiu identificar relações relevantes entre as variáveis do dataset e o risco de crédito.
