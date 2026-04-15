@@ -63,7 +63,24 @@ Relativamente à variável *No_of_Credits_at_this_Bank*, os valores considerados
 No caso da variável *No_of_dependents*, o elevado número de valores classificados como outliers deve-se ao facto de esta ser uma variável discreta com um número reduzido de categorias possíveis. Assim, o método IQR pode identificar como outliers alguns valores que são, na verdade, observações válidas da variável.
 
 Desta forma, concluiu-se que os valores identificados não representam erros ou inconsistências nos dados. Consequentemente, decidiu-se manter todos os registos no dataset, preservando informação potencialmente relevante para o desenvolvimento do modelo de previsão do risco de crédito.
- 
+
+### 2.3 Seleção de Atributos
+
+A seleção de atributos constitui uma etapa fundamental na preparação dos dados, tendo como objetivo identificar e reter as variáveis mais relevantes para a previsão do risco de crédito, eliminando aquelas que apresentam reduzida capacidade explicativa ou contributo para o modelo.
+
+Neste contexto, a decisão de seleção de atributos foi suportada por uma análise integrada, baseada na matriz de correlação e na análise gráfica das variáveis, nomeadamente através de histogramas e boxplots.
+
+A matriz de correlação evidenciou que algumas variáveis, como *Telephone*, *Foreign Worker* e *Number of Dependents*, apresentam valores de correlação muito próximos de zero relativamente à variável alvo (*Creditability*), sugerindo uma fraca associação com o risco de incumprimento.
+
+Adicionalmente, a análise gráfica destas variáveis não revelou padrões relevantes nem diferenças significativas na distribuição entre as classes de bom e mau crédito, indicando uma reduzida capacidade discriminativa.
+
+Com base nestes resultados, optou-se pela remoção destas variáveis do *dataset*, uma vez que a sua inclusão não acrescentaria valor significativo ao processo de modelação, podendo inclusive introduzir ruído e aumentar desnecessariamente a complexidade do modelo.
+
+Importa ainda referir que as restantes variáveis foram mantidas, por apresentarem relações relevantes com o problema ou por contribuírem para enriquecer a informação disponível para o modelo.
+
+Esta abordagem permitiu obter um conjunto de dados mais consistente, focado nas variáveis com maior potencial preditivo, garantindo simultaneamente a preservação de informação relevante para a fase de modelação.
+
+
 ## 3. Engenharia de Atributos (Feature Engineering) 
 ### 3.1. Transformações Realizadas 
 **Encoding:**  
