@@ -169,5 +169,5 @@ Com isto, conclui-se que os dados são suficientes para avançar para a modelaç
 1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 24 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
  --- 
-*Data de última atualização: 10/04/2026* 
+*Data de última atualização: 15/04/2026* 
 
