@@ -1,12 +1,16 @@
 # Milestone 3: Modelação e Avaliação 
  
 ## 1. Estratégia de Modelação 
-*Descrevam como prepararam os dados para os algoritmos.* 
-* **Divisão do dataset:** (p/ex.: "Utilizámos uma divisão de 70% para treino e 30% para teste 
-com semente aleatória (random_state) fixa.") 
-* **Métrica de Sucesso:** (p/ex.: "A métrica principal escolhida foi o F1-Score, pois o nosso 
-dataset é desequilibrado e queremos evitar falsos negativos.") 
- 
+**Divisão do dataset:**   
+Foi adotada uma estratégia de validação baseada numa divisão 80% treino / 20% teste, com estratificação da variável alvo (*stratify=y*) e utilização de *random_state=42*, garantindo reprodutibilidade e preservação da distribuição original das classes (70% “Bom Crédito” e 30% “Mau Crédito”).   
+Esta abordagem assegura o isolamento rigoroso do conjunto de teste, evitando data leakage e permitindo uma avaliação realista da capacidade de generalização do modelo.
+
+**Métrica de Sucesso:**   
+Dado o carácter desequilibrado do *dataset*, a métrica principal selecionada foi o *F1-Score*, por permitir um equilíbrio entre precisão e recall.  
+Adicionalmente, foram consideradas:
+* *AUC-ROC*, para avaliar a capacidade discriminativa do modelo;
+* *Recall* da classe “Mau Crédito”, dado que, no contexto bancário, é crítico minimizar a aprovação de clientes com elevado risco de incumprimento.
+
 ## 2. Experiências Realizadas 
 ### 2.1. Modelo Baseline 
 *O ponto de partida simples.* 
