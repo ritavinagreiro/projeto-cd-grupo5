@@ -2,14 +2,18 @@
  
 ## 1. Estratégia de Modelação 
 **Divisão do dataset:**   
-Foi adotada uma estratégia de validação baseada numa divisão 80% treino / 20% teste, com estratificação da variável alvo (*stratify=y*) e utilização de *random_state=42*, garantindo reprodutibilidade e preservação da distribuição original das classes (70% “Bom Crédito” e 30% “Mau Crédito”).   
-Esta abordagem assegura o isolamento rigoroso do conjunto de teste, evitando data leakage e permitindo uma avaliação realista da capacidade de generalização do modelo.
+Utilizámos uma divisão de 80% para treino e 20% para teste, com random_state=42 e estratificação da variável alvo (stratify=y), garantindo que a proporção das classes (70% de clientes em cumprimento e 30% de clientes em incumprimento) se mantém em ambos os conjuntos.
 
 **Métrica de Sucesso:**   
-Dado o carácter desequilibrado do *dataset*, a métrica principal selecionada foi o *F1-Score*, por permitir um equilíbrio entre precisão e recall.  
-Adicionalmente, foram consideradas:
-* *AUC-ROC*, para avaliar a capacidade discriminativa do modelo;
-* *Recall* da classe “Mau Crédito”, dado que, no contexto bancário, é crítico minimizar a aprovação de clientes com elevado risco de incumprimento.
+As métricas principais escolhidas foram o Recall (para a classe de incumprimento) e o F1-Score, sendo ainda considerada a AUC-ROC como métrica complementar.
+
+Esta escolha justifica-se pelo facto de o dataset ser desequilibrado (70% de clientes em cumprimento e 30% em incumprimento), o que torna a accuracy uma métrica pouco fiável.
+
+Neste contexto, o Recall assume particular importância, uma vez que permite minimizar os falsos negativos, ou seja, casos em que clientes de risco são incorretamente classificados como cumpridores.
+
+Por sua vez, o F1-Score assegura um equilíbrio entre precisão e recall, permitindo uma avaliação mais robusta do desempenho global do modelo.
+
+Adicionalmente, a AUC-ROC foi utilizada para medir a capacidade discriminativa do modelo, independentemente do limiar de decisão.
 
 ## 2. Experiências Realizadas 
 ### 2.1. Modelo Baseline 
