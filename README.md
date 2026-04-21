@@ -49,8 +49,8 @@ A adoção destas abordagens permite tornar este processo mais eficiente, contri
 |:---|:---|
 | **Link** | https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data |
 | **Dimensão** | 1000 observações (linhas) e 21 variáveis (colunas)|
-| **Variável Alvo**|Creditability (1 = Bom crédito, 0 = Mau crédito)|
-| **Descrição** | O dataset contém informação financeira e demográfica de clientes, utilizada para avaliar o risco de crédito e prever a probabilidade de incumprimento. |
+| **Variável Alvo**|Creditability (1 = Cumprimento, 0 =Incumprimento)|
+| **Descrição** | O *dataset* contém informação financeira e demográfica de clientes, utilizada para avaliar o risco de crédito e prever a probabilidade de incumprimento. |
 
  
 ### Bibliotecas e ferramentas
