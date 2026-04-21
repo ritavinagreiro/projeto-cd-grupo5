@@ -3,8 +3,8 @@
 ## 1. Análise Exploratória de Dados (EDA) 
 ### 1.1. Distribuição da Variável Alvo 
 A variável alvo do presente estudo é *Creditability*, que indica o nível de risco de crédito do cliente, assumindo dois valores possíveis:
-* 1 - Bom crédito
-* 0 - Mau crédito
+* 1 - Cumprimento
+* 0 - Incumprimento
 
 A análise da distribuição revela que, num total de 1000 observações:
 * 700 clientes (70%) apresentam bom crédito
@@ -87,13 +87,10 @@ Esta abordagem permitiu obter um conjunto de dados mais consistente, focado nas 
 Apesar de algumas variáveis do dataset representarem categorias, estas já se encontram previamente codificadas em formato numérico no conjunto de dados original. Desta forma, não foi necessário aplicar técnicas adicionais de encoding.
 
 **Escalonamento:**   
-Com o objetivo de garantir que as variáveis numéricas apresentam a mesma escala, foi aplicado o método StandardScaler às variáveis numéricas contínuas. Este método transforma os dados de forma a que apresentem média próxima de zero e desvio padrão próximo de um.
-
-O escalonamento foi aplicado às variáveis *Duration_of_Credit_monthly*, *Credit_Amount* e *Age_years*, bem como às variáveis derivadas criadas posteriormente, garantindo que todas as variáveis utilizadas na modelação apresentam a mesma escala.
+Com o objetivo de garantir que as variáveis numéricas apresentam a mesma escala, foi aplicado o transformador StandardScaler, do Scikit-Learn, às variáveis numéricas contínuas *Duration_of_Credit_monthly*, *Credit_Amount* e *Age_years*. Para além disso, foi aplicado às variáveis derivadas criadas posteriormente, garantindo que todas as variáveis utilizadas na modelação apresentam a mesma escala. A padronização transforma os dados de forma a que apresentem média próxima de zero e desvio padrão próximo de um e este método foi aplicado, a estas variáveis, devido ao facto serem variáveis que contêm outliers significativos (Géron, 2019).
 
 As restantes variáveis numéricas foram mantidas na sua forma original, uma vez que correspondem a escalas categóricas ou contagens discretas com intervalos reduzidos, nas quais a aplicação de escalonamento não acrescentaria benefícios relevantes para a modelação.
 
- 
 ### 3.2. Criação de Novos Atributos 
 Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do datset, foram criadas novas variáveis derivadas das variáveis orig
 inais. Sendo elas:
@@ -166,7 +163,7 @@ Com isto, conclui-se que os dados são suficientes para avançar para a modelaç
 ## 6. Referências Bibliográficas
 1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 24 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
-3. Géron, A. (2019). Mãos à obra: Aprendizado de máquina com Scikit-Learn e TensorFlow. Starlin Alta Editora e Consultoria Eireli. Consultado pela última vez a 21 de abril de 2026.
+3. Géron, A. (2019). Mãos à obra: Aprendizado de máquina com Scikit-Learn e TensorFlow. Starlin Alta Editora e Consultoria Eireli.
  --- 
 *Data de última atualização: 21/04/2026* 
 
