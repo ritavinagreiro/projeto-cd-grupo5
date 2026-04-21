@@ -33,7 +33,7 @@ A adoção destas abordagens permite tornar este processo mais eficiente, contri
  
  
 ### Objetivos do Projeto 
-* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na identificação de situações de cumprimento ou incumprimento de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente (20%), que atinja um F1-Score mínimo de 0.80 e uma taxa de identificação de incumprimento (Recall da classe de incumprimento) igual ou superior a 0.70, até ao final do Milestone 3.
+* **Objetivo :** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na identificação de situações de cumprimento ou incumprimento de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente (20%), que atinja um F1-Score mínimo de 0.80 e uma taxa de identificação de incumprimento (Recall da classe de incumprimento) igual ou superior a 0.70, até ao final do Milestone 3.
 
 ### Perguntas de Investigação
 
