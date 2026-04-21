@@ -11,9 +11,7 @@ A variável objetivo corresponde ao estado do crédito do cliente, sendo utiliza
 A relevância deste problema prende-se com o aumento do crédito ao consumo e com a necessidade crescente de sistemas de apoio à decisão que permitam reduzir o risco associado à concessão de crédito e melhorar a eficiência das instituições financeiras
 
 ## 2. Objetivos SMART  
-* **Objetivo 1:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na decisão de aprovação ou recusa de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente, que atinja um F1-Score mínimo de 0.80 e uma AUC_ROC mínima de 0.80, até ao final do Milestone 3.
-
-* **Objetivo 2:** Classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas previsões do modelo desenvolvido, garantindo uma taxa de identificação de incumprimento (Recall) igual ou superior a 70%, até ao final do Milestone 3.
+* **Objetivo:** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na identificação de situações de cumprimento ou incumprimento de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente (20%), que atinja um F1-Score mínimo de 0.80 e uma taxa de identificação de incumprimento (Recall da classe de incumprimento) igual ou superior a 0.70, até ao final do Milestone 3.
 
 **Perguntas de Investigação**
 
