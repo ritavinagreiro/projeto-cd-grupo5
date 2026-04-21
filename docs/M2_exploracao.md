@@ -95,7 +95,8 @@ As restantes variáveis numéricas foram mantidas na sua forma original, uma vez
 
  
 ### 3.2. Criação de Novos Atributos 
-Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do datset, foram criadas novas variáveis derivadas das variáveis originais. Sendo elas:
+Com o objetivo de enriquecer a informação disponível para o modelo e capturar relações adicionais entre as variáveis do datset, foram criadas novas variáveis derivadas das variáveis orig
+inais. Sendo elas:
 * **Credit_per_month:**
  Foi criada a variável *Credit_per_month*, que representa o montante de crédito por mês. Esta variável foi calculada através da divisão do montante total do crédito pela duração do empréstimo.
  Por exemplo, alguns dos valores observados para esta variável incluem 58.28, 311.00, 70.08, 176.83 e 180.92, representando diferentes níveis de intensidade do crédito assumido mensalmente pelos clientes.
@@ -165,6 +166,7 @@ Com isto, conclui-se que os dados são suficientes para avançar para a modelaç
 ## 6. Referências Bibliográficas
 1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
 2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 24 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
+3. Géron, A. (2019). Mãos à obra: Aprendizado de máquina com Scikit-Learn e TensorFlow. Starlin Alta Editora e Consultoria Eireli. Consultado pela última vez a 21 de abril de 2026.
  --- 
-*Data de última atualização: 17/04/2026* 
+*Data de última atualização: 21/04/2026* 
 
