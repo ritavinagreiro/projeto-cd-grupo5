@@ -33,13 +33,28 @@ Adicionalmente, a AUC-ROC foi utilizada para medir a capacidade discriminativa d
 **Observação:** O modelo baseline apresenta um bom F1-Score global, mas o Recall da classe de incumprimento (0.52) fica muito abaixo da meta definida (≥ 0.70), não sendo suficiente para o objetivo do projeto.
  
 ### 2.2. Modelos Candidatos 
-*Listagem dos algoritmos testados e a justificação da escolha.* 
+
+Foram testados vários algoritmos de maior complexidade com o objetivo de melhorar o desempenho face ao modelo baseline, explorando diferentes abordagens de aprendizagem automática, nomeadamente modelos baseados em ensembles e modelos de fronteira.
+
+**Justificação da escolha dos modelos:**
+A seleção dos modelos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, privilegiando algoritmos com bom desempenho em dados estruturados e com características distintas ao nível da generalização e complexidade.
+
+* Random Forest: Selecionado como modelo de referência, por apresentar robustez e bom desempenho geral, sendo utilizado como base de comparação com modelos mais avançados.
+  
+* Gradient Boosting: Incluído pela sua elevada capacidade preditiva e bom equilíbrio entre desempenho e generalização, tendo-se revelado um dos modelos mais promissores nos resultados obtidos.
+  
+* SVM (RBF): Utilizado como alternativa baseada em fronteiras de decisão, permitindo avaliar o desempenho de um modelo distinto dos métodos de ensemble.
+  
+* XGBoost: Selecionado pelo seu desempenho reconhecido em problemas de classificação e pela sua capacidade de melhorar a identificação da classe de incumprimento, conforme observado nos resultados obtidos.
+
+**Resultados Obtidos:**
  
 | Algoritmo | Parâmetros Base | Métrica (Treino) | Métrica (Teste) | Notas | 
 | :--- | :--- | :--- | :--- | :--- | 
-| Random Forest | n_estimators=100 | 0.95 | 0.82 | Sinais de overfitting | 
-| XGBoost | default | 0.88 | 0.85 | Melhor generalização | 
-| SVM | kernel='rbf' | 0.80 | 0.79 | Lento no treino | 
+| Random Forest | n_estimators=100 | 1.000 | 0.8667 | Sinais de overfitting | 
+| Gradient Boosting | n_estimators=100 | 0.9493 | 0.8667 | Bom equilíbrio | 
+| SVM (RBF) | kernel='rbf' | 0.8732 | 0.8721 | Elevado tempo no treino | 
+| XGBoost | default | 1.000 | 0.8403 | Sinais de overfitting; Melhor desempenho no recall | 
  
 ## 3. Otimização (Tuning) 
 *Descrevam como melhoraram o melhor modelo.* 
