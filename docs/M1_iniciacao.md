@@ -20,7 +20,8 @@ As perguntas de investigação foram definidas com o objetivo de compreender os 
 1.   ⁠Quais são as características financeiras e demográficas mais comuns entre os clientes em incumprimento de crédito? 
 2.   Existe relação entre o montante do crédito e a ocorrência de incumprimento?  
 3.   De que forma a duração do crédito influencia a ocorrência de incumprimento?   
-4.   Quais são as variáveis que mais contribuem para a previsão do incumprimento de crédito?   
+4.   Quais são as variáveis que mais contribuem para a previsão do incumprimento de crédito?
+5.   É possível classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas probabilidades geradas pelo modelo preditivo?  
 
 ## 3. Metodologia de Gestão (PBL) 
 * **Divisão de Tarefas:** 
