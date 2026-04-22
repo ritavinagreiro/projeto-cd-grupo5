@@ -55,7 +55,25 @@ A seleção dos modelos teve como objetivo comparar diferentes abordagens de apr
 | Gradient Boosting | n_estimators=100 | 0.9493 | 0.8667 | Bom equilíbrio | 
 | SVM (RBF) | kernel='rbf' | 0.8732 | 0.8721 | Elevado tempo no treino | 
 | XGBoost | default | 1.000 | 0.8403 | Sinais de overfitting; Melhor desempenho no recall | 
- 
+
+**Diagnóstico de Overfitting/Underfitting:**
+
+A comparação entre o desempenho nos conjuntos de treino e de teste revela dois comportamentos distintos:
+  
+* XGBoost e Random Forest atingem valores de F1 iguais a 1.00 no treino, mas apresentam uma degradação no conjunto de teste (diferença superior a 0.10), evidenciando sinais claros de overfitting, isto é, o modelo ajusta-se excessivamente aos dados de treino, comprometendo a sua capacidade de generalização.
+* Gradient Boosting e SVM apresentam uma diferença entre treino e teste inferior a 0.09, demonstrando um melhor equilíbrio e maior capacidade de generalização.
+* O Gradient Boosting destaca-se como o modelo mais equilibrado, apresentando um desempenho no teste idêntico ao do Random Forest (F1 = 0.8667), mas sem evidência significativa de sobreajuste.
+
+**Análise geral:**
+
+De forma global, todos os modelos apresentam bons resultados ao nível do F1-Score, evidenciando um desempenho consistente na classificação global.  
+No entanto, identifica-se uma limitação crítica: todos os modelos revelam dificuldades na identificação da classe de incumprimento, apresentando valores de recall inferiores ao objetivo definido (≥ 0.70).  
+O XGBoost apresenta o melhor desempenho neste critério (Recall = 0.55), embora ainda insuficiente para satisfazer os requisitos do problema.  
+Estes resultados indicam que a principal limitação não reside no desempenho global dos modelos, mas sim na capacidade de identificar corretamente a classe minoritária (clientes em incumprimento).  
+O desequilíbrio do conjunto de dados (70% / 30%) surge como o principal fator explicativo deste comportamento, justificando a necessidade de aplicar técnicas adicionais de melhoria, nomeadamente:
+* reequilíbrio de dados (SMOTE)
+* ajuste do limiar de decisão (threshold)
+
 ## 3. Otimização (Tuning) 
 *Descrevam como melhoraram o melhor modelo.* 
 * **Técnica Utilizada:** (p/ex.: "Utilizámos GridSearchCV para ajustar os hiperparâmetros 
