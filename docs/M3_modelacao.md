@@ -134,7 +134,7 @@ A aplicação de SMOTE permitiu atingir pela primeira vez a meta de Recall ≥ 0
 
 Paralelamente, testou-se o XGBoost com hiperparâmetros ajustados manualmente, por ser o algoritmo que havia apresentado o melhor Recall na fase de candidatos (0.55) e por incorporar regularização nativa que pode mitigar o overfitting observado anteriormente.
 
-Configuração utilizada:
+**Configuração utilizada:**
 pythonXGBClassifier(
     n_estimators=200,
     learning_rate=0.05,
@@ -147,7 +147,7 @@ pythonXGBClassifier(
 
 Foi ainda aplicado ajuste de threshold no intervalo [0.20, 0.60], com threshold ótimo de 0.56.
 
-Resultados:
+**Resultados:**
 | Métrica                | Valor  |
 | :--------------------- | :----- |
 | F1-Score (Teste)       | 0.8541 |
@@ -155,14 +155,13 @@ Resultados:
 | Recall (Incumprimento) | 0.6500 |
 | Threshold ótimo        | 0.56   |
 
-
 O XGBoost apresenta um F1-Score global superior ao Gradient Boosting + SMOTE (0.8541 vs. 0.8123), mas o Recall de 0.6500 ainda fica abaixo da meta de 0.70. Este resultado sugere que o XGBoost tem maior potencial preditivo, mas necessita igualmente de reequilíbrio de dados para atingir os objetivos do projeto.
 
 **3.4. Melhoria do Recall — XGBoost + SMOTE**
 
 Combinando as aprendizagens das etapas anteriores — o potencial do XGBoost e a eficácia do SMOTE —, testou-se a combinação de ambos num pipeline, utilizando a mesma configuração do modelo descrita na secção 3.2. O threshold ótimo de 0.56 foi selecionado por maximizar o Recall mantendo F1-Score ≥ 0.80.
 
-Resultados:
+**Resultados:**
 | Métrica                | Valor  |
 | :--------------------- | :----- |
 | F1-Score (Teste)       | 0.8213 |
@@ -171,7 +170,7 @@ Resultados:
 | F1 ≥ 0.80              | ✔      |
 | Recall ≥ 0.70          | ✔      |
 
-Cross-Validation (5-Fold) — XGBoost + SMOTE
+**Cross-Validation (5-Fold) — XGBoost + SMOTE**
 | Métrica                | Média  | Desvio Padrão |
 | :--------------------- | :----- | :------------ |
 | F1-Score               | 0.8153 | ± 0.0341      |
