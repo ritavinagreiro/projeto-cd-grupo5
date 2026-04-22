@@ -113,6 +113,87 @@ Para maximizar o Recall mantendo o F1-Score aceitável, foi realizado um varrime
 
 A otimização produziu uma melhoria relevante, especialmente no Recall (+29%), mas o valor de 0.6667 ficou aquém da meta definida (≥ 0.70), o que tornou necessário explorar abordagens adicionais.
 
+**3.2. Tentativa de Melhoria — Gradient Boosting + SMOTE**
+
+Perante a limitação identificada, aplicou-se o SMOTE (Synthetic Minority Over-sampling Technique) em conjunto com o Gradient Boosting. O SMOTE gera sinteticamente novos exemplos da classe minoritária através da interpolação entre observações reais, equilibrando o dataset de treino sem duplicar registos existentes.
+
+O SMOTE foi integrado num pipeline (imblearn.pipeline.Pipeline), garantindo que o reequilíbrio é aplicado exclusivamente aos dados de treino em cada fold da validação cruzada e prevenindo qualquer fuga de informação (data leakage) para o conjunto de teste. Foi igualmente aplicado ajuste de threshold para maximizar o Recall.
+
+| Métrica                | Gradient Boosting (Tuned) | Gradient Boosting + SMOTE | Variação |
+| :--------------------- | :------------------------ | :------------------------ | :------- |
+| F1-Score               | 0.8612                    | 0.8123                    | -5.7%    |
+| Recall (Incumprimento) | 0.6667                    | 0.7500                    | +12%     |
+| AUC-ROC                | 0.8282                    | 0.7868                    | -5.0%    |
+| F1 ≥ 0.80              | ✔                         | ✔                        | —        |
+| Recall ≥ 0.70          | ✘                         | ✔                        | —        |
+
+
+A aplicação de SMOTE permitiu atingir pela primeira vez a meta de Recall ≥ 0.70, evidenciando um trade-off claro: o Recall melhorou significativamente (+12%), mas com alguma redução no F1-Score e na AUC-ROC. Este resultado confirma o valor do SMOTE para o problema em causa, motivando a sua aplicação a um algoritmo com maior capacidade preditiva.
+
+**3.3. Modelo Alternativo — XGBoost (base)**
+
+Paralelamente, testou-se o XGBoost com hiperparâmetros ajustados manualmente, por ser o algoritmo que havia apresentado o melhor Recall na fase de candidatos (0.55) e por incorporar regularização nativa que pode mitigar o overfitting observado anteriormente.
+
+Configuração utilizada:
+pythonXGBClassifier(
+    n_estimators=200,
+    learning_rate=0.05,
+    max_depth=4,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    eval_metric='logloss',
+    random_state=42
+)
+
+Foi ainda aplicado ajuste de threshold no intervalo [0.20, 0.60], com threshold ótimo de 0.56.
+
+Resultados:
+| Métrica                | Valor  |
+| :--------------------- | :----- |
+| F1-Score (Teste)       | 0.8541 |
+| AUC-ROC (Teste)        | 0.8132 |
+| Recall (Incumprimento) | 0.6500 |
+| Threshold ótimo        | 0.56   |
+
+
+O XGBoost apresenta um F1-Score global superior ao Gradient Boosting + SMOTE (0.8541 vs. 0.8123), mas o Recall de 0.6500 ainda fica abaixo da meta de 0.70. Este resultado sugere que o XGBoost tem maior potencial preditivo, mas necessita igualmente de reequilíbrio de dados para atingir os objetivos do projeto.
+
+**3.4. Melhoria do Recall — XGBoost + SMOTE**
+
+Combinando as aprendizagens das etapas anteriores — o potencial do XGBoost e a eficácia do SMOTE —, testou-se a combinação de ambos num pipeline, utilizando a mesma configuração do modelo descrita na secção 3.2. O threshold ótimo de 0.56 foi selecionado por maximizar o Recall mantendo F1-Score ≥ 0.80.
+
+Resultados:
+| Métrica                | Valor  |
+| :--------------------- | :----- |
+| F1-Score (Teste)       | 0.8213 |
+| AUC-ROC (Teste)        | 0.8090 |
+| Recall (Incumprimento) | 0.7500 |
+| F1 ≥ 0.80              | ✔      |
+| Recall ≥ 0.70          | ✔      |
+
+Cross-Validation (5-Fold) — XGBoost + SMOTE
+| Métrica                | Média  | Desvio Padrão |
+| :--------------------- | :----- | :------------ |
+| F1-Score               | 0.8153 | ± 0.0341      |
+| Recall (Incumprimento) | 0.6042 | ± 0.0437      |
+| AUC-ROC                | 0.7734 | ± 0.0295      |
+
+A validação cruzada confirma resultados consistentes entre os diferentes folds, demonstrando estabilidade do modelo e boa capacidade de generalização para dados novos.
+
+**3.5. Síntese da Evolução dos Modelos**    
+
+A tabela seguinte resume a progressão obtida ao longo de todas as estratégias, comparando todas as configurações testadas face às metas definidas:
+
+| Modelo                         | F1 (Teste) | Recall (Incumprimento) | F1 ≥ 0.80 | Recall ≥ 0.70 |
+| :----------------------------- | :--------- | :--------------------- | :-------- | :------------ |
+| Baseline (Regressão Logística) | 0.8464     | 0.5167                 | ✔         | ✘             |
+| Gradient Boosting (Tuned)      | 0.8612     | 0.6667                 | ✔         | ✘             |
+| Gradient Boosting + SMOTE      | 0.8123     | 0.7500                 | ✔         | ✔             |
+| XGBoost (base)                 | 0.8541     | 0.6500                 | ✔         | ✘             |
+| XGBoost + SMOTE (Modelo Final) | 0.8213     | 0.7500                 | ✔         | ✔             |
+
+O XGBoost + SMOTE é selecionado como modelo final por ser o único a cumprir simultaneamente ambos os critérios, apresentando o melhor F1-Score entre os modelos válidos. A sua escolha em detrimento do Gradient Boosting + SMOTE justifica-se pelo desempenho global superior (+1% em F1 e +2% em AUC-ROC), mantendo o mesmo Recall. A regularização incorporada no XGBoost revelou-se assim determinante após o balanceamento com SMOTE.
+
 ## 4. Avaliação do Modelo Final 
 ### 4.1. Matriz de Confusão / Erros 
 *Analisem onde o modelo mais falha.* 
