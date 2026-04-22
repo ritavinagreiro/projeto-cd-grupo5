@@ -15,11 +15,22 @@ Por sua vez, o F1-Score assegura um equilíbrio entre precisão e recall, permit
 
 Adicionalmente, a AUC-ROC foi utilizada para medir a capacidade discriminativa do modelo, independentemente do limiar de decisão.
 
+**Metas definidas:**
+* Recall (Incumprimento) ≥ 0.70
+* ⁠F1-Score ≥ 0.80
+
 ## 2. Experiências Realizadas 
 ### 2.1. Modelo Baseline 
-*O ponto de partida simples.* 
-* **Algoritmo:** (p/ex.: Regressão Logística) 
-* **Resultado:** (p/ex.: Accuracy: 0.72) 
+
+**Algoritmo:** Regressão Logística  
+
+**Resultados:**
+* F1-Score: 0.8464
+* Recall Incumprimento: 0.5167
+* AUC-ROC: 0.8145
+
+    
+**Observação:** O modelo baseline apresenta um bom F1-Score global, mas o Recall da classe de incumprimento (0.52) fica muito abaixo da meta definida (≥ 0.70), não sendo suficiente para o objetivo do projeto.
  
 ### 2.2. Modelos Candidatos 
 *Listagem dos algoritmos testados e a justificação da escolha.* 
