@@ -33,14 +33,14 @@ As variáveis *Duration_of_Credit_monthly* e *Credit_Amount* indicam que emprés
 
 De forma geral, as correlações observadas são moderadas ou fracas, indicando que nenhuma variável isoladamente explica completamente o comportamento da variável alvo, reforçando a necessidade de modelação multivariada.
 
- #### **Análise Gráfica das Variáveis Mais Relevantes**
+#### **Análise Gráfica das Variáveis Mais Relevantes**
 
 * **Duration of credit_monthly vs creditability**: A análise através de boxplots evidencia diferenças na distribuição da duração do crédito entre clientes com bom e mau crédito, conforme ilustrado na Figura 3. observa-se que os clientes classificados com maior risco (mau crédito) tendem, em média, a apresentar créditos com maior duração. Esta tendência está alinhada com a correlação negativa fraca identificada (-0.21), sugerindo que empréstimos com prazos mais longos podem estar associados a uma maior probabilidade de incumprimento.
 * **Credit Amount vs Creditability**: A análise da variavel *Credit Amount* (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
 * **Age_years vs Creditability**: A variável *Age Years* (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
 Apesar das diferenças observadas, verifica-se alguma sobreposição entre as distribuições das classes, indicando que nenhuma variável isoladamente permite distinguir completamente entre bom e mau crédito, reforçando a necessidade de modelação multivariada.
 
-#### 1.3. **Resposta às Perguntas de Investigação (Análise Exploratória)**  
+### 1.3. **Resposta às Perguntas de Investigação (Análise Exploratória)**  
 **Quais são as características financeiras e demográficas mais comuns entre os clientes em incumprimento de crédito?**  
 Os resultados indicam que os clientes em incumprimento tendem a apresentar montantes de crédito mais elevados e prazos de financiamento mais longos, conforme evidenciado pelos boxplots analisados. Adicionalmente, variáveis como o *Credit_per_month* sugerem um maior esforço financeiro mensal nestes clientes. A análise da variável *Account_Balance* revela ainda que níveis mais baixos de saldo estão associados a maior risco. Em termos demográficos, a idade isoladamente não apresenta forte capacidade discriminativa, embora a variável *Credit_Age_Ratio* sugira maior risco em clientes mais jovens com créditos elevados.
 
