@@ -5,14 +5,10 @@
 Utilizámos uma divisão de 80% para treino e 20% para teste, com random_state=42 e estratificação da variável alvo (stratify=y), garantindo que a proporção das classes (70% de clientes em cumprimento e 30% de clientes em incumprimento) se mantém em ambos os conjuntos.
 
 **Métrica de Sucesso:**   
-As métricas principais escolhidas foram o Recall (para a classe de incumprimento) e o F1-Score, sendo ainda considerada a AUC-ROC como métrica complementar.
-
-Esta escolha justifica-se pelo facto de o dataset ser desequilibrado (70% de clientes em cumprimento e 30% em incumprimento), o que torna a accuracy uma métrica pouco fiável.
-
-Neste contexto, o Recall assume particular importância, uma vez que permite minimizar os falsos negativos, ou seja, casos em que clientes de risco são incorretamente classificados como cumpridores.
-
-Por sua vez, o F1-Score assegura um equilíbrio entre precisão e recall, permitindo uma avaliação mais robusta do desempenho global do modelo.
-
+As métricas principais escolhidas foram o Recall (para a classe de incumprimento) e o F1-Score, sendo ainda considerada a AUC-ROC como métrica complementar.  
+Esta escolha justifica-se pelo facto de o dataset ser desequilibrado (70% de clientes em cumprimento e 30% em incumprimento), o que torna a accuracy uma métrica pouco fiável.  
+Neste contexto, o Recall assume particular importância, uma vez que permite minimizar os falsos negativos, ou seja, casos em que clientes de risco são incorretamente classificados como cumpridores.  
+Por sua vez, o F1-Score assegura um equilíbrio entre precisão e recall, permitindo uma avaliação mais robusta do desempenho global do modelo.  
 Adicionalmente, a AUC-ROC foi utilizada para medir a capacidade discriminativa do modelo, independentemente do limiar de decisão.
 
 **Metas definidas:**
@@ -29,23 +25,18 @@ Adicionalmente, a AUC-ROC foi utilizada para medir a capacidade discriminativa d
 * Recall Incumprimento: 0.5167
 * AUC-ROC: 0.8145
 
-    
 **Observação:** O modelo baseline apresenta um bom F1-Score global, mas o Recall da classe de incumprimento (0.52) fica muito abaixo da meta definida (≥ 0.70), não sendo suficiente para o objetivo do projeto.
  
 ### 2.2. Modelos Candidatos 
-
 Foram testados vários algoritmos de maior complexidade com o objetivo de melhorar o desempenho face ao modelo baseline, explorando diferentes abordagens de aprendizagem automática, nomeadamente modelos baseados em ensembles e modelos de fronteira.
 
-**Justificação da escolha dos modelos:**
+**Justificação da escolha dos modelos:**  
 A seleção dos modelos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, privilegiando algoritmos com bom desempenho em dados estruturados e com características distintas ao nível da generalização e complexidade.
 
-* Random Forest: Selecionado como modelo de referência, por apresentar robustez e bom desempenho geral, sendo utilizado como base de comparação com modelos mais avançados.
-  
-* Gradient Boosting: Incluído pela sua elevada capacidade preditiva e bom equilíbrio entre desempenho e generalização, tendo-se revelado um dos modelos mais promissores nos resultados obtidos.
-  
-* SVM (RBF): Utilizado como alternativa baseada em fronteiras de decisão, permitindo avaliar o desempenho de um modelo distinto dos métodos de ensemble.
-  
-* XGBoost: Selecionado pelo seu desempenho reconhecido em problemas de classificação e pela sua capacidade de melhorar a identificação da classe de incumprimento, conforme observado nos resultados obtidos.
+* **Random Forest:** Selecionado como modelo de referência, por apresentar robustez e bom desempenho geral, sendo utilizado como base de comparação com modelos mais avançados.
+* **Gradient Boosting:** Incluído pela sua elevada capacidade preditiva e bom equilíbrio entre desempenho e generalização, tendo-se revelado um dos modelos mais promissores nos resultados obtidos.
+* **SVM (RBF):** Utilizado como alternativa baseada em fronteiras de decisão, permitindo avaliar o desempenho de um modelo distinto dos métodos de ensemble.
+* **XGBoost:** Selecionado pelo seu desempenho reconhecido em problemas de classificação e pela sua capacidade de melhorar a identificação da classe de incumprimento, conforme observado nos resultados obtidos.
 
 **Resultados Obtidos:**
  
@@ -56,20 +47,18 @@ A seleção dos modelos teve como objetivo comparar diferentes abordagens de apr
 | SVM (RBF) | kernel='rbf' | 0.8732 | 0.8721 | Elevado tempo no treino | 
 | XGBoost | default | 1.000 | 0.8403 | Sinais de overfitting; Melhor desempenho no recall | 
 
-**Diagnóstico de Overfitting/Underfitting:**
-
+**Diagnóstico de Overfitting/Underfitting:**  
 A comparação entre o desempenho nos conjuntos de treino e de teste revela dois comportamentos distintos:
   
 * XGBoost e Random Forest atingem valores de F1 iguais a 1.00 no treino, mas apresentam uma degradação no conjunto de teste (diferença superior a 0.10), evidenciando sinais claros de overfitting, isto é, o modelo ajusta-se excessivamente aos dados de treino, comprometendo a sua capacidade de generalização.
 * Gradient Boosting e SVM apresentam uma diferença entre treino e teste inferior a 0.09, demonstrando um melhor equilíbrio e maior capacidade de generalização.
 * O Gradient Boosting destaca-se como o modelo mais equilibrado, apresentando um desempenho no teste idêntico ao do Random Forest (F1 = 0.8667), mas sem evidência significativa de sobreajuste.
 
-**Análise geral:**
+**Análise geral:**  
+De forma global, todos os modelos apresentam bons resultados ao nível do F1-Score, evidenciando um desempenho consistente na classificação global. No entanto, identifica-se uma limitação crítica: todos os modelos revelam dificuldades na identificação da classe de incumprimento, apresentando valores de recall inferiores ao objetivo definido (≥ 0.70). O XGBoost apresenta o melhor desempenho neste critério (Recall = 0.55), embora ainda insuficiente para satisfazer os requisitos do problema.
 
-De forma global, todos os modelos apresentam bons resultados ao nível do F1-Score, evidenciando um desempenho consistente na classificação global.  
-No entanto, identifica-se uma limitação crítica: todos os modelos revelam dificuldades na identificação da classe de incumprimento, apresentando valores de recall inferiores ao objetivo definido (≥ 0.70).  
-O XGBoost apresenta o melhor desempenho neste critério (Recall = 0.55), embora ainda insuficiente para satisfazer os requisitos do problema.  
 Estes resultados indicam que a principal limitação não reside no desempenho global dos modelos, mas sim na capacidade de identificar corretamente a classe minoritária (clientes em incumprimento).  
+
 O desequilíbrio do conjunto de dados (70% / 30%) surge como o principal fator explicativo deste comportamento, justificando a necessidade de aplicar técnicas adicionais de melhoria, nomeadamente:
 * reequilíbrio de dados (SMOTE)
 * ajuste do limiar de decisão (threshold)
@@ -78,7 +67,7 @@ O desequilíbrio do conjunto de dados (70% / 30%) surge como o principal fator e
 
 Com base nos resultados da fase de experimentação, foram desenvolvidas três estratégias progressivas de otimização, motivadas pela necessidade de melhorar o Recall da classe de incumprimento sem comprometer o desempenho global do modelo.
 
-**3.1. Otimização de Hiperparâmetros — Gradient Boosting**
+### 3.1. Otimização de Hiperparâmetros — Gradient Boosting
 
 Com base nos resultados obtidos na fase anterior, o modelo Gradient Boosting foi selecionado para otimização, por apresentar o melhor compromisso entre desempenho global, medido através do F1-Score, e capacidade de generalização, evidenciada pela reduzida diferença entre os resultados de treino e de teste.
 
@@ -113,7 +102,7 @@ Para maximizar o Recall mantendo o F1-Score aceitável, foi realizado um varrime
 
 A otimização produziu uma melhoria relevante, especialmente no Recall (+29%), mas o valor de 0.6667 ficou aquém da meta definida (≥ 0.70), o que tornou necessário explorar abordagens adicionais.
 
-**3.2. Tentativa de Melhoria — Gradient Boosting + SMOTE**
+### 3.2. Tentativa de Melhoria — Gradient Boosting + SMOTE
 
 Perante a limitação identificada, aplicou-se o SMOTE (Synthetic Minority Over-sampling Technique) em conjunto com o Gradient Boosting. O SMOTE gera sinteticamente novos exemplos da classe minoritária através da interpolação entre observações reais, equilibrando o dataset de treino sem duplicar registos existentes.
 
@@ -130,22 +119,20 @@ O SMOTE foi integrado num pipeline (imblearn.pipeline.Pipeline), garantindo que 
 
 A aplicação de SMOTE permitiu atingir pela primeira vez a meta de Recall ≥ 0.70, evidenciando um trade-off claro: o Recall melhorou significativamente (+12%), mas com alguma redução no F1-Score e na AUC-ROC. Este resultado confirma o valor do SMOTE para o problema em causa, motivando a sua aplicação a um algoritmo com maior capacidade preditiva.
 
-**3.3. Modelo Alternativo — XGBoost (base)**
+### 3.3. Modelo Alternativo — XGBoost (base)  
+Paralelamente, foi testado um modelo baseado em XGBoost, com hiperparâmetros ajustados manualmente, com o objetivo de explorar uma alternativa ao Gradient Boosting.
 
-Paralelamente, testou-se o XGBoost com hiperparâmetros ajustados manualmente, por ser o algoritmo que havia apresentado o melhor Recall na fase de candidatos (0.55) e por incorporar regularização nativa que pode mitigar o overfitting observado anteriormente.
+A escolha deste modelo baseou-se no facto de ter apresentado o melhor desempenho ao nível do Recall na fase de modelos candidatos (0.55), bem como na sua capacidade de incorporar mecanismos de regularização, potencialmente úteis na mitigação do overfitting anteriormente identificado.
 
-**Configuração utilizada:**
-pythonXGBClassifier(
-    n_estimators=200,
-    learning_rate=0.05,
-    max_depth=4,
-    subsample=0.8,
-    colsample_bytree=0.8,
-    eval_metric='logloss',
-    random_state=42
-)
+Foram definidos os seguintes hiperparâmetros:
+* n_estimators: 200
+* learning_rate: 0.05
+* max_depth: 4
+* subsample: 0.8
+* colsample_bytree: 0.8
 
-Foi ainda aplicado ajuste de threshold no intervalo [0.20, 0.60], com threshold ótimo de 0.56.
+
+Adicionalmente, foi realizado o ajuste do limiar de decisão (threshold), testando valores no intervalo [0.20, 0.60], tendo sido identificado um valor ótimo de 0.56, que permitiu melhorar o equilíbrio entre precisão e recall.
 
 **Resultados:**
 | Métrica                | Valor  |
@@ -157,9 +144,9 @@ Foi ainda aplicado ajuste de threshold no intervalo [0.20, 0.60], com threshold 
 
 O XGBoost apresenta um F1-Score global superior ao Gradient Boosting + SMOTE (0.8541 vs. 0.8123), mas o Recall de 0.6500 ainda fica abaixo da meta de 0.70. Este resultado sugere que o XGBoost tem maior potencial preditivo, mas necessita igualmente de reequilíbrio de dados para atingir os objetivos do projeto.
 
-**3.4. Melhoria do Recall — XGBoost + SMOTE**
+### 3.4. Melhoria do Recall — XGBoost + SMOTE
 
-Combinando as aprendizagens das etapas anteriores — o potencial do XGBoost e a eficácia do SMOTE —, testou-se a combinação de ambos num pipeline, utilizando a mesma configuração do modelo descrita na secção 3.2. O threshold ótimo de 0.56 foi selecionado por maximizar o Recall mantendo F1-Score ≥ 0.80.
+Combinando as aprendizagens das etapas anteriores (o potencial do XGBoost e a eficácia do SMOTE), testou-se a combinação de ambos num pipeline, utilizando a mesma configuração do modelo descrita na secção 3.2. O threshold ótimo de 0.56 foi selecionado por maximizar o Recall mantendo F1-Score ≥ 0.80.
 
 **Resultados:**
 | Métrica                | Valor  |
@@ -179,7 +166,7 @@ Combinando as aprendizagens das etapas anteriores — o potencial do XGBoost e a
 
 A validação cruzada confirma resultados consistentes entre os diferentes folds, demonstrando estabilidade do modelo e boa capacidade de generalização para dados novos.
 
-**3.5. Síntese da Evolução dos Modelos**    
+### 3.5. Síntese da Evolução dos Modelos  
 
 A tabela seguinte resume a progressão obtida ao longo de todas as estratégias, comparando todas as configurações testadas face às metas definidas:
 
