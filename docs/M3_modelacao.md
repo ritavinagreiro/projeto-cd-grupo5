@@ -75,11 +75,44 @@ O desequilíbrio do conjunto de dados (70% / 30%) surge como o principal fator e
 * ajuste do limiar de decisão (threshold)
 
 ## 3. Otimização (Tuning) 
-*Descrevam como melhoraram o melhor modelo.* 
-* **Técnica Utilizada:** (p/ex.: "Utilizámos GridSearchCV para ajustar os hiperparâmetros 
-`max_depth` e `learning_rate`.") 
-* **Melhoria obtida:** (p/ex.: "O F1-Score subiu de 0.85 para 0.88 após o ajuste.") 
- 
+
+Com base nos resultados da fase de experimentação, foram desenvolvidas três estratégias progressivas de otimização, motivadas pela necessidade de melhorar o Recall da classe de incumprimento sem comprometer o desempenho global do modelo.
+
+**3.1. Otimização de Hiperparâmetros — Gradient Boosting**
+
+Com base nos resultados obtidos na fase anterior, o modelo Gradient Boosting foi selecionado para otimização, por apresentar o melhor compromisso entre desempenho global, medido através do F1-Score, e capacidade de generalização, evidenciada pela reduzida diferença entre os resultados de treino e de teste.
+
+**Técnica Utilizada:**  
+A otimização foi realizada recorrendo à técnica de Grid Search com validação cruzada estratificada, utilizando o método Stratified K-Fold com k=5. Esta abordagem permitiu avaliar de forma robusta diferentes combinações de hiperparâmetros, assegurando a preservação da distribuição das classes em cada fold.
+
+Foram ajustados os principais hiperparâmetros do modelo, nomeadamente: n_estimators, learning_rate, max_depth e subsample. Este processo possibilitou identificar a configuração que maximiza o desempenho do modelo, ao mesmo tempo que controla o risco de overfitting, promovendo uma melhor capacidade de generalização.
+
+**Espaço de pesquisa definido:**
+
+| Hiperparâmetro  | Valores Testados | Justificação                                                                         |
+| :-------------- | :--------------- | :----------------------------------------------------------------------------------- |
+| `n_estimators`  | [200, 300]       | Um maior número de árvores tende a melhorar a capacidade de generalização            |
+| `learning_rate` | [0.03, 0.05]     | Taxas de aprendizagem mais baixas combinam melhor com um maior número de estimadores |
+| `max_depth`     | [3]              | Profundidade reduzida para controlar o overfitting                                   |
+| `subsample`     | [0.8]            | Amostragem aleatória dos dados para aumentar a robustez do modelo                    |
+
+**Melhores hiperparâmetros encontrados:**  
+learning_rate = 0.03 | max_depth = 3 | n_estimators = 300 | subsample = 0.8  
+Melhor F1-Score (CV): 0.8527
+
+**Ajuste de Threshold de Decisão:**  
+Para maximizar o Recall mantendo o F1-Score aceitável, foi realizado um varrimento de thresholds no intervalo [0.20, 0.60] com passo de 0.01.   O threshold ótimo encontrado foi 0.59, permitindo classificar como incumprimento casos com probabilidade mais baixa, aumentando assim a sensibilidade do modelo à classe de risco.
+
+**Resultados após otimização:**
+
+| Métrica                | Baseline | Gradient Boosting (Tuned) | Variação |
+| :--------------------- | :------- | :------------------------ | :------- |
+| F1-Score               | 0.8464   | 0.8612                    | +1.5%    |
+| Recall (Incumprimento) | 0.5167   | 0.6667                    | +29%     |
+| AUC-ROC                | 0.8145   | 0.8282                    | +1.4%    |
+
+A otimização produziu uma melhoria relevante, especialmente no Recall (+29%), mas o valor de 0.6667 ficou aquém da meta definida (≥ 0.70), o que tornou necessário explorar abordagens adicionais.
+
 ## 4. Avaliação do Modelo Final 
 ### 4.1. Matriz de Confusão / Erros 
 *Analisem onde o modelo mais falha.* 
@@ -95,4 +128,4 @@ O desequilíbrio do conjunto de dados (70% / 30%) surge como o principal fator e
 *Justifiquem por que razão este modelo está pronto (ou não) para ser apresentado como solução 
 final.* 
  --- 
-*Data de última atualização: [DD/MM/AAAA]* 
+*Data de última atualização: 22/04/2026* 
