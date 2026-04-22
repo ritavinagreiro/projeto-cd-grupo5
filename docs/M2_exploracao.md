@@ -39,6 +39,16 @@ De forma geral, as correlações observadas são moderadas ou fracas, indicando 
 * **Credit Amount vs Creditability**: A análise da variavel *Credit Amount* (Figura 2) revela que valores mais elevados de credito tendem a estar associados a maior risco de incumprimento. Embora exista alguma dispersão, verifica-se que os clientes com mau crédito apresentam, em média, montantes de crédito superiores, o que está em linha com a correlação negativa observada (-0.15). Este resultado sugere que empréstimos de maior valor podem representar um maior nível de risco financeiro.
 * **Age_years vs Creditability**: A variável *Age Years* (Figura 4) apresenta diferenças menos acentuadas entre as classes. Apesar de se observar alguma variação, não existe uma separação clara entre clientes com bom e mau crédito com base apenas na idade. Este comportamento indica que a idade, isoladamente, não é um fator determinante na previsão do risco de crédito.
 Apesar das diferenças observadas, verifica-se alguma sobreposição entre as distribuições das classes, indicando que nenhuma variável isoladamente permite distinguir completamente entre bom e mau crédito, reforçando a necessidade de modelação multivariada.
+
+#### 1.3. **Resposta às Perguntas de Investigação (Análise Exploratória)**  
+**Quais são as características financeiras e demográficas mais comuns entre os clientes em incumprimento de crédito?**  
+Os resultados indicam que os clientes em incumprimento tendem a apresentar montantes de crédito mais elevados e prazos de financiamento mais longos, conforme evidenciado pelos boxplots analisados. Adicionalmente, variáveis como o *Credit_per_month* sugerem um maior esforço financeiro mensal nestes clientes. A análise da variável *Account_Balance* revela ainda que níveis mais baixos de saldo estão associados a maior risco. Em termos demográficos, a idade isoladamente não apresenta forte capacidade discriminativa, embora a variável *Credit_Age_Ratio* sugira maior risco em clientes mais jovens com créditos elevados.
+
+**Existe relação entre o montante do crédito e a ocorrência de incumprimento?**  
+Sim. A análise da variável *Credit_Amount*, tanto em termos de correlação como através dos boxplots, indica que valores mais elevados estão associados a maior probabilidade de incumprimento. No entanto, esta relação não é isoladamente determinante, sendo influenciada por outros fatores financeiros.
+
+**De que forma a duração do crédito influencia a ocorrência de incumprimento?**  
+A duração do crédito apresenta influência no risco de incumprimento, sendo que créditos com maior duração estão associados a maior probabilidade de incumprimento. Esta relação é visível tanto na análise de correlação como na distribuição observada nos gráficos, podendo ser explicada pelo aumento da exposição ao risco ao longo do tempo.
  
 ## 2. Qualidade dos Dados e Limpeza 
 ### 2.1. Tratamento de Dados em Falta (Missing Data)
@@ -165,5 +175,5 @@ Com isto, conclui-se que os dados são suficientes para avançar para a modelaç
 2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 24 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
 3. Géron, A. (2019). Mãos à obra: Aprendizado de máquina com Scikit-Learn e TensorFlow. Starlin Alta Editora e Consultoria Eireli.
  --- 
-*Data de última atualização: 21/04/2026* 
+*Data de última atualização: 22/04/2026* 
 
