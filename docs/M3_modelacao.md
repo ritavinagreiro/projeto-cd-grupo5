@@ -224,6 +224,8 @@ Por fim, a variável *Duration_of_Credit_monthly* introduz a dimensão do contra
 
 Em termos globais, a análise evidencia que o modelo baseia a sua decisão sobretudo na combinação entre liquidez financeira, histórico de crédito e características do contrato, demonstrando que o risco de crédito resulta da interação entre múltiplos fatores e não de uma variável isolada. Este comportamento reforça a robustez do modelo enquanto ferramenta de apoio à decisão na concessão de crédito.
 
+## 4.3. Resposta às Perguntas de Investigação (Modelação)
+****
  
 ## 5. Conclusão da Fase de Modelação 
 A fase de modelação permitiu desenvolver, testar e otimizar diversos modelos de classificação com o objetivo de identificar clientes em incumprimento, tendo como principal desafio o desequilíbrio do *dataset* e a dificuldade em detetar corretamente a classe de risco.
