@@ -85,8 +85,46 @@ Apesar das relações identificadas, observa-se que a maioria das correlações 
  
 ## 3. Modelação (Milestone 3) 
 ### Abordagem Técnica 
-* **Modelos:** [Ex: Random Forest e XGBoost] 
-* **Métrica Principal:** [Ex: F1-Score ou RMSE] 
+ **Modelos**
+  
+No desenvolvimento da fase de modelação, foram testados vários algoritmos de classificação supervisionada com o objetivo de prever o risco de incumprimento de crédito.
+Foram considerados diferentes modelos, nomeadamente:
+* Regressão Logística (baseline)
+* *Random Forest*
+* *Gradient Boosting*
+* *SVM* (RBF)
+* *XGBoost*
+
+Após a fase de experimentação e comparação de desempenho, foram aplicadas técnicas de otimização, incluindo:
+* Ajuste de hiperparâmetros (GridSearchCV)
+* Validação cruzada (Stratified K-Fold)
+* Ajuste do *threshold* de decisão
+* Reequilíbrio de dados com *SMOTE*
+  
+ **Métrica Principal:**
+
+As métricas principais utilizadas foram:
+* *Recall* (classe de incumprimento) – métrica crítica para minimizar falsos negativos
+* *F1-Score* – para garantir equilíbrio entre precisão e *recall*
+* *AUC-ROC* – como métrica complementar de capacidade discriminativa
+
+**Modelo Final:**
+
+O modelo final selecionado foi o *XGBoost* com *SMOTE*, por ser o único a cumprir simultaneamente os critérios definidos:
+* *F1-Score* ≥ 0.80
+* *Recall* (Incumprimento) ≥ 0.70
+
+**Resultados finais:**
+
+* *F1-Score*: 0.8213
+* *Recall* (Incumprimento): 0.7500
+* *AUC-ROC*: 0.8090
+
+**Principais Conclusões**
+
+A modelação evidenciou que o principal desafio do problema está na identificação da classe minoritária (incumprimento), devido ao desequilíbrio do dataset.
+A aplicação de técnicas de balanceamento (SMOTE) revelou-se fundamental para melhorar o desempenho do modelo neste aspeto, permitindo atingir os objetivos definidos.
+O modelo final apresenta um bom equilíbrio entre desempenho global e capacidade de identificação de risco, sendo adequado como ferramenta de apoio à decisão na concessão de crédito.
  
  
  
