@@ -229,7 +229,7 @@ Em termos globais, a análise evidencia que o modelo baseia a sua decisão sobre
 
 **É possível classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas probabilidades geradas pelo modelo preditivo?**
 
-Sim. é possível classificar os clientes em categorias de risco de incumprimento com base nas proabilidades geradas pelo modelo preditivo. O modelo determinado como o "melhor" Com base no *threshold* ótimo de 0.56, um clinete é classificado como alto risco quando a probabilidade de incumprimento é superior a esse valor, e como baixo risco quando é inferior. 
+Sim. é possível classificar os clientes em categorias de risco de incumprimento com base nas proabilidades geradas pelo modelo preditivo. O modelo determinado como o "melhor", *XGBoost + SMOTE*, não se limita a classificar um cliente em bom ou mau pagador, ele gera a probabilidade de incumprimento desse mesmo cliente. Para tornar essa probabilidade mais intuitiva e fácil de interpretar, para esta questão, foi aplicada uma normalização (*MinMaxScaler*). Com base no *threshold* ótimo de 0.56, um clinete é classificado como alto risco quando a probabilidade de incumprimento é superior a esse valor, e como baixo risco quando é inferior. 
  
 ## 5. Conclusão da Fase de Modelação 
 A fase de modelação permitiu desenvolver, testar e otimizar diversos modelos de classificação com o objetivo de identificar clientes em incumprimento, tendo como principal desafio o desequilíbrio do *dataset* e a dificuldade em detetar corretamente a classe de risco.
