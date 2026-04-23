@@ -180,6 +180,8 @@ A tabela seguinte resume a progressão obtida ao longo de todas as estratégias,
 
 O *XGBoost + SMOTE* é selecionado como modelo final por ser o único a cumprir simultaneamente ambos os critérios, apresentando o melhor *F1-Score* entre os modelos válidos. A sua escolha em detrimento do *Gradient Boosting + SMOTE* justifica-se pelo desempenho global superior (+1% em F1 e +2% em AUC-ROC), mantendo o mesmo *Recall*. A regularização incorporada no *XGBoost* revelou-se assim determinante após o balanceamento com *SMOTE*.
 
+No que concerne à robustez do modelo, é importante notar a existência de sinais de *Overfitting*. Para obter a confirmação, foi realizado um diagnóstico de *Overfitting*, em que o modelo apresenta um *F1-Score* de 0.95 no treino, o que evidencia uma elevada capacidade de memorização dos dados, o desempenho em validação cruzada estabilizou nos 0.82. O diferencial de 0.13, embora caracterize a presença de um ligeiro sobreajuste (*Overfitting*), não compromete a validade da escolha do modelo. A consistência dos resultados obtidos no conjunto de teste (0.8213) atesta que o modelo possui uma capacidade de generalização eficaz, revelando que a memorização excessiva no treino é devidamente mitigada pela regularização aplicada. Conclui-se, portanto, que este comportamento representa um compromisso aceitável para um modelo de elevada complexidade, mantendo-se o seu poder preditivo em conformidade com os objetivos de negócio traçados.
+
 ## 4. Avaliação do Modelo Final 
 ### 4.1. Matriz de Confusão / Erros 
 A análise da matriz de confusão do modelo final (*XGBoost* com *SMOTE*) evidencia uma melhoria significativa na capacidade de identificação de clientes em incumprimento face ao modelo *baseline*.
