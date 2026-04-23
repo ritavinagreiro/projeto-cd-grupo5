@@ -182,17 +182,70 @@ O XGBoost + SMOTE é selecionado como modelo final por ser o único a cumprir si
 
 ## 4. Avaliação do Modelo Final 
 ### 4.1. Matriz de Confusão / Erros 
-*Analisem onde o modelo mais falha.* 
-> **Análise:** (p/ex.: "O modelo ainda confunde a Classe A com a Classe B em 10% dos casos devido 
-à semelhança nos atributos X e Y.") 
- 
+A análise da matriz de confusão do modelo final (XGBoost com SMOTE) evidencia uma melhoria significativa na capacidade de identificação de clientes em incumprimento face ao modelo baseline.
+
+Em particular, o modelo consegue identificar corretamente 45 clientes em incumprimento (classe 0), comparativamente a apenas 31 no modelo baseline, demonstrando um ganho relevante na deteção de risco. No entanto, esta melhoria vem acompanhada de um aumento no número de falsos positivos, ou seja, clientes de baixo risco incorretamente classificados como de risco.
+
+Do ponto de vista dos erros, destacam-se:
+* Falsos Negativos (FN): 15 casos (~22.86%)
+    → Clientes em incumprimento classificados como cumpridores (erro crítico);
+* Falsos Positivos (FP): 32 casos (~25%)
+    → Clientes cumpridores classificados como risco (perda de oportunidade de negócio).
+
+A análise destes erros revela que o modelo apresenta maior dificuldade na identificação de perfis de risco intermédio, ou seja, clientes cujas características não são suficientemente extremas para permitir uma separação clara entre as classes.
+
+Em particular, os clientes em incumprimento não identificados (falsos negativos) tendem a apresentar:
+* Montantes de crédito mais elevados (*Credit_Amount*)
+* Maior esforço financeiro mensal (*Credit_per_Month*)
+* Rácio crédito/idade superior (*Credit_Age_Ratio*)
+
+Estes fatores indicam níveis mais elevados de pressão financeira, sugerindo que o modelo tem dificuldade em captar situações em que o risco resulta da combinação de variáveis, e não de valores extremos isolados.
+
+Por outro lado, os falsos positivos tendem a estar associados a clientes com características financeiras relativamente mais conservadoras, mas que, devido a padrões semelhantes aos perfis de risco, acabam por ser classificados de forma mais prudente pelo modelo.
+
+Em termos globais, o modelo evidencia um trade-off claro entre risco e oportunidade: reduz significativamente o risco financeiro (menos clientes problemáticos aprovados), mas aumenta a rejeição de clientes potencialmente bons.
+
+Dada a natureza do problema, esta abordagem mais conservadora é justificável, uma vez que o custo de um falso negativo é significativamente superior ao de um falso positivo.
+
 ### 4.2. Importância dos Atributos (Feature Importance) 
-*Quais as variáveis que o modelo considerou mais importantes para decidir?* 
-1. [Variável X] 
-2. [Variável Y] 
+A análise da importância dos atributos, obtida a partir do modelo final (XGBoost com SMOTE), permite identificar as variáveis que mais contribuíram para a sua capacidade preditiva, reforçando simultaneamente a interpretabilidade do modelo em contexto de decisão de crédito.
+
+De acordo com os resultados, destaca-se claramente a variável *Account_Balance*, que apresenta a maior importância relativa (0.1720), assumindo-se como o principal fator na distinção entre clientes de risco e clientes cumpridores. Este resultado evidencia que a liquidez disponível e o saldo da conta são determinantes na avaliação do risco de crédito, estando diretamente associados à capacidade do cliente em cumprir as suas obrigações financeiras.
+
+Para além desta variável, outras assumem também um papel relevante, nomeadamente:
+* *Value_Savings_Stocks* (0.0830)
+* *Guarantors* (0.0774)
+* *Payment_Status_of_Previous_Credit* (0.0766)
+* *Duration_of_Credit_monthly* (0.0552)
+
+Estas variáveis refletem dimensões fundamentais do risco de crédito. Por um lado, *Value_Savings_Stocks* traduz a capacidade financeira acumulada do cliente, enquanto *Account_Balance* reforça a importância da liquidez imediata. Por outro lado, *Payment_Status_of_Previous_Credit* evidencia o peso do comportamento passado como indicador de risco futuro, sendo uma variável crítica na avaliação de crédito. Adicionalmente, a variável *Guarantors* demonstra a relevância da existência de garantias externas na mitigação do risco para a instituição.
+
+Por fim, a variável *Duration_of_Credit_monthly* introduz a dimensão do contrato de crédito, refletindo o nível de compromisso financeiro ao longo do tempo. Créditos de maior duração tendem a aumentar a exposição ao risco, contribuindo para uma maior probabilidade de incumprimento.
+
+Em termos globais, a análise evidencia que o modelo baseia a sua decisão sobretudo na combinação entre liquidez financeira, histórico de crédito e características do contrato, demonstrando que o risco de crédito resulta da interação entre múltiplos fatores e não de uma variável isolada. Este comportamento reforça a robustez do modelo enquanto ferramenta de apoio à decisão na concessão de crédito.
+
  
 ## 5. Conclusão da Fase de Modelação 
-*Justifiquem por que razão este modelo está pronto (ou não) para ser apresentado como solução 
-final.* 
+A fase de modelação permitiu desenvolver, testar e otimizar diversos modelos de classificação com o objetivo de identificar clientes em incumprimento, tendo como principal desafio o desequilíbrio do dataset e a dificuldade em detetar corretamente a classe de risco.
+
+Ao longo das diferentes etapas, verificou-se que, embora vários modelos apresentassem um bom desempenho global (F1-Score elevado), todos evidenciavam limitações na identificação da classe minoritária, não cumprindo inicialmente a meta definida para o Recall. Este comportamento confirmou que o principal problema não residia na capacidade preditiva global, mas sim na sensibilidade do modelo à classe de incumprimento.
+
+A aplicação de técnicas de otimização, nomeadamente o ajuste de hiperparâmetros e do threshold de decisão, permitiu melhorias relevantes. No entanto, foi a introdução de técnicas de reequilíbrio de dados, através do SMOTE, que se revelou determinante para ultrapassar a principal limitação identificada, permitindo aumentar significativamente o Recall.
+
+Neste contexto, o modelo final selecionado (XGBoost com SMOTE), destacou-se como a melhor solução, sendo o único a cumprir simultaneamente os critérios definidos:
+* F1-Score ≥ 0.80
+* Recall (Incumprimento) ≥ 0.70
+
+Para além do cumprimento destas metas, o modelo apresenta ainda:
+* Boa capacidade de generalização, evidenciada pelos resultados consistentes em validação cruzada;
+* Desempenho equilibrado, garantindo um compromisso adequado entre identificação de risco e desempenho global;
+* Elevada interpretabilidade relativa, suportada pela análise de importância das variáveis, permitindo compreender os principais fatores que influenciam o risco de crédito.
+
+A análise da matriz de confusão revelou um comportamento esperado em problemas deste tipo, com um trade-off entre a redução de falsos negativos e o aumento de falsos positivos. Ainda assim, a opção por um modelo mais conservador é adequada ao contexto, uma vez que o custo associado à aprovação de clientes em incumprimento é significativamente superior ao de rejeitar clientes potencialmente cumpridores.
+
+Apesar dos resultados positivos, importa reconhecer algumas limitações. A principal prende-se com a ainda existência de erros na identificação de perfis de risco intermédio, sugerindo que o modelo poderá beneficiar de melhorias adicionais, como a introdução de novas variáveis, maior volume de dados ou técnicas mais avançadas de engenharia de atributos.
+
+Em síntese, o modelo desenvolvido demonstra ser robusto, consistente e alinhado com os objetivos do problema, apresentando condições para ser utilizado como ferramenta de apoio à decisão na concessão de crédito. Ainda que não constitua uma solução perfeita, oferece um nível de desempenho adequado e interpretável, podendo ser considerado pronto para aplicação prática, com potencial de evolução futura.
+
  --- 
-*Data de última atualização: 22/04/2026* 
+*Data de última atualização: 23/04/2026* 
