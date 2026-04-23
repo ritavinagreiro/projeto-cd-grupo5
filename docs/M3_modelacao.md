@@ -224,12 +224,28 @@ Por fim, a variável *Duration_of_Credit_monthly* introduz a dimensão do contra
 
 Em termos globais, a análise evidencia que o modelo baseia a sua decisão sobretudo na combinação entre liquidez financeira, histórico de crédito e características do contrato, demonstrando que o risco de crédito resulta da interação entre múltiplos fatores e não de uma variável isolada. Este comportamento reforça a robustez do modelo enquanto ferramenta de apoio à decisão na concessão de crédito.
 
-## 4.3. Resposta à Perguntas de Investigação (Modelação)
-**Quais são as variáveis que mais contribuem para a previsão do incumprimento decrédito?** 
+## 4.3. Resposta às Perguntas de Investigação (Modelação)
+**Quais são as variáveis que mais contribuem para a previsão do incumprimento de crédito?** 
+
+Com base na análise de importância dos atributos do modelo final (XGBoost com SMOTE), foi possível identificar as variáveis com maior contributo para a previsão do incumprimento de crédito.
+
+Destaca-se, em primeiro lugar, a variável *Account_Balance*, que apresenta a maior importância relativa, evidenciando o papel central da liquidez financeira na avaliação do risco. Para além desta, outras variáveis assumem também relevância significativa, nomeadamente *Value_Savings_Stocks*, *Guarantors*, *Payment_Status_of_Previous_Credit* e *Duration_of_Credit_monthly*.
+
+Estas variáveis refletem dimensões fundamentais do risco de crédito, como a capacidade financeira do cliente, o seu comportamento histórico e as características do contrato de crédito. Em conjunto, permitem ao modelo capturar padrões complexos associados ao incumprimento, demonstrando que o risco resulta da interação entre múltiplos fatores e não de uma única variável isolada.
 
 **É possível classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas probabilidades geradas pelo modelo preditivo?**
 
-Sim. é possível classificar os clientes em categorias de risco de incumprimento com base nas proabilidades geradas pelo modelo preditivo. O modelo determinado como o "melhor", *XGBoost + SMOTE*, não se limita a classificar um cliente em bom ou mau pagador, ele gera a probabilidade de incumprimento desse mesmo cliente. Para tornar essa probabilidade mais intuitiva e fácil de interpretar, para esta questão, foi aplicada uma normalização (*MinMaxScaler*). Com base no *threshold* ótimo de 0.56, um clinete é classificado como alto risco quando a probabilidade de incumprimento é superior a esse valor, e como baixo risco quando é inferior. 
+Sim, é possível classificar os clientes em categorias de risco de incumprimento com base nas probabilidades geradas pelo modelo preditivo. 
+
+O modelo determinado como o "melhor", *XGBoost + SMOTE*, não se limita a realizar uma classificação binária (cumprimento/incumprimento), mas estima a probabilidade de incumprimento desse mesmo cliente. Esta probabilidade permite uma abordagem mais flexível e alinhada com o contexto real de decisão.
+
+Para tornar esta interpretação mais intuitiva, foi aplicada uma normalização das probabilidades através do *MinMaxScaler*. Com base no *threshold* ótimo identificado de 0.56, os clientes são classificados da seguinte forma:
+* Alto risco → probabilidade de incumprimento ≥ 0.56
+* Baixo risco → probabilidade de incumprimento < 0.56
+
+Esta abordagem permite segmentar os clientes de forma clara e objetiva, facilitando o processo de tomada de decisão por parte da instituição financeira.
+
+Em termos práticos, esta classificação possibilita a definição de estratégias diferenciadas, como a rejeição de clientes de elevado risco ou a aplicação de condições de crédito mais restritivas, contribuindo para uma gestão mais eficiente do risco de crédito.
  
 ## 5. Conclusão da Fase de Modelação 
 A fase de modelação permitiu desenvolver, testar e otimizar diversos modelos de classificação com o objetivo de identificar clientes em incumprimento, tendo como principal desafio o desequilíbrio do *dataset* e a dificuldade em detetar corretamente a classe de risco.
