@@ -176,7 +176,9 @@ A tabela seguinte resume a progressão obtida ao longo de todas as estratégias,
 | Gradient Boosting (Tuned)      | 0.8612     | 0.6667                 | ✔         | ✘             |
 | Gradient Boosting + SMOTE      | 0.8123     | 0.7500                 | ✔         | ✔             |
 | XGBoost (base)                 | 0.8541     | 0.6500                 | ✔         | ✘             |
-| XGBoost + SMOTE (Modelo Final) | 0.8213     | 0.7500                 | ✔         | ✔             |
+| XGBoost + SMOTE (Modelo Final) | 0.8213     | 0.7500                 | ✔         | ✔            
+
+
 No que concerne à robustez, o modelo final *XGBoost* com *SMOTE* apresenta um *F1-Score* treino de 0.95 e um *F1-Score* teste de 0.83, resultando numa diferença de 0.12. Este valor, embora ligeiramente acima do *threshold* de referência de 0.10, deve ser interpretado com cautela dado que a utilização de *SMOTE* durante o treino eleva naturalmente o desempenho nessa fase, não constituindo necessariamente um sinal de  que o modelo generalizou demasiado bem os dados de treino. 
 
 O *XGBoost + SMOTE* é selecionado como modelo final por ser o único a cumprir simultaneamente ambos os critérios, apresentando o melhor *F1-Score* entre os modelos válidos. A sua escolha em detrimento do *Gradient Boosting + SMOTE* justifica-se pelo desempenho global superior (+1% em F1 e +2% em AUC-ROC), mantendo o mesmo *Recall*. A regularização incorporada no *XGBoost* revelou-se assim determinante após o balanceamento com *SMOTE*.
