@@ -32,11 +32,10 @@ Neste contexto, o presente projeto tem como objetivo apoiar uma instituição fi
 A adoção destas abordagens permite tornar este processo mais eficiente, contribuindo para a redução de potenciais perdas financeiras e para a promoção de decisões mais informadas e consistentes.
  
  
-### Objetivos do Projeto 
+### Objetivo do Projeto 
 * **Objetivo :** Desenvolver um modelo preditivo capaz de apoiar a instituição financeira na identificação de situações de cumprimento ou incumprimento de crédito, treinado com 80% dos dados e avaliado num conjunto de teste independente (20%), que atinja um F1-Score mínimo de 0.80 e uma taxa de identificação de incumprimento (Recall da classe de incumprimento) igual ou superior a 0.70, até ao final do Milestone 3.
 
-### Perguntas de Investigação
-
+### Perguntas de Investigação  
 1. Quais são as características financeiras e demográficas mais comuns entre os clientes em incumprimento de crédito?
 2. Existe relação entre o montante do crédito e a ocorrência de incumprimento?
 3. De que forma a duração do crédito influencia a ocorrência de incumprimento?
@@ -81,12 +80,9 @@ Apesar das relações identificadas, observa-se que a maioria das correlações 
 
 * **Ponto-chave:** O risco de crédito resulta da combinação de múltiplos fatores financeiros e características do empréstimo, sendo necessária a utilização de modelos de classificação multivariados para capturar essas relações de forma eficaz.
  
- 
- 
 ## 3. Modelação (Milestone 3) 
 ### Abordagem Técnica 
- **Modelos**
-  
+ **Modelos:**  
 No desenvolvimento da fase de modelação, foram testados vários algoritmos de classificação supervisionada com o objetivo de prever o risco de incumprimento de crédito.
 Foram considerados diferentes modelos, nomeadamente:
 * Regressão Logística (baseline)
@@ -101,41 +97,45 @@ Após a fase de experimentação e comparação de desempenho, foram aplicadas t
 * Ajuste do *threshold* de decisão
 * Reequilíbrio de dados com *SMOTE*
   
- **Métrica Principal:**
-
+ **Métrica Principal:**  
 As métricas principais utilizadas foram:
 * *Recall* (classe de incumprimento) – métrica crítica para minimizar falsos negativos
 * *F1-Score* – para garantir equilíbrio entre precisão e *recall*
 * *AUC-ROC* – como métrica complementar de capacidade discriminativa
 
-**Modelo Final:**
-
+**Modelo Final:**  
 O modelo final selecionado foi o *XGBoost* com *SMOTE*, por ser o único a cumprir simultaneamente os critérios definidos:
 * *F1-Score* ≥ 0.80
 * *Recall* (Incumprimento) ≥ 0.70
 
-**Resultados finais:**
-
+**Resultados finais:**  
 * *F1-Score*: 0.8213
 * *Recall* (Incumprimento): 0.7500
 * *AUC-ROC*: 0.8090
 
-**Principais Conclusões**
-
+**Principais Conclusões**  
 A modelação evidenciou que o principal desafio do problema está na identificação da classe minoritária (incumprimento), devido ao desequilíbrio do dataset.
 A aplicação de técnicas de balanceamento (SMOTE) revelou-se fundamental para melhorar o desempenho do modelo neste aspeto, permitindo atingir os objetivos definidos.
 O modelo final apresenta um bom equilíbrio entre desempenho global e capacidade de identificação de risco, sendo adequado como ferramenta de apoio à decisão na concessão de crédito.
  
- 
- 
 ## 4. Finalização (Milestone 4) 
-### Resposta ao Problema 
-[Resumo da solução e como ela gera valor para o negócio.] 
- 
-### Recomendações de Inovação 
-1. [Sugestão prática baseada nos resultados]
+### Resposta ao Problema  
+O objetivo definido na Milestone 1 foi alcançado: desenvolvemos um modelo preditivo capaz de identificar situações de incumprimento de crédito com os seguintes resultados finais:
 
+| Métrica | Objetivo | Resultado |
+|---|---|---|
+| F1-Score | ≥ 0,80 | **0,8213**  |
+| Recall (Incumprimento) | ≥ 0,70 | **0,7500**  |
+| AUC-ROC | — | **0,8090** |
 
+O modelo identifica corretamente 3 em cada 4 clientes que vão entrar em incumprimento, antes de qualquer decisão de crédito ser tomada. Isto permite à instituição financeira reduzir perdas, tomar decisões mais consistentes e concentrar a revisão manual nos casos de maior risco.
+
+O modelo final selecionado foi o *XGBoost com SMOTE*, o único a cumprir simultaneamente os dois critérios definidos. A variável com maior poder preditivo foi o saldo da conta bancária (*Account_Balance*): clientes com saldos mais baixos apresentam sistematicamente maior probabilidade de incumprimento. A duração e o montante do crédito também se revelaram determinantes.
+
+### Recomendações de Inovação  
+1. **Interpretabilidade com *SHAP*** — Integrar explicações individuais por cliente, indicando quais as variáveis que mais contribuíram para cada classificação. Essencial para conformidade com regulação bancária europeia (Basel III, AI Act) e para aumentar a confiança dos decisores no modelo.  
+2. ***Interface Web* com *Streamlit*** — Desenvolver uma aplicação simples que permita a qualquer analista inserir os dados de um novo cliente e obter de imediato a classificação de risco (Baixo / Médio / Alto) com a probabilidade associada — tornando o modelo acessível a equipas não técnicas.  
+3. **Monitorização Contínua com PSI** — Implementar o *Population Stability Index* para detetar automaticamente quando o perfil dos novos dados se afasta do perfil de treino, sinalizando a necessidade de recalibração do modelo (*model drift*).
 
 ## 5. Referências bibliográficas
 1. Prata, M. (2020). *Creditability - German Credit Data* [Dataset]. Kaggle. Consultado pela última vez a 18 de março de 2026, de https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
