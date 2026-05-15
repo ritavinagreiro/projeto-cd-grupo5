@@ -42,6 +42,7 @@ Foram avaliados os seguintes algoritmos:
 * **Random Forest:** modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
 * **Gradient Boosting:** modelo de *ensemble* sequencial, que melhora progressivamente o desempenho ao corrigir os erros das iterações anteriores.
 * **SVM (RBF):** modelo baseado em margens e fronteiras de decisão não lineares, utilizando o *kernel RBF*.
+* **Decison Tree**- Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
 * **XGBoost:** algoritmo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
  
 A seleção destes algoritmos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, incluindo métodos de *ensemble*, modelos baseados em árvores e modelos baseados em fronteiras de decisão. Desta forma, foi possível avaliar não apenas o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária.
@@ -54,7 +55,8 @@ A seleção destes algoritmos teve como objetivo comparar diferentes abordagens 
 | Random Forest       | `n_estimators=100` |    1.0000 |   0.8667 |               0.5000 |        0.8237 | Sinais de *overfitting*      |
 | Gradient Boosting   | `n_estimators=100` |    0.9493 |   0.8667 |               0.5000 |        0.8260 | Bom equilíbrio               |
 | SVM (RBF)          | `kernel='rbf'`     |    0.8732 |   0.8721 |               0.4667 |        0.8417 | Bom equilíbrio               |
-| XGBoost             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais de *Overfitting*; melhor *Recall* |
+|                      |                  |           |          |                       |               |   Sinais de *Overfitting*                           |
+| XGBoost             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais moderados de *Overfitting*; melhor *Recall* |
 
 A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667.
 
