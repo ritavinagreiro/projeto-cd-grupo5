@@ -6,7 +6,10 @@
   * Iara Gomes - Nº 2023133177 
   * Rita Vinagreiro - Nº 2023136923 
   * Ana Silva - Nº 2023145191
- 
+
+* **Video final do projeto:**
+  * https://drive.google.com/file/d/1amB4iFeMJi5ZeX5--rosHQ0BNnNoYGnX/view?usp=sharing
+  
 ## Organização do Repositório 
  
 A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenharia de Software: 
