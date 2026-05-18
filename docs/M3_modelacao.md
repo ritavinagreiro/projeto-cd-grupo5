@@ -16,8 +16,8 @@ O *Recall* da classe de incumprimento assume especial relevância, pois mede a c
 O *F1-Score* foi utilizado por permitir avaliar o equilíbrio entre precisão e recall, oferecendo uma visão mais robusta do desempenho global do modelo. Já a *AUC-ROC* foi considerada como métrica complementar, por medir a capacidade discriminativa do modelo independentemente do limiar de decisão utilizado.
 
 **Metas definidas:**
-* *Recall* (Incumprimento) ≥ 0f.70, foi definido com base no contexto do problema. Considera-se que identificar corretamente pelo menos 70% dos clientes representa um equilíbrio aceitável entre sensibilidade ao risco e viabilidade operacional,evitando simultaneamente um número excessivo de falsos positivos que compremeteria a eficiência do processo de concessão de crédito.
-* ⁠*F1-Score* ≥ 0.80, f, foi estabelecido por representar um bom desempenho para problemas de classificação binária com dados desequilibrados. Garantindo que a melhoria do *recall* da classe de incumprimento não compromete de forma significativa a capacidade geral do modelo.
+* *Recall* (Incumprimento) ≥ 0.70, foi definido com base no contexto do problema. Considera-se que identificar corretamente pelo menos 70% dos clientes representa um equilíbrio aceitável entre sensibilidade ao risco e viabilidade operacional,evitando simultaneamente um número excessivo de falsos positivos que compremeteria a eficiência do processo de concessão de crédito.
+* ⁠*F1-Score* ≥ 0.80, foi estabelecido por representar um bom desempenho para problemas de classificação binária com dados desequilibrados. Garantindo que a melhoria do *recall* da classe de incumprimento não compromete de forma significativa a capacidade geral do modelo.
 
 ## 2. Experiências Realizadas 
 ### 2.1. Modelo Baseline 
@@ -43,8 +43,8 @@ Foram avaliados os seguintes algoritmos:
 * **Random Forest:** Modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
 * **Gradient Boosting:** Modelo de *ensemble* sequencial, cujo objetivo é melhorar progressivamente o desempenho ao corrigir os erros das iterações anteriores.
 * **SVM (RBF):** modelo baseado em margens e fronteiras de decisão não lineares, utilizando o *kernel RBF*.
-* **Decison Tree**- Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
-* **XGBoost (Xtreme Gradient Boost):** Modelo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
+* **Decision Tree**- Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
+* **XGBoost (Extreme Gradient Boosting):** Modelo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
  
 A seleção destes algoritmos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, incluindo métodos de *ensemble*, modelos baseados em árvores e modelos baseados em fronteiras de decisão. Desta forma, foi possível avaliar não apenas o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária.
 
@@ -58,6 +58,8 @@ A seleção destes algoritmos teve como objetivo comparar diferentes abordagens 
 | SVM (RBF)          | `kernel='rbf'`     |    0.8732 |   0.8721 |               0.4667 |        0.8417 | Bom equilíbrio               |
 | Decision Tree           | `random_state=42`     |      1.0000            |      0.8252     |     0.5333     |             0.6881            |   Sinais de *Overfitting*                           |
 | XGBoost             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais moderados de *Overfitting*; melhor *Recall* |
+
+A comparação gráfica entre os modelos (`comparacao_modelos.png`) reforça estes resultados, mostrando que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, mas nenhum atinge inicialmente o objetivo definido para o *Recall* da classe de incumprimento.
 
 A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667. O modelo *Decision Tree*, também cumpriu a meta, apesar de apresentar o pior AUC_ROC de todos os modelos, o que evidencia uma capacidade discriminativa mais limitada.
 
@@ -75,15 +77,15 @@ Em primeiro lugar, um *gap* de 10 pontos percentuais foi considerado o limite a 
 |Gradient Boosting|0.9493|0.8667|0.0826|Equilíbrio|
 |Regressão Logística|0.8449|0.8464|-0.0015|Equilíbrio|
 |XGBoost|1.0000|0.8403|0.1597|*Overftting*|
-|Decision Tree|1.0000|0.8252|0.1748|*Ovefitting*|
+|Decision Tree|1.0000|0.8252|0.1748|*Overfitting*|
 
-*Decision Tree* foi o modelo que aprsentou maior diferença entre treino e este, ou seja, é modelo que aprsenta maior *overfitting*. O *XGBoost* também apresenta um valor elevado no *gap*, no entanto, é o modelo que aprsenta melhor *recall*, e tal, será tido em conta nos pontos de análise a baixo.
+*Decision Tree* foi o modelo que apresentou maior diferença entre treino e este, ou seja, é modelo que apresenta maior *overfitting*. O *XGBoost* também apresenta um valor elevado no *gap*, no entanto, é o modelo que apresenta melhor *recall*, e tal, será tido em conta nos pontos de análise a baixo.
 
 **Análise geral:**  
 De forma global, todos os modelos avaliados apresentaram bons resultados ao nível do *F1-Score*, com valores superiores a 0.80, cumprindo assim a meta definida para esta métrica. Isto demonstra uma capacidade satisfatória de classificação global. No entanto, a principal limitação verifica-se na métrica *Recall* da classe de incumprimento. Nenhum dos modelos atingiu o objetivo mínimo de 0.70, o que evidencia dificuldades na identificação dos clientes de maior risco.
 Assim, conclui-se que o problema principal não está no desempenho global dos modelos, mas sim na capacidade de identificar corretamente a classe minoritária. Este comportamento está associado ao desequilíbrio do dataset, composto por cerca de 70% de clientes em cumprimento e 30% em incumprimento.
 
-Face a estes resulados, o *XGBoost* foi o modelo com melhor desempenho neste critério, com um *Recall* de 0.5500, embora ainda insuficiente. Sendo então selecionado para otimização e o *Gradient Boosting* por apresentar melhor equilíbrio entre desempenho e generalzação. 
+Face a estes resultados, o *XGBoost* foi o modelo com melhor desempenho neste critério, com um *Recall* de 0.5500, embora ainda insuficiente. Sendo então selecionado para otimização e o *Gradient Boosting* por apresentar melhor equilíbrio entre desempenho e generalização. 
 
 Por este motivo, tornou-se necessário aplicar estratégias adicionais de melhoria, nomeadamente o reequilíbrio dos dados com *SMOTE* (*Synthetic Minority Over-sampling Technique*), o ajuste do *threshold* de decisão e a otimização dos modelos mais promissores.
 
@@ -127,11 +129,11 @@ Melhor *F1-Score* obtido em validação cruzada: 0.8527
 |*AUC-ROC*|	0.8282|
 |*Recall* da classe de incumprimento|	0.5333|
 
-Apesar de o *F1-Score* se manter elevado e a *AUC-ROC* apresentar uma boa capacidade descriminativa, o *Recall* da classe de incumprimento continuou bastante abaixo da meta definida de 0.70. Como é possível verfificar, a otimização de hiperparâmetros é insuficiente, é necessário avançar para o ajuste do limiar de decisão.
+Apesar de o *F1-Score* se manter elevado e a *AUC-ROC* apresentar uma boa capacidade discriminativa, o *Recall* da classe de incumprimento continuou bastante abaixo da meta definida de 0.70. Como é possível verificar, a otimização de hiperparâmetros é insuficiente, é necessário avançar para o ajuste do limiar de decisão.
 
 ### **Ajuste de *Threshold* de Decisão:**  
 De forma a aumentar a capacidade do modelo para identificar clientes em incumprimento, foi realizado um ajuste do limiar de decisão. Foram os limiares testados foram entre 0.20 e 0.60, com passos de 0.01.
-Por defeito os modelos de classificação utilizam um limiar de 0.50, no entanto, este limite foi definido manualmente. O limite inferior de 0.20 foi estabelecido para evitar uma classificação demasiado permissiva que resultasse num númeo elevado de falsos positivos, compremetendo o modelo. O limite superior foi de 0.60, por representar o intervalo acima do qual o ajuste do limiar deixa de produzir melhorias relevantes no *recall*. 
+Por defeito os modelos de classificação utilizam um limiar de 0.50, no entanto, este limite foi definido manualmente. O limite inferior de 0.20 foi estabelecido para evitar uma classificação demasiado permissiva que resultasse num número elevado de falsos positivos, compremetendo o modelo. O limite superior foi de 0.60, por representar o intervalo acima do qual o ajuste do limiar deixa de produzir melhorias relevantes no *recall*. 
 
  O *threshold* ótimo encontrado foi 0.59, permitindo obter um *recall* de 0.6667.
 
@@ -147,7 +149,7 @@ O ajuste do *threshold* permitiu uma melhoria significativa do *Recall*, que pas
 ### 3.2. Tentativa de Melhoria — Gradient Boosting + SMOTE
 Uma vez que o *dataset* apresenta desequilíbrio entre as classes, foi aplicada a técnica *SMOTE* ao modelo *Gradient Boosting*. Esta técnica cria observações sintéticas da classe minoritária, permitindo equilibrar melhor o conjunto de treino e reduzir a tendência do modelo para favorecer a classe maioritária.
 
-O *SMOTE* foi integrado num pipeline, garantindo que o reequilíbrio dos dados é aplicado apenas ao conjunto de treino, evitando fuga de informação para o conjunto de teste, evitando assim a fuga de informação que copremeteria a validade da avaliação do modelo.
+O *SMOTE* foi integrado num pipeline, garantindo que o reequilíbrio dos dados é aplicado apenas ao conjunto de treino, evitando fuga de informação para o conjunto de teste, evitando assim a fuga de informação que comprometeria a validade da avaliação do modelo.
 
 Depois da aplicação do *SMOTE* e do ajuste do *threshold*, foram obtidos os seguintes resultados:
 
@@ -174,8 +176,8 @@ O modelo apresenta um *gap* de 0.1179, situando-se na zona de sobreajustamento m
 Apesar do sobreajustamento moderado identificado, o modelo mantém um *F1-Score* de teste de 0.8059, cumprindo a meta definida de 0.80, e um *Recall* da classe de incumprimento de 0.7500, cumprindo igualmente a meta de 0.70. O sobreajustamento moderado é, portanto, uma limitação conhecida e esperada desta combinação de técnicas, não comprometendo a utilidade prática do modelo nem a validade dos resultados obtidos.
 
 ### 3.4. Modelo Alternativo — XGBoost (base)  
-Paralelamente ao processo anterior de otimização do modelo *Gradient Boosting*, foi testado o modelo *XGBoost*. Este modelo foi otimizado, como alternativa, com o objetivo de explorar o seu potencial para atinigr simultaneamente as duas metas definidas. 
-Como já tinha sido referido anterirmente, este modelo apresenta sinais de *overfitting*, no entanto, é o modelo que apresenta melhor valor na métrica de *recall*, na fase de modelos candidatos, por esse motivo as autoras decidiram que era ideal explorar este modelo também. 
+Paralelamente ao processo anterior de otimização do modelo *Gradient Boosting*, foi testado o modelo *XGBoost*. Este modelo foi otimizado, como alternativa, com o objetivo de explorar o seu potencial para atingir simultaneamente as duas metas definidas. 
+Como já tinha sido referido anteriormente, este modelo apresenta sinais de *overfitting*, no entanto, é o modelo que apresenta melhor valor na métrica de *recall*, na fase de modelos candidatos, por esse motivo as autoras decidiram que era ideal explorar este modelo também. 
 
 Foram definidos os seguintes hiperparâmetros:
 * `n_estimators`: 200
@@ -206,7 +208,7 @@ Combinando as aprendizagens das etapas anteriores (o potencial do *XGBoost* e a 
 | AUC-ROC (Teste)        | 0.8090 |
 | Recall (Incumprimento) | 0.7500 |
 
-Este modelo apresentou um Recall de 0.7500, igual ao obtido com Gradient Boosting + SMOTE, mas com melhor F1-Score e melhor AUC-ROC. POu seja, este modelo foi o primeiro a cumprir com as metas definidas.  
+Este modelo apresentou um Recall de 0.7500, igual ao obtido com Gradient Boosting + SMOTE, mas com melhor F1-Score e melhor AUC-ROC. Assim, entre os modelos que cumpriram simultaneamente as metas definidas, o *XGBoost + SMOTE* revelou-se a opção mais equilibrada.
 
 ### **Validação Cruzada — XGBoost + SMOTE**
 Para avaliar a estabilidade do modelo final, foi realizada validação cruzada estratificada com 5 folds.
@@ -228,6 +230,8 @@ Para avaliar do modelo *XGBoost* com *SMOTE*, foi realizado um diagnóstico de s
 |F1 Treino|0.9519|
 |F1 Teste|0.8273|
 |*Gap* obtido|0.1245|
+
+A curva de aprendizagem do modelo final (`curva_aprendizagem.png`) permite observar a diferença entre o desempenho no treino e na validação, ajudando a interpretar os sinais de sobreajustamento.
 
 O modelo final apresenta um *gap* de 0.1245, situando-se na zona de sobreajustamento moderado, utilizando os critérios de diagnóstico definidos anteriormente. Este comportamento é esperado e justificado por dois fatores principais. Por um lado, o *XGBoost* é um algoritmo baseado em árvores de decisão com elevada capacidade de memorização dos dados de treino, especialmente em datasets de dimensão reduzida como o presente, composto por 1000 observações. Por outro lado, a utilização do *SMOTE* durante o treino gera exemplos sintéticos que não existem nos dados reais de teste, elevando naturalmente o desempenho na fase de treino face à fase de teste.
 Comparando com o* XGBoost* base da fase de modelos candidatos, que apresentava um *gap* de 0.1597, verifica-se uma redução do sobreajustamento após a introdução do *SMOTE*, sugerindo que o reequilíbrio dos dados contribuiu também para uma melhoria da capacidade de generalização do modelo.
@@ -252,7 +256,7 @@ O *XGBoost + SMOTE* foi selecionado como modelo final porque, entre os modelos q
 
 ## 4. Avaliação do Modelo Final 
 ### 4.1. Matriz de Confusão / Análise de Erros 
-A avaliação do modelo final, *XGBoost + SMOTE*, foi realizada através da matriz de confusão, comparando o seu desempenho com o modelo *baseline* de Regressão Logística.
+A avaliação do modelo final, *XGBoost + SMOTE*, foi realizada através da matriz de confusão (`matriz_confusao.png`), comparando o seu desempenho com o modelo *baseline* de Regressão Logística.
 
 No conjunto de teste, o modelo *baseline* identificou corretamente 31 dos 60 clientes em incumprimento, enquanto o modelo final identificou corretamente 45 dos 60 clientes em incumprimento. Assim, verifica-se uma melhoria significativa na capacidade de deteção da classe de risco.
 
@@ -278,7 +282,7 @@ Por outro lado, os falsos positivos correspondem a clientes cumpridores que apre
 Assim, o modelo final apresenta um claro *trade-off*: reduz o número de clientes em incumprimento não identificados, mas aumenta a classificação de clientes cumpridores como risco. Ainda assim, este comportamento é aceitável no contexto do problema, uma vez que o custo de aprovar clientes em incumprimento tende a ser superior ao custo de sujeitar clientes cumpridores a uma análise adicional.
 
 ### 4.2. Importância dos Atributos (*Feature Importance*) 
-A análise da importância dos atributos, obtida a partir do modelo final (*XGBoost* com *SMOTE*), permite identificar as variáveis que mais contribuíram para a sua capacidade preditiva, reforçando simultaneamente a interpretabilidade do modelo em contexto de decisão de crédito.
+A análise da importância dos atributos, obtida a partir do modelo final (*XGBoost* com *SMOTE*), permite identificar as variáveis que mais contribuíram para a sua capacidade preditiva, reforçando simultaneamente a interpretabilidade do modelo em contexto de decisão de crédito. Esta análise encontra-se representada no gráfico de importância dos atributos (`feature_importance.png`), onde se destacam as variáveis com maior contributo para as previsões do modelo.
 
 De acordo com os resultados, destaca-se claramente a variável *Account_Balance*, que apresenta a maior importância relativa (0.1720), assumindo-se como o principal fator na distinção entre clientes de risco e clientes cumpridores. Este resultado evidencia que a liquidez disponível e o saldo da conta são determinantes na avaliação do risco de crédito, estando diretamente associados à capacidade do cliente em cumprir as suas obrigações financeiras.
 
@@ -295,8 +299,7 @@ Por fim, a variável *Duration_of_Credit_monthly* introduz a dimensão do contra
 Em termos globais, a análise evidencia que o modelo baseia a sua decisão sobretudo na combinação entre liquidez financeira, histórico de crédito e características do contrato, demonstrando que o risco de crédito resulta da interação entre múltiplos fatores e não de uma variável isolada. Este comportamento reforça a robustez do modelo enquanto ferramenta de apoio à decisão na concessão de crédito.
 
 ### 4.3. Curva ROC
-
-A análise da curva ROC permite avaliar a capacidade discriminativa dos modelos, isto é, a sua capacidade para distinguir entre clientes cumpridores e clientes em incumprimento.
+A análise da curva ROC (`curva_roc.png`) permite avaliar a capacidade discriminativa dos modelos, isto é, a sua capacidade para distinguir entre clientes cumpridores e clientes em incumprimento.
 
 De forma geral, todos os modelos apresentam curvas acima da linha do classificador aleatório, o que indica uma capacidade preditiva adequada.
 
@@ -361,4 +364,4 @@ Em síntese, o modelo desenvolvido demonstra ser adequado aos objetivos do proje
 5. Scikit-learn developers. (2025). Tuning the decision threshold for class prediction. Scikit-learn. Consultado pela última vez a 18 de maio de 2026, de https://scikit-learn.org/stable/modules/classification_threshold.html
 Wei, H. (2025). SMOTE algorithm optimization and application in corporate credit risk prediction with diversification strategy consideration. Scientific Reports, 15, 23598. https://doi.org/10.1038/s41598-025-09173-x
  --- 
-*Data de última atualização: 09/05/2026* 
+*Data de última atualização: 18/05/2026* 
