@@ -7,8 +7,9 @@
   * Rita Vinagreiro - Nº 2023136923 
   * Ana Silva - Nº 2023145191
 
-* **Video final do projeto:**
-  link: https://drive.google.com/file/d/1amB4iFeMJi5ZeX5--rosHQ0BNnNoYGnX/view?usp=sharing
+ ## Video final do projeto:**
+
+ link: https://drive.google.com/file/d/1amB4iFeMJi5ZeX5--rosHQ0BNnNoYGnX/view?usp=sharing
   
 ## Organização do Repositório 
  
