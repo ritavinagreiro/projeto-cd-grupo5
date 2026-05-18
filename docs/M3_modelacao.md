@@ -2,7 +2,7 @@
  
 ## 1. Estratégia de Modelação 
 **Divisão do dataset:**   
-O conjunto de dados foi dividido em dois subconjuntos: 80% para treino e 20% para teste. Foi utilizado o parâmetro `random_state=42`, de forma a garantir a reprodutibilidade dos resultados, e a divisão foi realizada com estratificação da variável alvo (`stratify=y`).
+O conjunto de dados foi dividido em dois subconjuntos: 80% para treino e 20% para teste. Foi utilizado o parâmetro `random_state=42`, em todos os algoritmos, de forma a garantir a reprodutibilidade dos resultados, e a divisão foi realizada com estratificação da variável alvo (`stratify=y`).
 
 Esta estratificação permitiu assegurar que a distribuição das classes se mantinha proporcional em ambos os conjuntos. Assim, tanto no conjunto de treino como no conjunto de teste, manteve-se a proporção original do dataset: 70% de clientes em cumprimento e 30% de clientes em incumprimento.
 
@@ -16,8 +16,8 @@ O *Recall* da classe de incumprimento assume especial relevância, pois mede a c
 O *F1-Score* foi utilizado por permitir avaliar o equilíbrio entre precisão e recall, oferecendo uma visão mais robusta do desempenho global do modelo. Já a *AUC-ROC* foi considerada como métrica complementar, por medir a capacidade discriminativa do modelo independentemente do limiar de decisão utilizado.
 
 **Metas definidas:**
-* *Recall* (Incumprimento) ≥ 0.70
-* ⁠*F1-Score* ≥ 0.80
+* *Recall* (Incumprimento) ≥ 0f.70, foi definido com base no contexto do problema. Considera-se que identificar corretamente pelo menos 70% dos clientes representa um equilíbrio aceitável entre sensibilidade ao risco e viabilidade operacional,evitando simultaneamente um número excessivo de falsos positivos que compremeteria a eficiência do processo de concessão de crédito.
+* ⁠*F1-Score* ≥ 0.80, foi definido com base na literatura de *Machine Learning*, um *F1-Score* acima de 0.80 é geralmente considerado um bom desempenho para problemas de classificação binária com dados desequilibrados. Garantindo que a melhoria do *recall* da classe de incumprimento não compromete de forma significativa a capacidade geral do modelo.
 
 ## 2. Experiências Realizadas 
 ### 2.1. Modelo Baseline 
@@ -40,10 +40,10 @@ Após a avaliação do modelo *baseline*, foram testados algoritmos de maior com
 
 Foram avaliados os seguintes algoritmos:  
 * **Random Forest:** modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
-* **Gradient Boosting:** modelo de *ensemble* sequencial, que melhora progressivamente o desempenho ao corrigir os erros das iterações anteriores.
+* **Gradient Boosting:** algoritmo de *ensemble* sequencial, cujo objetivo é melhorar progressivamente o desempenho ao corrigir os erros das iterações anteriores.
 * **SVM (RBF):** modelo baseado em margens e fronteiras de decisão não lineares, utilizando o *kernel RBF*.
-* **Decison Tree**- Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
-* **XGBoost:** algoritmo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
+* **Decison Tree**- Algoritmo HUo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
+* **XGBoost:** Modelokbbhb de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
  
 A seleção destes algoritmos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, incluindo métodos de *ensemble*, modelos baseados em árvores e modelos baseados em fronteiras de decisão. Desta forma, foi possível avaliar não apenas o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária.
 
@@ -320,5 +320,7 @@ Apesar dos resultados positivos, importa reconhecer algumas limitações. O mode
 
 Em síntese, o modelo desenvolvido demonstra ser adequado aos objetivos do projeto, apresentando um bom compromisso entre desempenho global e identificação de clientes de risco. Embora não constitua uma solução perfeita, apresenta potencial para ser utilizado como ferramenta de apoio à decisão na concessão de crédito, podendo beneficiar futuramente da introdução de novas variáveis, maior volume de dados e técnicas adicionais de engenharia de atributos.
 
+# 5. Referências Bibliográficas
+Machine Learinig, Zhi-Hua Zhou, 2016, published by Tsinghua University Press
  --- 
 *Data de última atualização: 09/05/2026* 
