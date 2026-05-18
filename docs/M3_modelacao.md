@@ -164,7 +164,6 @@ Apesar desta redução, o modelo continua a cumprir a meta de *F1-Score* ≥ 0.8
 ### 3.3. Diagnóstico de *Overfitting*
 Para avaliar a capacidade de generalização do modelo, foi realizado o diagnóstico de sobreajustamento através da comparação entre o F1-Score obtido no conjunto de treino e no conjunto de teste.
 
-
 | Métrica                           | Valor | 
 | --------------------------------- | -------------------------- | 
 |F1 Treino|0.9238|
@@ -222,7 +221,19 @@ A validação cruzada demonstra que o modelo apresenta um *F1-Score* médio de 0
 
 Esta diferença deve ser interpretada com cautela, uma vez que o *threshold* ótimo foi definido com base no conjunto de teste, podendo beneficiar especificamente essa amostra. Ainda assim, o modelo mantém um desempenho global consistente e uma capacidade de generalização aceitável, embora a identificação da classe de incumprimento possa variar entre diferentes subconjuntos de dados.
 
-### 3.6. Síntese da Evolução dos Modelos  
+### 3.6. Diagnóstico de *Overfitting*
+Para avaliar do modelo *XGBoost* com *SMOTE*, foi realizado um diagnóstico de sobreajustamento. 
+| Métrica                           | Valor | 
+| --------------------------------- | -------------------------- | 
+|F1 Treino|0.9519|
+|F1 Teste|0.8273|
+|*Gap* obtido|0.1245|
+
+O modelo final apresenta um *gap* de 0.1245, situando-se na zona de sobreajustamento moderado, utilizando os critérios de diagnóstico definidos anteriormente. Este comportamento é esperado e justificado por dois fatores principais. Por um lado, o *XGBoost* é um algoritmo baseado em árvores de decisão com elevada capacidade de memorização dos dados de treino, especialmente em datasets de dimensão reduzida como o presente, composto por 1000 observações. Por outro lado, a utilização do *SMOTE* durante o treino gera exemplos sintéticos que não existem nos dados reais de teste, elevando naturalmente o desempenho na fase de treino face à fase de teste.
+Comparando com o* XGBoost* base da fase de modelos candidatos, que apresentava um *gap* de 0.1597, verifica-se uma redução do sobreajustamento após a introdução do *SMOTE*, sugerindo que o reequilíbrio dos dados contribuiu também para uma melhoria da capacidade de generalização do modelo.
+Apesar do sobreajustamento moderado identificado, o modelo cumpre simultaneamente as duas metas definidas, pelo que esta limitação não compromete a sua validade como ferramenta de apoio à decisão na concessão de crédito.
+
+### 3.7. Síntese da Evolução dos Modelos  
 A tabela seguinte resume a evolução dos principais modelos testados:
 
 | Modelo                         | F1 (Teste) | Recall (Incumprimento) | F1 ≥ 0.80 | Recall ≥ 0.70 |
