@@ -40,11 +40,11 @@ Após a avaliação do modelo *baseline*, foram testados algoritmos de maior com
 A seleção dos algoritmos teve como objetivo comparar diferentes abordagens, pois permite avaliar não só o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária. 
 
 Foram avaliados os seguintes algoritmos:  
-* **Random Forest:** Modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
-* **Gradient Boosting:** Modelo de *ensemble* sequencial, cujo objetivo é melhorar progressivamente o desempenho ao corrigir os erros das iterações anteriores.
-* **SVM (RBF):** modelo baseado em margens e fronteiras de decisão não lineares, utilizando o *kernel RBF*.
-* **Decision Tree**- Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
-* **XGBoost (Extreme Gradient Boosting):** Modelo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
+* ***Random Forest:*** Modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
+* ***Gradient Boosting:*** Modelo de *ensemble* sequencial, cujo objetivo é melhorar progressivamente o desempenho ao corrigir os erros das iterações anteriores.
+* ***SVM (RBF):*** modelo baseado em margens e fronteiras de decisão não lineares, utilizando o *kernel RBF*.
+* ***Decision Tree:*** Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
+* ***XGBoost (Extreme Gradient Boosting):*** Modelo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
  
 A seleção destes algoritmos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, incluindo métodos de *ensemble*, modelos baseados em árvores e modelos baseados em fronteiras de decisão. Desta forma, foi possível avaliar não apenas o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária.
 
@@ -52,16 +52,16 @@ A seleção destes algoritmos teve como objetivo comparar diferentes abordagens 
 
 | Algoritmo           | Parâmetros Base    | F1 Treino | F1 Teste | *Recall* Incumprimento | *AUC-ROC* Teste | Diagnóstico                  |
 | ------------------- | ------------------ | --------: | -------: | -------------------: | ------------: | ---------------------------- |
-| Regressão Logística (baseline) | `max_iter=1000`    |    0.8449 |   0.8464 |               0.5167 |        0.8145 | Bom equilíbrio               |
-| Random Forest       | `n_estimators=100` |    1.0000 |   0.8667 |               0.5000 |        0.8237 | Sinais de *overfitting*      |
-| Gradient Boosting   | `n_estimators=100` |    0.9493 |   0.8667 |               0.5000 |        0.8260 | Bom equilíbrio               |
-| SVM (RBF)          | `kernel='rbf'`     |    0.8732 |   0.8721 |               0.4667 |        0.8417 | Bom equilíbrio               |
-| Decision Tree           | `random_state=42`     |      1.0000            |      0.8252     |     0.5333     |             0.6881            |   Sinais de *Overfitting*                           |
-| XGBoost             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais moderados de *Overfitting*; melhor *Recall* |
+| *Regressão Logística (baseline)* | `max_iter=1000`    |    0.8449 |   0.8464 |               0.5167 |        0.8145 | Bom equilíbrio               |
+| *Random Forest*       | `n_estimators=100` |    1.0000 |   0.8667 |               0.5000 |        0.8237 | Sinais de *overfitting*      |
+| *Gradient Boosting*   | `n_estimators=100` |    0.9493 |   0.8667 |               0.5000 |        0.8260 | Bom equilíbrio               |
+| *SVM (RBF)*          | `kernel='rbf'`     |    0.8732 |   0.8721 |               0.4667 |        0.8417 | Bom equilíbrio               |
+| *Decision Tree*           | `random_state=42`     |      1.0000            |      0.8252     |     0.5333     |             0.6881            |   Sinais de *Overfitting*                           |
+| *XGBoost*             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais moderados de *Overfitting*; melhor *Recall* |
 
 A comparação gráfica entre os modelos (`comparacao_modelos.png`) reforça estes resultados, mostrando que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, mas nenhum atinge inicialmente o objetivo definido para o *Recall* da classe de incumprimento.
 
-A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667. O modelo *Decision Tree*, também cumpriu a meta, apesar de apresentar o pior AUC_ROC de todos os modelos, o que evidencia uma capacidade discriminativa mais limitada.
+A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667. O modelo *Decision Tree*, também cumpriu a meta, apesar de apresentar o pior *AUC_ROC* de todos os modelos, o que evidencia uma capacidade discriminativa mais limitada.
 
 No entanto, a principal limitação mantém-se na identificação da classe de incumprimento. Nenhum dos modelos atingiu o objetivo mínimo de Recall ≥ 0.70 para esta classe. O melhor resultado foi obtido pelo *XGBoost*, com um *Recall* de 0.5500, seguido de *Decision Tree* com 0.5333, ainda assim ambos insuficientes para cumprir os requisitos do projeto.
 
@@ -149,7 +149,7 @@ O ajuste do *threshold* permitiu uma melhoria significativa do *Recall*, que pas
 ### 3.2. Tentativa de Melhoria — Gradient Boosting + SMOTE
 Uma vez que o *dataset* apresenta desequilíbrio entre as classes, foi aplicada a técnica *SMOTE* ao modelo *Gradient Boosting*. Esta técnica cria observações sintéticas da classe minoritária, permitindo equilibrar melhor o conjunto de treino e reduzir a tendência do modelo para favorecer a classe maioritária.
 
-O *SMOTE* foi integrado num pipeline, garantindo que o reequilíbrio dos dados é aplicado apenas ao conjunto de treino, evitando fuga de informação para o conjunto de teste, evitando assim a fuga de informação que comprometeria a validade da avaliação do modelo.
+O *SMOTE* foi integrado num *pipeline*, garantindo que o reequilíbrio dos dados é aplicado apenas ao conjunto de treino, evitando fuga de informação para o conjunto de teste, evitando assim a fuga de informação que comprometeria a validade da avaliação do modelo.
 
 Depois da aplicação do *SMOTE* e do ajuste do *threshold*, foram obtidos os seguintes resultados:
 
@@ -191,10 +191,10 @@ Adicionalmente, foi realizado o ajuste do limiar de decisão (*threshold*), test
 **Resultados:**
 | Métrica                | Valor  |
 | :--------------------- | :----- |
-| F1-Score (Teste)       | 0.8541 |
-| AUC-ROC (Teste)        | 0.8132 |
-| Recall (Incumprimento) | 0.6500 |
-| Threshold ótimo        | 0.56   |
+| *F1-Score* (Teste)       | 0.8541 |
+| *AUC-ROC* (Teste)        | 0.8132 |
+| *Recall* (Incumprimento) | 0.6500 |
+| *Threshold* ótimo        | 0.56   |
 
 O *XGBoost* apresenta um *F1-Score* global superior ao *Gradient Boosting + SMOTE* (0.8541 vs. 0.8123), mas o *Recall* de 0.6500 ainda fica abaixo da meta de 0.70. Este resultado sugere que o XGBoost tem maior potencial preditivo, mas necessita igualmente de reequilíbrio de dados para atingir os objetivos do projeto.
 
@@ -204,11 +204,11 @@ Combinando as aprendizagens das etapas anteriores (o potencial do *XGBoost* e a 
 **Resultados:**
 | Métrica                | Valor  |
 | :--------------------- | :----- |
-| F1-Score (Teste)       | 0.8213 |
-| AUC-ROC (Teste)        | 0.8090 |
-| Recall (Incumprimento) | 0.7500 |
+| *F1-Score* (Teste)       | 0.8213 |
+| *AUC-ROC* (Teste)        | 0.8090 |
+| *Recall* (Incumprimento) | 0.7500 |
 
-Este modelo apresentou um Recall de 0.7500, igual ao obtido com Gradient Boosting + SMOTE, mas com melhor F1-Score e melhor AUC-ROC. Assim, entre os modelos que cumpriram simultaneamente as metas definidas, o *XGBoost + SMOTE* revelou-se a opção mais equilibrada.
+Este modelo apresentou um Recall de 0.7500, igual ao obtido com *Gradient Boosting + SMOTE*, mas com melhor F1-Score e melhor AUC-ROC. Assim, entre os modelos que cumpriram simultaneamente as metas definidas, o *XGBoost + SMOTE* revelou-se a opção mais equilibrada.
 
 ### **Validação Cruzada — XGBoost + SMOTE**
 Para avaliar a estabilidade do modelo final, foi realizada validação cruzada estratificada com 5 folds.
@@ -242,11 +242,11 @@ A tabela seguinte resume a evolução dos principais modelos testados:
 
 | Modelo                         | F1 (Teste) | Recall (Incumprimento) | F1 ≥ 0.80 | Recall ≥ 0.70 |
 | :----------------------------- | :--------- | :--------------------- | :-------- | :------------ |
-| Baseline -Regressão Logística | 0.8464     | 0.5167                 | Cumpre         | Não cumpre             |
-| Gradient Boosting (Tuned)      | 0.8612     | 0.6667                 | Cumpre       | Não cumpre              |
-| Gradient Boosting + SMOTE      | 0.8123     | 0.7500                 | Cumpre         | Cumpre            |
-| XGBoost (base)                 | 0.8541     | 0.6500                 | Cumpre         | Não cumpre               |
-| XGBoost + SMOTE (Modelo Final) | 0.8213     | 0.7500                 | Cumpre         | Cumpre|            
+| *Baseline* -Regressão Logística | 0.8464     | 0.5167                 | Cumpre         | Não cumpre             |
+| *Gradient Boosting (Tuned)*      | 0.8612     | 0.6667                 | Cumpre       | Não cumpre              |
+| *Gradient Boosting + SMOTE*      | 0.8123     | 0.7500                 | Cumpre         | Cumpre            |
+| *XGBoost* (base)                 | 0.8541     | 0.6500                 | Cumpre         | Não cumpre               |
+| *XGBoost + SMOTE* (Modelo Final) | 0.8213     | 0.7500                 | Cumpre         | Cumpre|            
 
 A análise da tabela mostra que todos os modelos cumprem a meta definida para o *F1-Score*, apresentando valores superiores a 0.80. No entanto, apenas os modelos com *SMOTE* conseguem atingir o objetivo de *Recall* ≥ 0.70, confirmando a importância do reequilíbrio dos dados na identificação da classe de incumprimento.
 
@@ -303,7 +303,7 @@ A análise da curva ROC (`curva_roc.png`) permite avaliar a capacidade discrimin
 
 De forma geral, todos os modelos apresentam curvas acima da linha do classificador aleatório, o que indica uma capacidade preditiva adequada.
 
-O Gradient Boosting apresentou o valor mais elevado de *AUC-ROC* (0.828), seguido do modelo *baseline* de Regressão Logística (0.815) e do modelo final *XGBoost + SMOTE* (0.809).
+O *Gradient Boosting* apresentou o valor mais elevado de *AUC-ROC* (0.828), seguido do modelo *baseline* de Regressão Logística (0.815) e do modelo final *XGBoost + SMOTE* (0.809).
 
 Apesar de o modelo final não apresentar a *AUC-ROC* mais elevada, mantém um desempenho competitivo. Além disso, a *AUC-ROC* foi considerada uma métrica complementar, uma vez que o principal objetivo do projeto era melhorar o *Recall* da classe de incumprimento. Assim, o *XGBoost + SMOTE* continua a ser o modelo mais adequado, por cumprir simultaneamente as metas de *F1-Score* e *Recall*.
 
@@ -316,7 +316,7 @@ Destaca-se, em primeiro lugar, a variável *Account_Balance*, que apresenta a ma
 
 Estas variáveis refletem dimensões fundamentais do risco de crédito, como a capacidade financeira do cliente, o histórico de pagamentos, a existência de garantias e as características do contrato de crédito. Em conjunto, permitem ao modelo captar padrões associados ao incumprimento, demonstrando que o risco resulta da interação entre múltiplos fatores e não de uma única variável isolada
 
-**É possível classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas probabilidades geradas pelo modelo preditivo?**
+**É possível classificar os clientes em categorias de risco de incumprimento (baixo e alto risco), com base nas probabilidades geradas pelo modelo preditivo?**  
 
 Sim, é possível classificar os clientes em categorias de risco com base nas probabilidades geradas pelo modelo preditivo.
 
