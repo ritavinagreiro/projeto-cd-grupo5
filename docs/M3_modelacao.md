@@ -17,12 +17,12 @@ O *F1-Score* foi utilizado por permitir avaliar o equilíbrio entre precisão e 
 
 **Metas definidas:**
 * *Recall* (Incumprimento) ≥ 0f.70, foi definido com base no contexto do problema. Considera-se que identificar corretamente pelo menos 70% dos clientes representa um equilíbrio aceitável entre sensibilidade ao risco e viabilidade operacional,evitando simultaneamente um número excessivo de falsos positivos que compremeteria a eficiência do processo de concessão de crédito.
-* ⁠*F1-Score* ≥ 0.80, foi definido com base na literatura de *Machine Learning*, um *F1-Score* acima de 0.80 é geralmente considerado um bom desempenho para problemas de classificação binária com dados desequilibrados. Garantindo que a melhoria do *recall* da classe de incumprimento não compromete de forma significativa a capacidade geral do modelo.
+* ⁠*F1-Score* ≥ 0.80, f, foi estabelecido por representar um bom desempenho para problemas de classificação binária com dados desequilibrados. Garantindo que a melhoria do *recall* da classe de incumprimento não compromete de forma significativa a capacidade geral do modelo.
 
 ## 2. Experiências Realizadas 
 ### 2.1. Modelo Baseline 
 
-**Algoritmo:** Regressão Logística  
+**Algoritmo:**Regressão Logística  
 
 **Resultados:**
 * *F1-Score*: 0.8464
@@ -37,13 +37,14 @@ Assim, embora a Regressão Logística apresente um desempenho global aceitável,
  
 ### 2.2. Modelos Candidatos 
 Após a avaliação do modelo *baseline*, foram testados algoritmos de maior complexidade, com o objetivo de melhorar o desempenho global e, sobretudo, aumentar a capacidade de identificação da classe de incumprimento.
+A seleção dos algoritmos teve como objetivo comparar diferentes abordagens, pois permite avaliar não só o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária. 
 
 Foram avaliados os seguintes algoritmos:  
-* **Random Forest:** modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
-* **Gradient Boosting:** algoritmo de *ensemble* sequencial, cujo objetivo é melhorar progressivamente o desempenho ao corrigir os erros das iterações anteriores.
+* **Random Forest:** Modelo de *ensemble* baseado em múltiplas árvores de decisão, utilizado como referência pela sua robustez e bom desempenho em dados estruturados.
+* **Gradient Boosting:** Modelo de *ensemble* sequencial, cujo objetivo é melhorar progressivamente o desempenho ao corrigir os erros das iterações anteriores.
 * **SVM (RBF):** modelo baseado em margens e fronteiras de decisão não lineares, utilizando o *kernel RBF*.
-* **Decison Tree**- Algoritmo HUo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
-* **XGBoost:** Modelokbbhb de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
+* **Decison Tree**- Modelo que divide os dados de forma hierárquica através de regras de decisão baseadas nas features, sendo altamente interpretável mas com tendência natural para overfitting quando não são aplicadas restrições à sua profundidade.
+* **XGBoost (Xtreme Gradient Boost):** Modelo de *boosting* avançado, reconhecido pelo seu desempenho em problemas de classificação e pela incorporação de mecanismos de regularização.
  
 A seleção destes algoritmos teve como objetivo comparar diferentes abordagens de aprendizagem supervisionada, incluindo métodos de *ensemble*, modelos baseados em árvores e modelos baseados em fronteiras de decisão. Desta forma, foi possível avaliar não apenas o desempenho global, mas também a capacidade de generalização e a sensibilidade de cada modelo à classe minoritária.
 
@@ -58,40 +59,46 @@ A seleção destes algoritmos teve como objetivo comparar diferentes abordagens 
 | Decision Tree           | `random_state=42`     |      1.0000            |      0.8252     |     0.5333     |             0.6881            |   Sinais de *Overfitting*                           |
 | XGBoost             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais moderados de *Overfitting*; melhor *Recall* |
 
-A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667.
+A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667. O modelo *Decision Tree*, também cumpriu a meta, apesar de apresentar o pior AUC_ROC de todos os modelos, o que evidencia uma capacidade discriminativa mais limitada.
 
-No entanto, a principal limitação mantém-se na identificação da classe de incumprimento. Nenhum dos modelos atingiu o objetivo mínimo de Recall ≥ 0.70 para esta classe. O melhor resultado foi obtido pelo XGBoost, com um Recall de 0.5500, ainda assim insuficiente para cumprir os requisitos do projeto.
+No entanto, a principal limitação mantém-se na identificação da classe de incumprimento. Nenhum dos modelos atingiu o objetivo mínimo de Recall ≥ 0.70 para esta classe. O melhor resultado foi obtido pelo *XGBoost*, com um *Recall* de 0.5500, seguido de *Decision Tree* com 0.5333, ainda assim ambos insuficientes para cumprir os requisitos do projeto.
 
 **Diagnóstico de Overfitting/Underfitting:**  
-A comparação entre o desempenho no conjunto de treino e no conjunto de teste permitiu identificar diferentes comportamentos de ajustamento.
+A comparação entre o desempenho no conjunto de treino e no conjunto de teste permitiu identificar diferentes comportamentos de ajustamento. Os limiares de diagnóstico de sobreajustamento foram com base em três critérios.
+Em primeiro lugar, um *gap* de 10 pontos percentuais foi considerado o limite a partir do qual a diferença entre treino e teste é expressiva para indicar que o modelo começa a memorizar os dados em vez de aprender padrões generalizáveis. Em segundo lugar, o intervalo entre 0.10 e 0.15 foi classificado como *overfitting* moderado por representar uma diferença relevante mas ainda controlável, onde o modelo mantém um desempenho aceitável no conjunto de teste apesar do sobreajuste. Por fim, um *gap* superior a 0.15 foi classificado como *overfitting* significativo por representar uma diferença de mais de 15 pontos percentuais entre treino e teste, indicando que o modelo está claramente a memorizar os dados de treino sem generalizar adequadamente para dados novos. 
 
-O *XGBoost* apresentou um *F1-Score* de 1.0000 no treino e 0.8403 no teste, resultando num *gap* de aproximadamente 0.1597, o que indica sinais de *overfitting*. De forma semelhante, o *Random Forest* obteve 1.0000 no treino e 0.8667 no teste, com um *gap* de cerca de 0.1333, indicando também sinais moderados de *overfitting*.
+**Resultados Obtidos:**
+| Modelo        | F1 Treino | F1 Teste  |*Gap*| Diagnóstico                  |
+| ------------------- | --------: | -------:|------:  | ---------------------------- |
+|SVM (RBF)|0.8732|0.8721|0.0011|Equilíbrio|
+|Random Forest|1.0000|0.8667|0.1333|*Overfitting* Moderado|
+|Gradient Boosting|0.9493|0.8667|0.0826|Equilíbrio|
+|Regressão Logística|0.8449|0.8464|-0.0015|Equilíbrio|
+|XGBoost|1.0000|0.8403|0.1597|*Overftting*|
+|Decision Tree|1.0000|0.8252|0.1748|*Ovefitting*|
 
-No entanto, apesar desta diferença entre treino e teste, ambos os modelos mantêm valores de *F1-Score* no conjunto de teste superiores a 0.80, pelo que continuam a apresentar uma capacidade preditiva aceitável em dados não vistos.
-
-Por outro lado, o *Gradient Boosting*, o *SVM (RBF)* e a *Regressão Logística* apresentaram diferenças mais reduzidas entre treino e teste, evidenciando maior estabilidade e melhor capacidade de generalização. Em particular, o *Gradient Boosting* destacou-se por obter um *F1-Score* de teste igual ao do *Random Forest* (0.8667), mas com menor evidência de sobreajuste.
+*Decision Tree* foi o modelo que aprsentou maior diferença entre treino e este, ou seja, é modelo que aprsenta maior *overfitting*. O *XGBoost* também apresenta um valor elevado no *gap*, no entanto, é o modelo que aprsenta melhor *recall*, e tal, será tido em conta nos pontos de análise a baixo.
 
 **Análise geral:**  
-De forma global, todos os modelos avaliados apresentaram bons resultados ao nível do *F1-Score*, com valores superiores a 0.80, cumprindo assim a meta definida para esta métrica. Isto demonstra uma capacidade satisfatória de classificação global.
-
-No entanto, a principal limitação verifica-se no *Recall* da classe de incumprimento. Nenhum dos modelos atingiu o objetivo mínimo de 0.70, o que evidencia dificuldades na identificação dos clientes de maior risco. O *XGBoost* foi o modelo com melhor desempenho neste critério, com um *Recall* de 0.5500, embora ainda insuficiente.
-
+De forma global, todos os modelos avaliados apresentaram bons resultados ao nível do *F1-Score*, com valores superiores a 0.80, cumprindo assim a meta definida para esta métrica. Isto demonstra uma capacidade satisfatória de classificação global. No entanto, a principal limitação verifica-se na métrica *Recall* da classe de incumprimento. Nenhum dos modelos atingiu o objetivo mínimo de 0.70, o que evidencia dificuldades na identificação dos clientes de maior risco.
 Assim, conclui-se que o problema principal não está no desempenho global dos modelos, mas sim na capacidade de identificar corretamente a classe minoritária. Este comportamento está associado ao desequilíbrio do dataset, composto por cerca de 70% de clientes em cumprimento e 30% em incumprimento.
 
-Por este motivo, tornou-se necessário aplicar estratégias adicionais de melhoria, nomeadamente o reequilíbrio dos dados com *SMOTE*, o ajuste do *threshold* de decisão e a otimização dos modelos mais promissores.
+Face a estes resulados, o *XGBoost* foi o modelo com melhor desempenho neste critério, com um *Recall* de 0.5500, embora ainda insuficiente. Sendo então selecionado para otimização e o *Gradient Boosting* por apresentar melhor equilíbrio entre desempenho e generalzação. 
 
-## 3. Otimização (Tuning) 
+Por este motivo, tornou-se necessário aplicar estratégias adicionais de melhoria, nomeadamente o reequilíbrio dos dados com *SMOTE* (*Synthetic Minority Over-sampling Technique*), o ajuste do *threshold* de decisão e a otimização dos modelos mais promissores.
+
+## 3. Otimização (*Tuning*) 
 Com base nos resultados obtidos na fase anterior, foram aplicadas diferentes estratégias de otimização com o objetivo de melhorar sobretudo o *Recall* da classe de incumprimento, sem comprometer de forma significativa o *F1-Score*.
 
 As principais estratégias utilizadas foram:
-* otimização de hiperparâmetros;
+* otimização de hiperparâmetros (*GridSearchCV*);
 * ajuste do limiar de decisão (*threshold tuning*);
-* reequilíbrio dos dados através de *SMOTE*;
+* reequilíbrio dos dados através de *SMOTE*, que é um método muito usado para problemas de desequilíbrio de classes;
 * teste de um modelo alternativo com maior potencial de identificação da classe de incumprimento.
 
 ### 3.1. Otimização de Hiperparâmetros — Gradient Boosting
 
-Com base nos resultados obtidos na fase anterior, o modelo *Gradient Boosting* foi selecionado para otimização por ter apresentado um bom equilíbrio entre desempenho no treino e no teste, evidenciando menor tendência para *overfitting* face a modelos como *Random Forest* e *XGBoost*.
+Com base nos resultados obtidos na fase anterior, e conforme mencionado anteriormente, o modelo *Gradient Boosting* foi selecionado para otimização por ter apresentado um bom equilíbrio entre desempenho no treino e no teste, evidenciando menor tendência para *overfitting* face a modelos como *Random Forest* e *Decision Tree*.
 
 **Técnica Utilizada:**  
 A otimização foi realizada através de *GridSearchCV* com validação cruzada estratificada, utilizando o método *Stratified K-Fold* com k=5. Esta abordagem permitiu avaliar de forma robusta diferentes combinações de hiperparâmetros, assegurando a preservação da distribuição das classes em cada fold.
@@ -102,40 +109,45 @@ Foram ajustados os principais hiperparâmetros do modelo, nomeadamente: `n_estim
 
 | Hiperparâmetro  | Valores Testados | Justificação                                                                         |
 | :-------------- | :--------------- | :----------------------------------------------------------------------------------- |
-| `n_estimators`  | [200, 300]       | Um maior número de árvores tende a melhorar a capacidade de generalização            |
-| `learning_rate` | [0.03, 0.05]     | Taxas de aprendizagem mais baixas combinam melhor com um maior número de estimadores |
-| `max_depth`     | [3]              | Profundidade reduzida para controlar o *Overfitting*                                   |
-| `subsample`     | [0.8]            | Amostragem aleatória dos dados para aumentar a robustez do modelo                    |
+| `n_estimators`  | [200, 300]       | Um maior número de árvores tende a melhorar a capacidade de generalização.            |
+| `learning_rate` | [0.03, 0.05]     | Taxas de aprendizagem mais baixas combinam melhor com um maior número de estimadores. |
+| `max_depth`     | [3]              | Profundidade reduzida para controlar o *Overfitting*.                                  |
+| `subsample`     | [0.8]            | Amostragem aleatória dos dados para aumentar a robustez do modelo.                    |
 
 **Melhores hiperparâmetros encontrados:**  
 `learning_rate` = 0.03 | `max_depth` = 3 | `n_estimators` = 300 | `subsample` = 0.8 
 
 **O melhor resultado obtido em validação cruzada foi:**  
-Melhor *F1-Score* (CV): 0.8527
+Melhor *F1-Score* obtido em validação cruzada: 0.8527
 
 **Após aplicar os melhores hiperparâmetros ao conjunto de teste, obtiveram-se os seguintes resultados:**
-* *F1-Score*:	0.8493
-* *AUC-ROC*:	0.8282
-* *Recall* da classe de incumprimento:	0.5333
+|Métrica|Valor|
+|------------------|--------|
+|*F1-Score*|	0.8493|
+|*AUC-ROC*|	0.8282|
+|*Recall* da classe de incumprimento|	0.5333|
 
-Apesar de o *F1-Score* se manter elevado e a *AUC-ROC* apresentar um valor positivo, o *Recall* da classe de incumprimento continuou bastante abaixo da meta definida de 0.70. Assim, foi necessário avançar para o ajuste do limiar de decisão.
+Apesar de o *F1-Score* se manter elevado e a *AUC-ROC* apresentar uma boa capacidade descriminativa, o *Recall* da classe de incumprimento continuou bastante abaixo da meta definida de 0.70. Como é possível verfificar, a otimização de hiperparâmetros é insuficiente, é necessário avançar para o ajuste do limiar de decisão.
 
-### **Ajuste de Threshold de Decisão:**  
-De forma a aumentar a capacidade do modelo para identificar clientes em incumprimento, foi realizado um ajuste do limiar de decisão. Foram testados *thresholds* entre 0.20 e 0.60, com passos de 0.01.
+### **Ajuste de *Threshold* de Decisão:**  
+De forma a aumentar a capacidade do modelo para identificar clientes em incumprimento, foi realizado um ajuste do limiar de decisão. Foram os limiares testados foram entre 0.20 e 0.60, com passos de 0.01.
+Por defeito os modelos de classificação utilizam um limiar de 0.50, no entanto, este limite foi definido manualmente. O limite inferior de 0.20 foi estabelecido para evitar uma classificação demasiado permissiva que resultasse num númeo elevado de falsos positivos, compremetendo o modelo. O limite superior foi de 0.60, por representar o intervalo acima do qual o ajuste do limiar deixa de produzir melhorias relevantes no *recall*. 
 
-O *threshold* ótimo encontrado foi 0.59, permitindo obter um *recall* de 0.6667.
+ O *threshold* ótimo encontrado foi 0.59, permitindo obter um *recall* de 0.6667.
 
-**Após aplicar o threshold ótimo, o modelo apresentou os seguintes resultados:**  
-* *F1-Score*:	0.8612
-* *AUC-ROC*:	0.8282
-* *Recall da classe de incumprimento*:	0.6667
+**Após aplicar o *threshold ótimo*, o modelo apresentou os seguintes resultados:**  
+|Métrica|Antes do *Threshold*|Depois do *Threshold*|
+|------------------|:--------:|------------|
+|*F1-Score*|0.8493|	0.8612|
+|*AUC-ROC*|	0.8282|0.8282|
+|*Recall da classe de incumprimento*|0.5333	|0.6667|
 
 O ajuste do *threshold* permitiu uma melhoria significativa do *Recall*, que passou de 0.5333 para 0.6667. No entanto, este valor ainda ficou ligeiramente abaixo da meta definida de 0.70, tornando necessária a aplicação de técnicas adicionais de melhoria.
 
 ### 3.2. Tentativa de Melhoria — Gradient Boosting + SMOTE
 Uma vez que o *dataset* apresenta desequilíbrio entre as classes, foi aplicada a técnica *SMOTE* ao modelo *Gradient Boosting*. Esta técnica cria observações sintéticas da classe minoritária, permitindo equilibrar melhor o conjunto de treino e reduzir a tendência do modelo para favorecer a classe maioritária.
 
-O *SMOTE* foi integrado num pipeline, garantindo que o reequilíbrio dos dados é aplicado apenas ao conjunto de treino, evitando fuga de informação para o conjunto de teste.
+O *SMOTE* foi integrado num pipeline, garantindo que o reequilíbrio dos dados é aplicado apenas ao conjunto de treino, evitando fuga de informação para o conjunto de teste, evitando assim a fuga de informação que copremeteria a validade da avaliação do modelo.
 
 Depois da aplicação do *SMOTE* e do ajuste do *threshold*, foram obtidos os seguintes resultados:
 
@@ -145,14 +157,26 @@ Depois da aplicação do *SMOTE* e do ajuste do *threshold*, foram obtidos os se
 | Recall da classe de incumprimento |                      0.6667 |                    0.7500 |
 | AUC-ROC                           |                      0.8282 |                    0.7868 |
 
-A aplicação do *SMOTE* permitiu atingir pela primeira vez a meta definida para o *Recall* da classe de incumprimento, com um valor de 0.7500. No entanto, verificou-se uma redução no *F1-Score* e na *AUC-ROC*, evidenciando um *trade-off* entre desempenho global e capacidade de deteção dos clientes de risco.
+A aplicação do *SMOTE* permitiu atingir pela primeira vez a meta definida para o *Recall* da classe de incumprimento, com um valor de 0.7500, superando o objetivo mínimo de 0.70. No entanto, verificou-se uma redução no *F1-Score* e na *AUC-ROC*, evidenciando um *trade-off* entre desempenho global e capacidade de deteção dos clientes de risco.
 
 Apesar desta redução, o modelo continua a cumprir a meta de *F1-Score* ≥ 0.80, pelo que a utilização de *SMOTE* demonstrou ser uma estratégia eficaz para melhorar a identificação da classe de incumprimento.
 
-### 3.3. Modelo Alternativo — XGBoost (base)  
-Paralelamente, foi testado um modelo baseado em *XGBoost*, com hiperparâmetros ajustados manualmente, com o objetivo de explorar uma alternativa ao *Gradient Boosting*.
+### 3.3. Diagnóstico de *Overfitting*
+Para avaliar a capacidade de generalização do modelo, foi realizado o diagnóstico de sobreajustamento através da comparação entre o F1-Score obtido no conjunto de treino e no conjunto de teste.
 
-A escolha deste modelo baseou-se no facto de ter apresentado o melhor desempenho ao nível do *Recall* na fase de modelos candidatos (0.55), bem como na sua capacidade de incorporar mecanismos de regularização.
+
+| Métrica                           | Valor | 
+| --------------------------------- | -------------------------- | 
+|F1 Treino|0.9238|
+|F1 Teste|0.8059|
+|*Gap* obtido|0.1179|
+
+O modelo apresenta um *gap* de 0.1179, situando-se na zona de sobreajustamento moderado. Este comportamento é esperado e explicado essencialmente pela utilização do *SMOTE* durante o treino, ao gerar exemplos sintéticos da classe minoritária exclusivamente no conjunto de treino, o modelo aprende padrões que não existem nos dados reais de teste, elevando naturalmente o desempenho na fase de treino face à fase de teste.
+Apesar do sobreajustamento moderado identificado, o modelo mantém um *F1-Score* de teste de 0.8059, cumprindo a meta definida de 0.80, e um *Recall* da classe de incumprimento de 0.7500, cumprindo igualmente a meta de 0.70. O sobreajustamento moderado é, portanto, uma limitação conhecida e esperada desta combinação de técnicas, não comprometendo a utilidade prática do modelo nem a validade dos resultados obtidos.
+
+### 3.4. Modelo Alternativo — XGBoost (base)  
+Paralelamente ao processo anterior de otimização do modelo *Gradient Boosting*, foi testado o modelo *XGBoost*. Este modelo foi otimizado, como alternativa, com o objetivo de explorar o seu potencial para atinigr simultaneamente as duas metas definidas. 
+Como já tinha sido referido anterirmente, este modelo apresenta sinais de *overfitting*, no entanto, é o modelo que apresenta melhor valor na métrica de *recall*, na fase de modelos candidatos, por esse motivo as autoras decidiram que era ideal explorar este modelo também. 
 
 Foram definidos os seguintes hiperparâmetros:
 * `n_estimators`: 200
@@ -173,7 +197,7 @@ Adicionalmente, foi realizado o ajuste do limiar de decisão (*threshold*), test
 
 O *XGBoost* apresenta um *F1-Score* global superior ao *Gradient Boosting + SMOTE* (0.8541 vs. 0.8123), mas o *Recall* de 0.6500 ainda fica abaixo da meta de 0.70. Este resultado sugere que o XGBoost tem maior potencial preditivo, mas necessita igualmente de reequilíbrio de dados para atingir os objetivos do projeto.
 
-### 3.4. Melhoria do Recall — XGBoost + SMOTE
+### 3.5. Melhoria do Recall — XGBoost + SMOTE
 Combinando as aprendizagens das etapas anteriores (o potencial do *XGBoost* e a eficácia do *SMOTE*), testou-se a combinação de ambos num *pipeline*, utilizando a mesma configuração do modelo descrita na secção 3.2. O *threshold* ótimo de 0.56 foi selecionado por maximizar o *Recall* mantendo *F1-Score* ≥ 0.80.
 
 **Resultados:**
@@ -182,10 +206,8 @@ Combinando as aprendizagens das etapas anteriores (o potencial do *XGBoost* e a 
 | F1-Score (Teste)       | 0.8213 |
 | AUC-ROC (Teste)        | 0.8090 |
 | Recall (Incumprimento) | 0.7500 |
-| F1 ≥ 0.80              | ✔      |
-| Recall ≥ 0.70          | ✔      |
 
-Este modelo apresentou um Recall de 0.7500, igual ao obtido com Gradient Boosting + SMOTE, mas com melhor F1-Score e melhor AUC-ROC. Por este motivo, revelou-se o modelo mais adequado para os objetivos do projeto.
+Este modelo apresentou um Recall de 0.7500, igual ao obtido com Gradient Boosting + SMOTE, mas com melhor F1-Score e melhor AUC-ROC. POu seja, este modelo foi o primeiro a cumprir com as metas definidas.  
 
 ### **Validação Cruzada — XGBoost + SMOTE**
 Para avaliar a estabilidade do modelo final, foi realizada validação cruzada estratificada com 5 folds.
@@ -200,16 +222,16 @@ A validação cruzada demonstra que o modelo apresenta um *F1-Score* médio de 0
 
 Esta diferença deve ser interpretada com cautela, uma vez que o *threshold* ótimo foi definido com base no conjunto de teste, podendo beneficiar especificamente essa amostra. Ainda assim, o modelo mantém um desempenho global consistente e uma capacidade de generalização aceitável, embora a identificação da classe de incumprimento possa variar entre diferentes subconjuntos de dados.
 
-### 3.5. Síntese da Evolução dos Modelos  
+### 3.6. Síntese da Evolução dos Modelos  
 A tabela seguinte resume a evolução dos principais modelos testados:
 
 | Modelo                         | F1 (Teste) | Recall (Incumprimento) | F1 ≥ 0.80 | Recall ≥ 0.70 |
 | :----------------------------- | :--------- | :--------------------- | :-------- | :------------ |
-| Baseline -Regressão Logística | 0.8464     | 0.5167                 | ✔         | ✘             |
-| Gradient Boosting (Tuned)      | 0.8612     | 0.6667                 | ✔         | ✘             |
-| Gradient Boosting + SMOTE      | 0.8123     | 0.7500                 | ✔         | ✔             |
-| XGBoost (base)                 | 0.8541     | 0.6500                 | ✔         | ✘             |
-| XGBoost + SMOTE (Modelo Final) | 0.8213     | 0.7500                 | ✔         | ✔            
+| Baseline -Regressão Logística | 0.8464     | 0.5167                 | Cumpre         | Não cumpre             |
+| Gradient Boosting (Tuned)      | 0.8612     | 0.6667                 | Cumpre       | Não cumpre              |
+| Gradient Boosting + SMOTE      | 0.8123     | 0.7500                 | Cumpre         | Cumpre            |
+| XGBoost (base)                 | 0.8541     | 0.6500                 | Cumpre         | Não cumpre               |
+| XGBoost + SMOTE (Modelo Final) | 0.8213     | 0.7500                 | Cumpre         | Cumpre|            
 
 A análise da tabela mostra que todos os modelos cumprem a meta definida para o *F1-Score*, apresentando valores superiores a 0.80. No entanto, apenas os modelos com *SMOTE* conseguem atingir o objetivo de *Recall* ≥ 0.70, confirmando a importância do reequilíbrio dos dados na identificação da classe de incumprimento.
 
@@ -321,6 +343,11 @@ Apesar dos resultados positivos, importa reconhecer algumas limitações. O mode
 Em síntese, o modelo desenvolvido demonstra ser adequado aos objetivos do projeto, apresentando um bom compromisso entre desempenho global e identificação de clientes de risco. Embora não constitua uma solução perfeita, apresenta potencial para ser utilizado como ferramenta de apoio à decisão na concessão de crédito, podendo beneficiar futuramente da introdução de novas variáveis, maior volume de dados e técnicas adicionais de engenharia de atributos.
 
 # 5. Referências Bibliográficas
-Machine Learinig, Zhi-Hua Zhou, 2016, published by Tsinghua University Press
+1. Prata, M. (2020). Creditability - German Credit Data [Dataset]. Kaggle. Consultado pela última vez a 10 de março de 2026,  e https://www.kaggle.com/datasets/mpwolke/cusersmarildownloadsgermancsv/data
+2. Hofmann, H. (1994). Statlog (German Credit Data) [Dataset]. UCI Machine Learning Repository. Consultado pela última vez a 10 de março de 2026, de https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data
+3. Géron, A. (2019). Mãos à obra: Aprendizado de máquina com Scikit-Learn e TensorFlow. Starlin Alta Editora e Consultoria Eireli.
+4. Zhou, Z.-H. (2021). Machine Learning. Springer Singapore. Consultado pela última vez a 18 de maio de 2026, de https://link.springer.com/book/10.1007/978-981-15-1967-3
+5. Scikit-learn developers. (2025). Tuning the decision threshold for class prediction. Scikit-learn. Consultado pela última vez a 18 de maio de 2026, de https://scikit-learn.org/stable/modules/classification_threshold.html
+Wei, H. (2025). SMOTE algorithm optimization and application in corporate credit risk prediction with diversification strategy consideration. Scientific Reports, 15, 23598. https://doi.org/10.1038/s41598-025-09173-x
  --- 
 *Data de última atualização: 09/05/2026* 
