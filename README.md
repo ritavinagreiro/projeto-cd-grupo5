@@ -8,7 +8,7 @@
   * Ana Silva - Nº 2023145191
 
 * **Video final do projeto:**
-  * https://drive.google.com/file/d/1amB4iFeMJi5ZeX5--rosHQ0BNnNoYGnX/view?usp=sharing
+  link: https://drive.google.com/file/d/1amB4iFeMJi5ZeX5--rosHQ0BNnNoYGnX/view?usp=sharing
   
 ## Organização do Repositório 
  
