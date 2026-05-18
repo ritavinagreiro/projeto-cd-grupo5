@@ -1,4 +1,4 @@
-# Q&A Assíncrono — Milestone 4
+# Q&A Assíncrono - Milestone 4
 
 ## 1. Porque foi escolhido o modelo *XGBoost + SMOTE* como modelo final?
 
@@ -13,8 +13,6 @@ O modelo final atingiu, no conjunto de teste, um *F1-Score* de **0.8213** e um *
 
 Além disso, o modelo conseguiu identificar corretamente **45 dos 60 clientes em incumprimento**, reduzindo os falsos negativos face ao modelo *baseline* de Regressão Logística. Assim, a escolha do *XGBoost + SMOTE* não foi feita apenas com base no desempenho estatístico, mas sobretudo pela sua utilidade prática como ferramenta de apoio à decisão de crédito.
 
----
-
 ## 2. Porque foi dada prioridade ao *Recall* da classe de incumprimento em vez da *Accuracy*?
 
 A *Accuracy* não foi utilizada como métrica principal porque o *dataset* apresenta desequilíbrio entre classes: cerca de **70% dos clientes estão em cumprimento** e **30% em incumprimento**. Neste contexto, um modelo poderia obter uma *Accuracy* aparentemente elevada classificando muitos clientes como cumpridores, mas falhando na identificação dos clientes de maior risco.
@@ -24,8 +22,6 @@ Por esse motivo, foi dada maior importância ao *Recall* da classe de incumprime
 No contexto bancário, os falsos negativos representam o erro mais grave. Um falso negativo corresponde a um cliente que entra em incumprimento, mas que o modelo classificou como cumpridor. Numa situação real, este erro poderia levar à aprovação indevida de crédito e originar perdas financeiras para a instituição.
 
 Assim, o objetivo não foi apenas obter um bom desempenho global, mas garantir que o modelo tivesse capacidade para sinalizar uma parte significativa dos clientes de risco. O modelo final atingiu um *Recall* de **0.7500**, ou seja, identificou **75% dos clientes em incumprimento** no conjunto de teste.
-
----
 
 ## 3. O modelo pode ser usado automaticamente para aprovar ou recusar crédito?
 
