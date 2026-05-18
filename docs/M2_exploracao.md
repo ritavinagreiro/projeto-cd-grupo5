@@ -6,7 +6,7 @@ A variável alvo do presente estudo é *Creditability*, que indica o nível de r
 * 1 - Cumprimento
 * 0 - Incumprimento
 
-A análise da distribuição revela que, num total de 1000 observações:  
+A análise da distribuição da variável alvo (`distribuicao_creditability.png`) revela que, num total de 1000 observações:  
 * 700 clientes (70%) encontram-se em situação de cumprimento
 * 300 clientes (30%) encontram-se em situação de incumprimento
 
@@ -21,7 +21,7 @@ Tratando-se de uma variável binária, *Creditability* não segue uma distribui�
 * O problema em análise é um caso de classificação binária supervisionada.
  
 ### 1.2. Correlações Relevantes 
-A análise da matriz de correlação (`matriz_correlacao.png`) permitiu identificar as variáveis com maior associação à variável alvo (*Creditability*). Destacam-se:
+A análise da matriz de correlação  (`matriz_correlacao.png`) permitiu identificar as variáveis com maior associação à variável alvo (*Creditability*). Destacam-se:
 
 * *Account_Balance* (0.35) – correlação positiva moderada
 * *Payment_Status_of_Previous_Credit* (0.23) – correlação positiva fraca
@@ -109,22 +109,21 @@ Importa referir que, no código, as variáveis derivadas foram criadas antes do 
 As restantes variáveis numéricas foram mantidas na sua forma original, uma vez que correspondem sobretudo a categorias codificadas ou a contagens discretas com intervalos reduzidos, nas quais a aplicação de escalonamento não acrescentaria benefícios relevantes para a modelação.
 
 ### 3.2. Criação de Novos Atributos
-
-Com o objetivo de enriquecer a informação disponível para o modelo e captar relações adicionais entre as variáveis do *dataset*, foram criadas duas novas variáveis derivadas das variáveis originais.
+Com o objetivo de enriquecer a informação disponível para o modelo e captar relações adicionais entre as variáveis do *dataset*, foram criadas duas novas variáveis derivadas das variáveis originais: *Credit_per_Month* e *Credit_Age_Ratio*.
 
 ***Credit_per_Month*:**  
 Foi criada a variável *Credit_per_Month*, que representa o montante de crédito por mês. Esta variável foi calculada através da divisão do montante total do crédito pela duração do empréstimo.
 
 Esta métrica permite avaliar o esforço financeiro mensal associado ao crédito, uma vez que valores mais elevados podem indicar que o cliente suporta uma maior intensidade de crédito por mês.
 
-A análise dos *boxplots* sugere que valores mais elevados desta variável aparecem com alguma frequência entre clientes com maior risco de crédito, indicando que um maior esforço financeiro mensal pode estar associado a uma maior probabilidade de incumprimento.
+A análise do *boxplot* (`boxplot_credit_per_month.png`) sugere que valores mais elevados desta variável aparecem com alguma frequência entre clientes com maior risco de crédito. Assim, um maior esforço financeiro mensal pode estar associado a uma maior probabilidade de incumprimento.
 
 ***Credit_Age_Ratio*:**  
 Foi também criada a variável *Credit_Age_Ratio*, que relaciona o montante de crédito solicitado com a idade do cliente.
 
 Esta variável permite analisar a dimensão do crédito relativamente ao perfil etário do cliente, ajudando a identificar situações em que clientes relativamente jovens assumem montantes de crédito elevados.
 
-A análise dos *boxplots* sugere que valores mais elevados desta variável aparecem com maior frequência entre clientes em incumprimento, indicando que créditos elevados em relação à idade podem estar associados a maior probabilidade de incumprimento.
+A análise do *boxplot* (`boxplot_credit_age_ratio.png`) sugere que valores mais elevados desta variável aparecem com maior frequência entre clientes em incumprimento. Isto indica que créditos elevados em relação à idade podem estar associados a maior probabilidade de incumprimento.
 
 As novas variáveis foram criadas a partir dos valores originais das variáveis numéricas. Posteriormente, foi aplicado o `StandardScaler` às variáveis derivadas, garantindo que todas as variáveis numéricas contínuas utilizadas na modelação apresentam uma escala comparável.
 
