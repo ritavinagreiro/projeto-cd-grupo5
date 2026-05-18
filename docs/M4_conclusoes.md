@@ -52,7 +52,7 @@ O projeto foi desenvolvido com o dataset *German Credit Data*, composto por 1000
 - Algumas variáveis estão codificadas numericamente, o que dificulta a interpretação direta por utilizadores não técnicos;
 - Não existem variáveis importantes que, num contexto real, poderiam melhorar a análise, como rendimento mensal, taxa de esforço, situação profissional detalhada, histórico recente de incumprimentos, taxa de juro, garantias reais ou evolução económica.
 
-Além disso, o *dataset* apresenta desequilíbrio entre classes, com maior proporção de clientes em cumprimento do que em incumprimento. Este desequilíbrio obrigou à utilização de técnicas como o *SMOTE*, que ajudam o modelo a aprender melhor os padrões da classe minoritária.
+Além disso, o *dataset* apresenta desequilíbrio entre classes, com maior proporção de clientes em cumprimento do que em incumprimento. Este desequilíbrio motivou à utilização de técnicas como o *SMOTE*, que ajudam o modelo a aprender melhor os padrões da classe minoritária.
 
 ### **Limitações do Modelo:**  
 O modelo final apresenta bom desempenho no conjunto de teste, mas não é perfeito.  
@@ -106,26 +106,26 @@ As variáveis mais relevantes identificadas foram:
 Esta informação permite que a instituição compreenda melhor os fatores de risco e complemente a previsão automática com análise financeira e julgamento profissional.
  
 ## 4. Roadmap e Trabalhos Futuros   
-* **1. Interpretabilidade com *SHAP*** : Integrar a biblioteca *SHAP* para gerar explicações individuais de cada previsão. Isto permitiria ao analista de crédito perceber por que razão o modelo classificou um cliente como alto risco ("o saldo de conta negativo e a duração de 48 meses aumentaram a probabilidade de incumprimento em X%"), cumprindo simultaneamente requisitos regulatórios de explicabilidade.
+**1. Interpretabilidade com *SHAP*** : Integrar a biblioteca *SHAP* para gerar explicações individuais de cada previsão. Isto permitiria ao analista de crédito perceber por que razão o modelo classificou um cliente como alto risco ("o saldo de conta negativo e a duração de 48 meses aumentaram a probabilidade de incumprimento em X%"), cumprindo simultaneamente requisitos regulatórios de explicabilidade.
 
-* **2. Enriquecimento com Variáveis Comportamentais e Macroeconómicas**  
+**2. Enriquecimento com Variáveis Comportamentais e Macroeconómicas**  
 Incorporar dados adicionais que capturem a dinâmica temporal do comportamento financeiro:
   * Histórico de pagamentos mensais (pontualidade, atrasos)
   * Rácio de utilização de crédito rotativo
   * Indicadores macroeconómicos externos (taxa de desemprego, *Euribor*) para ajuste de risco sistémico
 
-* **3. Deployment — Interface Web com Streamlit**  : Desenvolver uma aplicação web simples com Streamlit que permita a qualquer analista de crédito inserir os dados de um novo cliente e obter de imediato uma classificação de risco (Baixo / Médio / Alto) com a probabilidade associada e as principais variáveis que influenciaram a decisão. Isto transformaria o modelo num produto utilizável por equipas não-técnicas.
+**3. Deployment — Interface Web com Streamlit**  : Desenvolver uma aplicação web simples com Streamlit que permita a qualquer analista de crédito inserir os dados de um novo cliente e obter de imediato uma classificação de risco (Baixo / Médio / Alto) com a probabilidade associada e as principais variáveis que influenciaram a decisão. Isto transformaria o modelo num produto utilizável por equipas não-técnicas.
 
-* **4. Monitorização Contínua com PSI**  : Implementar o cálculo do *Population Stability Index (PSI)* para detetar automaticamente quando a distribuição dos dados de entrada se afasta significativamente do perfil de treino — sinal de que o modelo pode estar a perder validade (*model drift*) e precisa de ser recalibrado.
+**4. Monitorização Contínua com PSI**  : Implementar o cálculo do *Population Stability Index (PSI)* para detetar automaticamente quando a distribuição dos dados de entrada se afasta significativamente do perfil de treino — sinal de que o modelo pode estar a perder validade (*model drift*) e precisa de ser recalibrado.
 
-* **5. Teste com Dataset Português ou Europeu**  : Validar a metodologia num dataset de crédito português ou europeu para aferir a transferibilidade do modelo para o contexto real onde seria aplicado. O *German Credit Data*, apesar de ser um benchmark académico reconhecido, tem limitações de representatividade geográfica e temporal.
+**5. Teste com Dataset Português ou Europeu**  : Validar a metodologia num dataset de crédito português ou europeu para aferir a transferibilidade do modelo para o contexto real onde seria aplicado. O *German Credit Data*, apesar de ser um *benchmark* académico reconhecido, tem limitações de representatividade geográfica e temporal.
 
 ## 5. Conclusão Final
 O projeto demonstrou que é possível utilizar técnicas de *Machine Learning* para apoiar decisões de crédito, identificando clientes com maior probabilidade de incumprimento.
 
 O modelo final, *XGBoost com SMOTE*, cumpriu os objetivos definidos no início do projeto, alcançando um *F1-Score* de 0,8213 e um *Recall* de incumprimento de 0,7500.  
 
-Em linguagem simples, o modelo conseguiu identificar 3 em cada 4 clientes em incumprimento, reduzindo significativamente o erro mais crítico no contexto da concessão de crédito.
+Em linguagem simples, no conjunto de teste, o modelo conseguiu identificar 3 em cada 4 clientes em incumprimento, reduzindo significativamente o erro mais crítico no contexto da concessão de crédito.
 
 Apesar das limitações identificadas, a solução apresenta valor prático como ferramenta de apoio à decisão, permitindo uma análise mais orientada por dados, uma melhor gestão do risco e uma priorização mais eficiente dos clientes que exigem avaliação adicional.
 
