@@ -55,7 +55,7 @@ A seleção destes algoritmos teve como objetivo comparar diferentes abordagens 
 | Random Forest       | `n_estimators=100` |    1.0000 |   0.8667 |               0.5000 |        0.8237 | Sinais de *overfitting*      |
 | Gradient Boosting   | `n_estimators=100` |    0.9493 |   0.8667 |               0.5000 |        0.8260 | Bom equilíbrio               |
 | SVM (RBF)          | `kernel='rbf'`     |    0.8732 |   0.8721 |               0.4667 |        0.8417 | Bom equilíbrio               |
-| Decision Tree                  |      1.0000            |           |          |                       |               |   Sinais de *Overfitting*                           |
+| Decision Tree           | `random_state=42`     |      1.0000            |      0.8252     |     0.5333     |             0.6881            |   Sinais de *Overfitting*                           |
 | XGBoost             | `n_estimators=100` |    1.0000 |   0.8403 |               0.5500 |        0.7945 | Sinais moderados de *Overfitting*; melhor *Recall* |
 
 A análise dos resultados mostra que todos os modelos apresentam valores de *F1-Score* superiores a 0.80, cumprindo a meta definida para esta métrica. O *SVM (RBF)* apresentou o melhor *F1-Score* no conjunto de teste, com 0.8721, seguido do *Gradient Boosting* e do *Random Forest*, ambos com 0.8667.
