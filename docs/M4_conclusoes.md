@@ -15,6 +15,8 @@ O modelo final obteve os seguintes resultados no conjunto de teste:
 | Recall do incumprimento | 0,7500 | O modelo identifica 75% dos clientes que efetivamente entram em incumprimento. |
 | AUC-ROC | 0,8090 | O modelo apresenta boa capacidade para distinguir clientes cumpridores de clientes de risco. |
 
+A comparação visual entre o modelo *baseline* e o modelo final (`comparacao_modelos2.png`) evidencia a principal melhoria obtida: o aumento do *Recall* da classe de incumprimento, mantendo o *F1-Score* acima da meta definida.
+
 ### **Interpretação dos Resultados:**   
 Em termos práticos, no conjunto de teste existiam **60 clientes em incumprimento**.  
 O modelo final conseguiu identificar corretamente **45 desses 60 clientes**, deixando por identificar **15 clientes de risco**.
@@ -39,6 +41,8 @@ O modelo não deve substituir a decisão humana, mas pode ajudar uma instituiç�
 4. Apoiar decisões mais consistentes, baseadas em dados e não apenas em avaliação subjetiva;
 5. Criar categorias de risco, distinguindo clientes de baixo risco e alto risco com base na probabilidade prevista pelo modelo.
 
+A segmentação dos clientes por categoria de risco (`segmentacao_risco2.png`) mostra como o modelo pode transformar probabilidades em grupos de decisão, facilitando a distinção entre clientes de baixo risco e clientes de alto risco.
+
 Assim, a solução transforma dados históricos de crédito em conhecimento útil para a gestão do risco financeiro.
 
 ## 2. Análise Crítica e Limitações 
@@ -52,7 +56,7 @@ O projeto foi desenvolvido com o dataset *German Credit Data*, composto por 1000
 - Algumas variáveis estão codificadas numericamente, o que dificulta a interpretação direta por utilizadores não técnicos;
 - Não existem variáveis importantes que, num contexto real, poderiam melhorar a análise, como rendimento mensal, taxa de esforço, situação profissional detalhada, histórico recente de incumprimentos, taxa de juro, garantias reais ou evolução económica.
 
-Além disso, o *dataset* apresenta desequilíbrio entre classes, com maior proporção de clientes em cumprimento do que em incumprimento. Este desequilíbrio motivou à utilização de técnicas como o *SMOTE*, que ajudam o modelo a aprender melhor os padrões da classe minoritária.
+Além disso, o *dataset* apresenta desequilíbrio entre classes, com maior proporção de clientes em cumprimento do que em incumprimento. Este desequilíbrio motivou a utilização de técnicas como o *SMOTE*, que ajudam o modelo a aprender melhor os padrões da classe minoritária.
 
 ### **Limitações do Modelo:**  
 O modelo final apresenta bom desempenho no conjunto de teste, mas não é perfeito.  
